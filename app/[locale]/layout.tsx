@@ -8,6 +8,7 @@ import '@/app/globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import JsonLdOrganization from '@/components/seo/JsonLdOrganization';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -47,6 +48,16 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${poppins.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/app.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#f59e0b" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="HIVE GROUP" />
+        <meta name="application-name" content="HIVE GROUP" />
+      </head>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <JsonLdOrganization locale={locale} />
         <NextIntlClientProvider messages={messages}>
@@ -55,7 +66,21 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <PWAInstallPrompt />
         </NextIntlClientProvider>
+        
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(
+                  (registration) => console.log('SW registered:', registration.scope),
+                  (err) => console.log('SW registration failed:', err)
+                );
+              });
+            }
+          `
+        }} />
       </body>
     </html>
   );

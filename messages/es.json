@@ -29,6 +29,13 @@
     "email": "Email",
     "address": "Dirección"
   },
+  "pwa": {
+    "installApp": "Instalar aplicación",
+    "notNow": "Ahora no",
+    "quickAccess": "Acceda rápidamente a nuestros servicios directamente desde su pantalla de inicio.",
+    "nativeExperience": "Obtenga acceso rápido a nuestros servicios como una aplicación nativa.",
+    "desktopApp": "Acceda a nuestros servicios como una aplicación en su ordenador."
+  },
   "home": {
     "cta": {
       "meeting": "Reservar Reunión",

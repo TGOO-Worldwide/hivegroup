@@ -1,0 +1,29 @@
+{
+  "name": "HIVE GROUP",
+  "short_name": "HIVE GROUP",
+  "description": "Contabilidade Certificada, Finanças, Local do Cidadão e Soluções Empresariais Integradas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/app.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/app.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "finance", "productivity"],
+  "lang": "pt-PT",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": []
+}

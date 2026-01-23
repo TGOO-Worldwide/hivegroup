@@ -29,6 +29,13 @@
     "email": "Email",
     "address": "Morada"
   },
+  "pwa": {
+    "installApp": "Instalar Aplicação",
+    "notNow": "Agora não",
+    "quickAccess": "Aceda rapidamente aos nossos serviços diretamente do seu ecrã inicial.",
+    "nativeExperience": "Tenha acesso rápido aos nossos serviços como uma aplicação nativa.",
+    "desktopApp": "Aceda aos nossos serviços como uma aplicação no seu computador."
+  },
   "home": {
     "cta": {
       "meeting": "Marcar Reunião",

@@ -29,6 +29,13 @@
     "email": "Email",
     "address": "Address"
   },
+  "pwa": {
+    "installApp": "Install App",
+    "notNow": "Not now",
+    "quickAccess": "Quick access to our services directly from your home screen.",
+    "nativeExperience": "Get quick access to our services as a native application.",
+    "desktopApp": "Access our services as an application on your computer."
+  },
   "home": {
     "cta": {
       "meeting": "Book Meeting",
