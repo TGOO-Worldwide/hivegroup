@@ -38,7 +38,7 @@ export default async function InsightsPage({ params: { locale } }: InsightsPageP
   const posts = await getAllPosts(locale);
   const t = await getTranslations('navigation');
 
-  const categories = [...new Set(posts.map(p => p.category))];
+  const categories = Array.from(new Set(posts.map(p => p.category)));
   const featuredPost = posts[0];
   const regularPosts = posts.slice(1);
 
