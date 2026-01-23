@@ -911,7 +911,7 @@ async function main() {
     {
       slug: 'business-development',
       titles: {
-        pt: 'Desenvolvimento de Negócio',
+        pt: 'Crescimento',
         en: 'Business Development',
         fr: 'Développement Commercial',
         es: 'Desarrollo de Negocio',
@@ -1103,7 +1103,7 @@ async function main() {
                   { area: 'Jurídico', email: 'legal@hivegroup.pt' },
                   { area: 'Imobiliário', email: 'realestate@hivegroup.pt' },
                   { area: 'Viagens', email: 'travel@hivegroup.pt' },
-                  { area: 'Desenvolvimento de Negócio', email: 'business@hivegroup.pt' },
+                  { area: 'Crescimento', email: 'business@hivegroup.pt' },
                   { area: 'Seguros', email: 'insurance@hivegroup.pt' },
                   { area: 'Crédito', email: 'credit@hivegroup.pt' },
                   { area: 'Marketing', email: 'marketing@hivegroup.pt' }

@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { Phone, MapPin } from '@phosphor-icons/react/dist/ssr';
+import { Phone, WhatsappLogo } from '@phosphor-icons/react/dist/ssr';
 import ContactEmailCard from '@/components/contact/ContactEmailCard';
 import MeetingBookingForm from '@/components/contact/MeetingBookingForm';
 
@@ -71,9 +71,11 @@ export default async function ContactosPage({ params: { locale } }: PageProps) {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {/* Phone */}
-            <div
+            {/* Ligar (Call) */}
+            <a
+              href="tel:+351966805329"
               className="
+                group
                 backdrop-blur-sm
                 bg-white/80
                 border-2 border-primary-200/40
@@ -82,57 +84,64 @@ export default async function ContactosPage({ params: { locale } }: PageProps) {
                 hover:border-primary-400/60
                 hover:shadow-premium
                 transition-all duration-300
+                hover:-translate-y-1
+                cursor-pointer
               "
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-primary-100">
-                  <Phone size={32} weight="bold" className="text-primary-600" />
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="p-4 rounded-2xl bg-primary-100 group-hover:bg-primary-200 transition-colors">
+                  <Phone size={48} weight="bold" className="text-primary-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-charcoal-900 mb-2">
-                    {locale === 'pt' ? 'Telefone' : 'Phone'}
+                  <h3 className="text-xl font-bold text-charcoal-900 mb-2">
+                    {locale === 'pt' ? 'Ligar' : 'Call'}
                   </h3>
-                  <a 
-                    href="tel:+351212433909"
-                    className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
-                  >
-                    +351 212 433 909
-                  </a>
-                  <p className="text-sm text-charcoal-600 mt-1">
+                  <p className="text-2xl font-bold text-primary-600 group-hover:text-primary-700 transition-colors mb-1">
+                    +351 966 805 329
+                  </p>
+                  <p className="text-sm text-charcoal-600">
                     {locale === 'pt' ? 'Chamada para rede móvel nacional' : 'National mobile network call'}
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
 
-            {/* Address */}
-            <div
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/351966805329"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
+                group
                 backdrop-blur-sm
-                bg-white/80
-                border-2 border-primary-200/40
+                bg-gradient-to-br from-green-50 to-green-100/50
+                border-2 border-green-200/40
                 rounded-2xl
                 p-8
-                hover:border-primary-400/60
+                hover:border-green-400/60
                 hover:shadow-premium
                 transition-all duration-300
+                hover:-translate-y-1
+                cursor-pointer
               "
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-primary-100">
-                  <MapPin size={32} weight="bold" className="text-primary-600" />
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="p-4 rounded-2xl bg-green-100 group-hover:bg-green-200 transition-colors">
+                  <WhatsappLogo size={48} weight="bold" className="text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-charcoal-900 mb-2">
-                    {locale === 'pt' ? 'Morada' : 'Address'}
+                  <h3 className="text-xl font-bold text-charcoal-900 mb-2">
+                    WhatsApp
                   </h3>
-                  <p className="text-base text-charcoal-700 leading-relaxed">
-                    Hive Group Portugal<br />
-                    Lisboa, Portugal
+                  <p className="text-2xl font-bold text-green-600 group-hover:text-green-700 transition-colors mb-1">
+                    +351 966 805 329
+                  </p>
+                  <p className="text-sm text-charcoal-600">
+                    {locale === 'pt' ? 'Mensagem instantânea' : 'Instant messaging'}
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Email Services Cards */}
