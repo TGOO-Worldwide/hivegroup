@@ -118,75 +118,75 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
       {faq && faq.length > 0 && <JsonLdFAQ faqs={faq} locale={locale} />}
       
       {/* Hero with Category */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-12">
+      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-10 border-b-4 border-primary-500">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Link
             href={`/${locale}/insights`}
-            className="text-primary-400 hover:text-primary-300 text-sm font-medium mb-4 inline-flex items-center gap-2"
+            className="text-primary-400 hover:text-primary-300 text-sm font-medium mb-6 inline-flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Voltar aos Insights
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-4 py-2 text-sm font-bold text-primary-700 bg-primary-100 rounded-full">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-100 rounded-md">
               {post.category}
             </span>
+            <span className="text-xs text-white/40">•</span>
             <time className="text-sm text-white/60">
               {new Date(post.createdAt).toLocaleDateString(locale, {
-                year: 'numeric',
-                month: 'long',
                 day: 'numeric',
+                month: 'long',
+                year: 'numeric',
               })}
             </time>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             {translation.title}
           </h1>
-          <p className="text-xl text-white/80">
+          <p className="text-base md:text-lg text-white/75 leading-relaxed">
             {translation.excerpt}
           </p>
         </div>
       </section>
 
-      <article className="py-16 bg-white">
+      <article className="py-10 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Content */}
           <div
             className="article-content prose prose-lg max-w-none 
-              prose-headings:text-neutral-900 prose-headings:font-bold
-              prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-primary-200
-              prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-neutral-800
-              prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-neutral-700 prose-h4:font-semibold
-              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+              prose-headings:text-neutral-900 prose-headings:font-bold prose-headings:leading-tight
+              prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-primary-200
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-neutral-800
+              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-2 prose-h4:text-neutral-700 prose-h4:font-semibold
+              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-4 prose-p:text-base
               prose-a:text-primary-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline
-              prose-strong:text-neutral-900 prose-strong:font-bold
-              prose-ul:my-8 prose-ul:space-y-3
-              prose-ol:my-8 prose-ol:space-y-4
-              prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:pl-2
-              prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:shadow-sm
+              prose-strong:text-neutral-900 prose-strong:font-semibold
+              prose-ul:my-4 prose-ul:space-y-2
+              prose-ol:my-4 prose-ol:space-y-2
+              prose-li:text-neutral-700 prose-li:leading-relaxed
+              prose-table:border-collapse prose-table:w-full prose-table:my-6 prose-table:shadow-sm
               prose-thead:bg-neutral-800
-              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-4 prose-th:text-left
-              prose-td:border prose-td:border-neutral-300 prose-td:p-4 prose-td:bg-white
+              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-3 prose-th:text-left prose-th:text-sm
+              prose-td:border prose-td:border-neutral-300 prose-td:p-3 prose-td:bg-white prose-td:text-sm
               prose-tr:even:bg-neutral-50"
             dangerouslySetInnerHTML={{ __html: translation.contentHtml }}
           />
 
           {/* FAQ */}
           {faq && faq.length > 0 && (
-            <section className="mt-16 border-t-2 border-primary-200 pt-12">
-              <h2 className="text-3xl font-bold text-neutral-900 mb-8 flex items-center gap-3">
-                <span className="text-primary-500">❓</span>
+            <section className="mt-12 border-t border-neutral-200 pt-10">
+              <h2 className="text-2xl font-bold text-neutral-900 mb-6">
                 Perguntas Frequentes
               </h2>
               <div className="space-y-4">
                 {faq.map((item: any, index: number) => (
-                  <div key={index} className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-300 transition-colors">
-                    <h3 className="text-lg font-bold text-neutral-900 mb-3">
+                  <div key={index} className="bg-neutral-50 border border-neutral-200 rounded-lg p-5 hover:border-primary-300 hover:bg-primary-50/30 transition-colors">
+                    <h3 className="text-base font-bold text-neutral-900 mb-2">
                       {item.question}
                     </h3>
-                    <p className="text-neutral-700 leading-relaxed">{item.answer}</p>
+                    <p className="text-neutral-700 text-sm leading-relaxed">{item.answer}</p>
                   </div>
                 ))}
               </div>
@@ -194,14 +194,14 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
           )}
 
           {/* CTA Context-Specific */}
-          <div className="mt-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl p-8 text-center text-white shadow-2xl">
-            <h3 className="text-2xl font-bold mb-4">{cta.title}</h3>
-            <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
+          <div className="mt-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl p-8 text-center text-white shadow-lg">
+            <h3 className="text-xl font-bold mb-3">{cta.title}</h3>
+            <p className="text-base text-primary-50 mb-6 max-w-2xl mx-auto leading-relaxed">
               {cta.description}
             </p>
             <Link
               href={cta.link}
-              className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-neutral-100 transition-colors shadow-lg"
+              className="inline-block bg-white text-primary-600 px-7 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors shadow-md text-sm"
             >
               {cta.linkText}
             </Link>
@@ -211,36 +211,31 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-16 bg-neutral-50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1 h-8 bg-primary-500" />
-              <h2 className="text-2xl font-bold text-neutral-900">Artigos Relacionados</h2>
-            </div>
+        <section className="py-12 bg-neutral-50 border-t border-neutral-200">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-xl font-bold text-neutral-900 mb-6">Artigos Relacionados</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-4">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   href={`/${locale}/insights/${relatedPost.slug}`}
-                  className="group"
+                  className="group block"
                 >
-                  <article className="h-full bg-white border-2 border-neutral-200 rounded-xl overflow-hidden hover:border-primary-300 hover:shadow-lg transition-all">
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-100 rounded-full">
-                          {relatedPost.category}
-                        </span>
-                      </div>
-                      
-                      <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
-                        {relatedPost.translation.title}
-                      </h3>
-                      
-                      <p className="text-neutral-600 text-sm line-clamp-2">
-                        {relatedPost.translation.excerpt}
-                      </p>
+                  <article className="bg-white border border-neutral-200 rounded-lg p-5 hover:border-primary-400 hover:shadow-md transition-all">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-50 rounded-md">
+                        {relatedPost.category}
+                      </span>
                     </div>
+                    
+                    <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                      {relatedPost.translation.title}
+                    </h3>
+                    
+                    <p className="text-neutral-600 text-sm line-clamp-2 leading-relaxed">
+                      {relatedPost.translation.excerpt}
+                    </p>
                   </article>
                 </Link>
               ))}
