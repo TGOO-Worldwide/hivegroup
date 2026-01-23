@@ -51,7 +51,7 @@ export default async function LocaleLayout({
         <JsonLdOrganization locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 pt-20">
             {children}
           </main>
           <Footer />

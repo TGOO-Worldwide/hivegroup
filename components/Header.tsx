@@ -3,90 +3,227 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { List, X, CalendarCheck } from '@phosphor-icons/react';
 import LanguageSelector from './LanguageSelector';
+import DropdownMenu from './ui/DropdownMenu';
 
 export default function Header() {
   const t = useTranslations('navigation');
   const locale = useLocale();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  // Detectar scroll para animação
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Menu principal (sem "Serviços" aqui, será dropdown)
   const navigation = [
     { name: t('home'), href: `/${locale}` },
     { name: t('accounting'), href: `/${locale}/contabilidade` },
     { name: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
+  ];
+
+  // Dropdown Serviços
+  const servicesDropdown = [
+    { label: t('accounting'), href: `/${locale}/contabilidade` },
+    { label: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
+    { label: t('finance'), href: `/${locale}/finance` },
+    { label: t('credit'), href: `/${locale}/credit` },
+    { label: t('insurance'), href: `/${locale}/insurance` },
+    { label: t('realEstate'), href: `/${locale}/real-estate` },
+    { label: t('legal'), href: `/${locale}/legal` },
+    { label: t('marketing'), href: `/${locale}/marketing` },
+    { label: t('travel'), href: `/${locale}/travel` },
+    { label: t('it'), href: `/${locale}/it` },
+    { label: t('businessDevelopment'), href: `/${locale}/business-development` },
+  ];
+
+  // Mobile menu (todas as páginas)
+  const mobileNavigation = [
+    { name: t('home'), href: `/${locale}` },
+    { name: t('accounting'), href: `/${locale}/contabilidade` },
+    { name: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
+    { name: t('finance'), href: `/${locale}/finance` },
+    { name: t('credit'), href: `/${locale}/credit` },
+    { name: t('insurance'), href: `/${locale}/insurance` },
+    { name: t('realEstate'), href: `/${locale}/real-estate` },
     { name: t('insights'), href: `/${locale}/insights` },
     { name: t('contacts'), href: `/${locale}/contactos` },
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        transition-all duration-300 ease-out
+        ${
+          scrolled
+            ? 'backdrop-blur-lg bg-white/90 shadow-premium border-b border-primary-200/30'
+            : 'bg-white/60 backdrop-blur-sm border-b border-transparent'
+        }
+      `}
+    >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex w-full items-center justify-between border-b border-neutral-200 py-6 lg:border-none">
+        <div
+          className={`
+            flex w-full items-center justify-between
+            transition-all duration-300
+            ${scrolled ? 'py-3' : 'py-5'}
+          `}
+        >
+          {/* Logo */}
           <div className="flex items-center">
-            <Link href={`/${locale}`}>
-              <span className="text-2xl font-bold text-primary-600">Hive Group</span>
+            <Link href={`/${locale}`} className="group">
+              <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
+                Hive Group
+              </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6">
-            {navigation.map((link) => (
+          <div className="hidden lg:flex lg:items-center lg:gap-8">
+            {/* Main Links */}
+            <div className="flex items-center gap-6">
               <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                  pathname === link.href ? 'text-primary-600' : 'text-neutral-700'
+                href={`/${locale}`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === `/${locale}` ? 'text-primary-600' : 'text-charcoal-700 hover:text-primary-600'
                 }`}
               >
-                {link.name}
+                {t('home')}
               </Link>
-            ))}
-            <LanguageSelector />
+
+              {/* Dropdown Serviços */}
+              <DropdownMenu
+                trigger={t('services')}
+                items={servicesDropdown}
+              />
+
+              <Link
+                href={`/${locale}/insights`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname.startsWith(`/${locale}/insights`) ? 'text-primary-600' : 'text-charcoal-700 hover:text-primary-600'
+                }`}
+              >
+                {t('insights')}
+              </Link>
+
+              <Link
+                href={`/${locale}/contactos`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === `/${locale}/contactos` ? 'text-primary-600' : 'text-charcoal-700 hover:text-primary-600'
+                }`}
+              >
+                {t('contacts')}
+              </Link>
+            </div>
+
+            {/* Right Actions */}
+            <div className="flex items-center gap-4">
+              <LanguageSelector />
+
+              {/* CTA Button */}
+              <Link
+                href={`/${locale}/contactos`}
+                className="
+                  group
+                  flex items-center gap-2
+                  px-4 py-2
+                  bg-gradient-gold
+                  text-white text-sm font-semibold
+                  rounded-xl
+                  shadow-md hover:shadow-lg
+                  transition-all duration-200
+                  hover:scale-105
+                "
+              >
+                <CalendarCheck size={18} weight="bold" />
+                <span>{t('bookMeeting')}</span>
+              </Link>
+            </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex items-center gap-4 lg:hidden">
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-3 lg:hidden">
             <LanguageSelector />
             <button
               type="button"
-              className="text-neutral-700"
+              className="p-2 text-charcoal-700 hover:text-primary-600 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open menu</span>
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}
-                />
-              </svg>
+              {mobileMenuOpen ? (
+                <X size={24} weight="bold" />
+              ) : (
+                <List size={24} weight="bold" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-2">
-            {navigation.map((link) => (
+          <div
+            className="
+              lg:hidden
+              py-4 space-y-1
+              backdrop-blur-lg bg-white/95
+              rounded-2xl
+              mt-2 mb-4
+              p-4
+              border border-primary-200/30
+              shadow-premium
+              animate-in slide-in-from-top-4 fade-in
+              duration-300
+            "
+          >
+            {mobileNavigation.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`block py-2 text-base font-medium transition-colors hover:text-primary-600 ${
-                  pathname === link.href ? 'text-primary-600' : 'text-neutral-700'
-                }`}
+                className={`
+                  block px-4 py-3 rounded-xl
+                  text-base font-medium
+                  transition-all duration-200
+                  ${
+                    pathname === link.href
+                      ? 'bg-primary-50 text-primary-700 border border-primary-200'
+                      : 'text-charcoal-700 hover:bg-primary-50/50 hover:text-primary-600 border border-transparent'
+                  }
+                `}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
+
+            {/* Mobile CTA */}
+            <Link
+              href={`/${locale}/contactos`}
+              className="
+                flex items-center justify-center gap-2
+                mt-4 px-4 py-3
+                bg-gradient-gold
+                text-white text-base font-bold
+                rounded-xl
+                shadow-md
+                transition-all duration-200
+                active:scale-95
+              "
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <CalendarCheck size={20} weight="bold" />
+              <span>{t('bookMeeting')}</span>
+            </Link>
           </div>
         )}
       </nav>

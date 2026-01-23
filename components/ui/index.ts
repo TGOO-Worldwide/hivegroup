@@ -6,4 +6,5 @@ export { default as HiveIcon, serviceIcons } from './HiveIcon';
 export type { HiveIconName } from './HiveIcon';
 export { default as ServiceCard } from './ServiceCard';
 export { default as FeaturedServiceCard } from './FeaturedServiceCard';
+export { default as DropdownMenu } from './DropdownMenu';
 export { default as SectionHeading } from './SectionHeading';
