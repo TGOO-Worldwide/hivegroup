@@ -7,7 +7,7 @@ interface ServiceHeroAnimatedProps {
 
 export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnimatedProps) {
   return (
-    <section className="relative bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 min-h-screen flex items-center overflow-hidden">
+    <section className="relative bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 min-h-screen flex items-center overflow-hidden -mt-20 pt-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%">
