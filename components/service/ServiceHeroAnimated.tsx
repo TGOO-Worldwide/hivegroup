@@ -39,6 +39,14 @@ export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnim
                 className="h-20 md:h-24 lg:h-28 w-auto"
               />
             </div>
+          ) : title === 'Hive Group' ? (
+            <div className="flex justify-center mb-8">
+              <img
+                src="/hivegroup-1.svg"
+                alt="Hive Group"
+                className="h-24 md:h-28 lg:h-32 w-auto"
+              />
+            </div>
           ) : (
             <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl mb-6 tracking-tight">
               {title}

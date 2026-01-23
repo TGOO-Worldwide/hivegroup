@@ -235,22 +235,174 @@ export default function AboutPageLayout({ title, subtitle, sections, locale }: A
             <p className="text-lg text-center text-neutral-600 mb-12">
               {sections.howItWorks.subtitle}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {sections.howItWorks.steps.map((step: any, index: number) => (
-                <div key={index} className="relative bg-gradient-to-br from-neutral-50 to-white rounded-2xl p-8 shadow-lg border-2 border-neutral-200">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-6 -mt-16">
-                    <span className="text-white font-bold text-2xl">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-neutral-900 mb-3 text-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-neutral-600 text-center leading-relaxed">
-                    {step.description}
-                  </p>
+
+            {/* Animated Flow Diagram */}
+            <div className="max-w-6xl mx-auto mb-16">
+              <div className="relative">
+                {/* Flow Lines (SVG) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 0 }}>
+                  <defs>
+                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style={{ stopColor: '#f5b214', stopOpacity: 0.3 }} />
+                      <stop offset="100%" style={{ stopColor: '#f5b214', stopOpacity: 1 }} />
+                    </linearGradient>
+                  </defs>
+                  {/* Line 1 -> 2 */}
+                  <path
+                    d="M 33% 50% L 50% 50%"
+                    stroke="url(#flowGradient)"
+                    strokeWidth="3"
+                    fill="none"
+                    strokeDasharray="8 4"
+                    className="animate-dash"
+                  >
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      from="12"
+                      to="0"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                  {/* Arrow 1 */}
+                  <polygon
+                    points="50,47 50,53 56,50"
+                    fill="#f5b214"
+                    className="animate-pulse"
+                  />
+                  {/* Line 2 -> 3 */}
+                  <path
+                    d="M 66% 50% L 83% 50%"
+                    stroke="url(#flowGradient)"
+                    strokeWidth="3"
+                    fill="none"
+                    strokeDasharray="8 4"
+                  >
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      from="12"
+                      to="0"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                  {/* Arrow 2 */}
+                  <polygon
+                    points="83,47 83,53 89,50"
+                    fill="#f5b214"
+                    className="animate-pulse"
+                  />
+                </svg>
+
+                {/* Steps Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative" style={{ zIndex: 1 }}>
+                  {sections.howItWorks.steps.map((step: any, index: number) => (
+                    <div
+                      key={index}
+                      className="relative bg-gradient-to-br from-neutral-50 to-white rounded-2xl p-8 shadow-lg border-2 border-neutral-200 hover:border-primary-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                      style={{
+                        animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`
+                      }}
+                    >
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-6 -mt-16">
+                        <span className="text-white font-bold text-2xl">{index + 1}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-neutral-900 mb-3 text-center">
+                        {step.title}
+                      </h3>
+                      <p className="text-neutral-600 text-center leading-relaxed">
+                        {step.description}
+                      </p>
+
+                      {/* Progress indicator */}
+                      <div className="mt-6 pt-4 border-t border-neutral-200">
+                        <div className="flex items-center justify-center gap-2">
+                          <div className={`w-2 h-2 rounded-full ${index >= 0 ? 'bg-primary-500' : 'bg-neutral-300'}`} />
+                          <div className={`w-2 h-2 rounded-full ${index >= 1 ? 'bg-primary-500' : 'bg-neutral-300'}`} />
+                          <div className={`w-2 h-2 rounded-full ${index >= 2 ? 'bg-primary-500' : 'bg-neutral-300'}`} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Timeline Visual */}
+            <div className="max-w-4xl mx-auto">
+              <div className="relative">
+                {/* Timeline bar */}
+                <div className="absolute top-8 left-0 right-0 h-1 bg-neutral-200 mx-16">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary-400 to-primary-600"
+                    style={{
+                      animation: 'progressBar 3s ease-in-out infinite'
+                    }}
+                  />
+                </div>
+
+                {/* Timeline dots */}
+                <div className="flex justify-between items-start px-8">
+                  {sections.howItWorks.steps.map((step: any, index: number) => (
+                    <div key={index} className="flex flex-col items-center flex-1">
+                      <div
+                        className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-xl shadow-lg relative z-10"
+                        style={{
+                          animation: `pulse 2s ease-in-out ${index * 0.3}s infinite`
+                        }}
+                      >
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          {index === 0 && (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                          )}
+                          {index === 1 && (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          )}
+                          {index === 2 && (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          )}
+                        </svg>
+                      </div>
+                      <p className="text-sm font-semibold text-neutral-700 mt-4 text-center">
+                        {step.title}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* CSS Animations */}
+          <style jsx>{`
+            @keyframes fadeInUp {
+              from {
+                opacity: 0;
+                transform: translateY(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes progressBar {
+              0% { width: 0%; }
+              50% { width: 100%; }
+              100% { width: 0%; }
+            }
+
+            @keyframes pulse {
+              0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 25px rgba(245, 178, 20, 0.3);
+              }
+              50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 35px rgba(245, 178, 20, 0.5);
+              }
+            }
+          `}</style>
         </section>
       )}
 
