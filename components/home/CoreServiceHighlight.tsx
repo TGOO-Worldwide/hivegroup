@@ -129,35 +129,70 @@ export default function CoreServiceHighlight({
                 />
               </div>
 
-              {/* Stats or Highlights */}
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <div className="text-5xl font-bold bg-gradient-gold bg-clip-text text-transparent">
-                    100%
+              {/* Animated Stats Graph */}
+              <div className="space-y-8">
+                {/* Stat 1 */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
+                      Conformidade Legal
+                    </p>
+                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                      100%
+                    </span>
                   </div>
-                  <p className="text-base text-charcoal-600">
-                    Conformidade Legal
-                  </p>
+                  <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
+                    <div
+                      className="absolute top-0 left-0 h-full bg-gradient-gold rounded-full animate-[fillBar_2s_ease-out_forwards]"
+                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.2s' }}
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <div className="text-5xl font-bold bg-gradient-gold bg-clip-text text-transparent">
-                    24/7
+                {/* Stat 2 */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
+                      Disponibilidade Suporte
+                    </p>
+                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                      24/7
+                    </span>
                   </div>
-                  <p className="text-base text-charcoal-600">
-                    Suporte Dedicado
-                  </p>
+                  <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
+                    <div
+                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full"
+                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.4s' }}
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <div className="text-5xl font-bold bg-gradient-gold bg-clip-text text-transparent">
-                    500+
+                {/* Stat 3 */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
+                      Clientes Satisfeitos
+                    </p>
+                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                      500+
+                    </span>
                   </div>
-                  <p className="text-base text-charcoal-600">
-                    Clientes Satisfeitos
-                  </p>
+                  <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
+                    <div
+                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-charcoal-600 to-charcoal-800 rounded-full"
+                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.6s' }}
+                    />
+                  </div>
                 </div>
               </div>
+
+              {/* CSS Animation */}
+              <style jsx>{`
+                @keyframes fillBar {
+                  from { width: 0%; }
+                  to { width: 100%; }
+                }
+              `}</style>
 
               {/* Bottom Gradient Line */}
               <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-gold rounded-b-3xl" />

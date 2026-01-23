@@ -65,19 +65,28 @@ export default function Header() {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-300 ease-out
-        ${
-          scrolled
-            ? 'backdrop-blur-lg bg-white/90 shadow-premium border-b border-primary-200/30'
-            : 'bg-white/60 backdrop-blur-sm border-b border-transparent'
-        }
+        px-4 sm:px-6
+        ${scrolled ? 'pt-4' : 'pt-6'}
       `}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+      <nav
+        className={`
+          mx-auto max-w-7xl
+          transition-all duration-300 ease-out
+          ${
+            scrolled
+              ? 'backdrop-blur-lg bg-white/95 shadow-premium border border-primary-200/30 rounded-2xl'
+              : 'bg-white/80 backdrop-blur-sm border border-white/40 rounded-3xl shadow-md'
+          }
+        `}
+        aria-label="Top"
+      >
         <div
           className={`
             flex w-full items-center justify-between
             transition-all duration-300
-            ${scrolled ? 'py-3' : 'py-5'}
+            px-4 sm:px-6
+            ${scrolled ? 'py-3' : 'py-4'}
           `}
         >
           {/* Logo */}

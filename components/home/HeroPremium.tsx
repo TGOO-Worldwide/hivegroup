@@ -30,7 +30,7 @@ export default function HeroPremium({ headline, subheadline, authorizedAgentBadg
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Text Content */}
           <div className="text-white">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 text-white">
               {headline}
             </h1>
             <p className="text-lg sm:text-xl text-neutral-300 mb-8 leading-relaxed">
@@ -97,9 +97,13 @@ export default function HeroPremium({ headline, subheadline, authorizedAgentBadg
                 <h3 className="text-3xl font-bold mb-2">
                   {authorizedAgentBadge.title}
                 </h3>
-                <p className="text-xl font-semibold mb-4 text-primary-100">
-                  {authorizedAgentBadge.subtitle}
-                </p>
+                <div className="mb-4">
+                  <img
+                    src="/local-do-cidadao-2.svg"
+                    alt="Local do Cidadão"
+                    className="h-12 w-auto"
+                  />
+                </div>
                 <p className="text-white text-opacity-90 mb-6">
                   {authorizedAgentBadge.description}
                 </p>

@@ -49,10 +49,14 @@ export default function AuthorizedAgentHighlight({
             </span>
           </div>
 
-          {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
-            {title}
-          </h2>
+          {/* Title - Logo SVG */}
+          <div className="flex justify-center mb-6">
+            <img
+              src="/local-do-cidadao-2.svg"
+              alt="Agente Autorizado Local do Cidadão"
+              className="h-16 md:h-20 w-auto"
+            />
+          </div>
           <p className="text-xl text-primary-300 font-semibold mb-6">
             {subtitle}
           </p>
