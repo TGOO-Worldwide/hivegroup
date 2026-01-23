@@ -19,6 +19,16 @@ export default function HeroPremium({ headline, subheadline, authorizedAgentBadg
 
   return (
     <section className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-20 sm:py-32 overflow-hidden">
+      {/* Background Image Banner */}
+      <div className="absolute inset-0">
+        <img
+          src="/banner-hive-01.jpg"
+          alt="Hive Group"
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/70 via-neutral-800/60 to-neutral-900/70" />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
