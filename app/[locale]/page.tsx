@@ -15,6 +15,10 @@ import FeaturedServicesHome from '@/components/home/FeaturedServicesHome';
 import FAQAccordion from '@/components/home/FAQAccordion';
 import QuickContactsHome from '@/components/home/QuickContactsHome';
 
+// Force dynamic rendering to ensure database connection at runtime
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface PageProps {
   params: { locale: string };
 }

@@ -8,6 +8,10 @@ import JsonLdBlogPosting from '@/components/seo/JsonLdBlogPosting';
 import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 import JsonLdFAQ from '@/components/seo/JsonLdFAQ';
 
+// Force dynamic rendering to ensure database connection at runtime
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface PostPageProps {
   params: { locale: string; slug: string };
 }

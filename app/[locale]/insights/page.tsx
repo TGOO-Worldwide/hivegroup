@@ -4,6 +4,10 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
+// Force dynamic rendering to ensure database connection at runtime
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface InsightsPageProps {
   params: { locale: string };
 }

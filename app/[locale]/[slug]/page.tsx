@@ -7,6 +7,10 @@ import AboutPageLayout from '@/components/about/AboutPageLayout';
 import JsonLdFAQ from '@/components/seo/JsonLdFAQ';
 import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
+// Force dynamic rendering to ensure database connection at runtime
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface ServicePageProps {
   params: { locale: string; slug: string };
 }
