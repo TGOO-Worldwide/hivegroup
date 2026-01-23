@@ -31,7 +31,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Hive Group</h3>
+            <img
+              src="/hivegroup-1.svg"
+              alt="Hive Group"
+              className="h-8 w-auto mb-4"
+            />
             <p className="text-sm">{t('tagline')}</p>
           </div>
 

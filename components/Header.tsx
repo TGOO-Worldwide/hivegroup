@@ -83,9 +83,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href={`/${locale}`} className="group">
-              <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
-                Hive Group
-              </span>
+              <img
+                src="/hivegroup-2.svg"
+                alt="Hive Group"
+                className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-80"
+              />
             </Link>
           </div>
 
