@@ -119,13 +119,20 @@ export default function CoreServiceHighlight({
                 group
               "
             >
-              {/* Icon Container */}
-              <div className="mb-8 inline-flex p-6 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              {/* Icon Container with Hive SVG Background */}
+              <div className="mb-8 relative inline-flex items-center justify-center w-28 h-28 group-hover:scale-110 transition-transform duration-300">
+                {/* Hive SVG Background */}
+                <img
+                  src="/hive.svg"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-contain drop-shadow-lg"
+                />
+                {/* Icon in White on Center */}
                 <HiveIcon
                   name="calculator"
-                  size={64}
-                  className="text-white"
-                  weight="light"
+                  size={48}
+                  className="relative z-10 text-white drop-shadow-md"
+                  weight="regular"
                 />
               </div>
 
