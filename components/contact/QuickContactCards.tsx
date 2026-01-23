@@ -34,12 +34,9 @@ export default function QuickContactCards({ locale }: QuickContactCardsProps) {
             <Phone size={48} weight="bold" className="text-primary-600" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-charcoal-900 mb-2">
+            <h3 className="text-2xl font-bold text-charcoal-900 mb-2">
               {locale === 'pt' ? 'Ligar' : locale === 'en' ? 'Call' : locale === 'fr' ? 'Appeler' : locale === 'es' ? 'Llamar' : 'Chiama'}
             </h3>
-            <p className="text-2xl font-bold text-primary-600 group-hover:text-primary-700 transition-colors mb-1">
-              {phoneNumber}
-            </p>
             <p className="text-sm text-charcoal-600">
               {locale === 'pt' ? 'Chamada para rede móvel nacional' : 
                locale === 'en' ? 'National mobile network call' :
@@ -75,12 +72,9 @@ export default function QuickContactCards({ locale }: QuickContactCardsProps) {
             <WhatsappLogo size={48} weight="bold" className="text-green-600" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-charcoal-900 mb-2">
+            <h3 className="text-2xl font-bold text-charcoal-900 mb-2">
               WhatsApp
             </h3>
-            <p className="text-2xl font-bold text-green-600 group-hover:text-green-700 transition-colors mb-1">
-              {phoneNumber}
-            </p>
             <p className="text-sm text-charcoal-600">
               {locale === 'pt' ? 'Mensagem instantânea' :
                locale === 'en' ? 'Instant messaging' :
