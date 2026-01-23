@@ -31,9 +31,19 @@ export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnim
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Static Title */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl mb-6 tracking-tight">
-            {title}
-          </h1>
+          {title === 'Local do Cidadão' ? (
+            <div className="flex justify-center mb-8">
+              <img
+                src="/local-do-cidadao-2.svg"
+                alt="Local do Cidadão"
+                className="h-20 md:h-24 lg:h-28 w-auto"
+              />
+            </div>
+          ) : (
+            <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl mb-6 tracking-tight">
+              {title}
+            </h1>
+          )}
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
