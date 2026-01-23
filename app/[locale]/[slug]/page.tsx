@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
 import ServicePageLayout from '@/components/service/ServicePageLayout';
+import AboutPageLayout from '@/components/about/AboutPageLayout';
 import JsonLdFAQ from '@/components/seo/JsonLdFAQ';
 import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
@@ -57,6 +58,9 @@ export default async function ServicePage({ params: { locale, slug } }: ServiceP
   const { translation } = page;
   const sections = JSON.parse(translation.sectionsJson);
 
+  // Use AboutPageLayout for the "sobre" page
+  const PageLayout = slug === 'sobre' ? AboutPageLayout : ServicePageLayout;
+
   return (
     <>
       <JsonLdBreadcrumb
@@ -68,7 +72,7 @@ export default async function ServicePage({ params: { locale, slug } }: ServiceP
       {sections.faq && sections.faq.length > 0 && (
         <JsonLdFAQ faqs={sections.faq} locale={locale} />
       )}
-      <ServicePageLayout
+      <PageLayout
         title={translation.title}
         subtitle={translation.subtitle || ''}
         sections={sections}
