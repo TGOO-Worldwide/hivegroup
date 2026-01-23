@@ -26,7 +26,7 @@ interface PageProps {
 export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
   const page = await getPageBySlug('home', locale);
   
-  if (!page) {
+  if (!page || !page.translation) {
     return {
       title: 'Hive Group Portugal',
       description: 'Integrated business solutions',
@@ -70,7 +70,7 @@ export default async function HomePage({ params: { locale } }: PageProps) {
   
   const page = await getPageBySlug('home', locale);
 
-  if (!page) {
+  if (!page || !page.translation) {
     notFound();
   }
 
