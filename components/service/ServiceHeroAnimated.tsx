@@ -1,10 +1,5 @@
 'use client';
 
-import {
-  ScrollVelocityContainer,
-  ScrollVelocityRow,
-} from '@/components/ui/scroll-based-velocity';
-
 interface ServiceHeroAnimatedProps {
   title: string;
   subtitle: string;
@@ -34,8 +29,8 @@ export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnim
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Static Title (above scroll) */}
-        <div className="text-center mb-16">
+        {/* Static Title */}
+        <div className="text-center">
           <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl mb-6 tracking-tight">
             {title}
           </h1>
@@ -43,29 +38,7 @@ export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnim
             {subtitle}
           </p>
         </div>
-
-        {/* Animated Scroll Velocity */}
-        <ScrollVelocityContainer className="py-8">
-          <ScrollVelocityRow 
-            baseVelocity={15} 
-            direction={1}
-            className="text-3xl md:text-5xl font-bold text-white/20 tracking-tight py-4"
-          >
-            {title}
-          </ScrollVelocityRow>
-          <ScrollVelocityRow 
-            baseVelocity={15} 
-            direction={-1}
-            className="text-3xl md:text-5xl font-bold text-white/10 tracking-tight py-4"
-          >
-            {subtitle}
-          </ScrollVelocityRow>
-        </ScrollVelocityContainer>
       </div>
-
-      {/* Gradient Overlays */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-charcoal-900" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-charcoal-900" />
     </section>
   );
 }
