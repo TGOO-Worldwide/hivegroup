@@ -1013,9 +1013,9 @@ async function main() {
       translations: {
         create: [
           createTranslation('pt', {
-            title: 'Desenvolvimento de Negócio',
+            title: 'Crescimento',
             subtitle: 'Estratégia comercial, expansão, parcerias e crescimento empresarial.',
-            seoTitle: 'Desenvolvimento Negócio - Hive Group Portugal',
+            seoTitle: 'Crescimento - Hive Group Portugal',
             seoDescription: 'Desenvolvimento empresarial. Estratégia comercial, expansão mercados, parcerias.',
             keywords: ['desenvolvimento negócio', 'estratégia comercial', 'expansão', 'crescimento', 'parcerias', 'business development'],
             sections: {

@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import HiveIcon, { serviceIcons, HiveIconName } from '@/components/ui/HiveIcon';
+import FeaturedServiceCard from '@/components/ui/FeaturedServiceCard';
+import { serviceIcons, HiveIconName } from '@/components/ui/HiveIcon';
 
 interface Service {
   title: string;
@@ -29,89 +29,67 @@ export default function FeaturedServicesHome({ title, subtitle, services, locale
   const t = useTranslations('common');
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-neutral-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-neutral-900 sm:text-4xl mb-4">
+    <section className="relative py-24 bg-gradient-to-b from-white via-primary-50/20 to-white overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-200/20 rounded-full blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header Premium */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full mb-6">
+            <span className="text-xs font-bold text-primary-700 uppercase tracking-wider">
+              ★ Serviços Principais
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold text-charcoal-900 sm:text-5xl mb-6 tracking-tight leading-tight">
             {title}
           </h2>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-xl text-charcoal-600 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
+          <div className="mt-8 h-1 w-24 bg-gradient-gold mx-auto rounded-full" />
         </div>
 
-        {/* Services Cards */}
+        {/* Premium Featured Services Cards with Staggered Animation */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl ${
-                service.highlight ? 'ring-4 ring-primary-400 ring-opacity-50' : ''
-              }`}
+              className="animate-fadeInUp"
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                opacity: 0,
+                animation: `fadeInUp 0.6s ease-out ${index * 150}ms forwards`
+              }}
             >
-              {/* Highlight Badge */}
-              {service.highlight && (
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="bg-gradient-to-r from-primary-400 to-primary-600 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">
-                    PRINCIPAL
-                  </div>
-                </div>
-              )}
-
-              {/* Header with Gradient */}
-              <div className={`p-8 ${
-                service.highlight
-                  ? 'bg-gradient-to-br from-primary-500 to-primary-600'
-                  : 'bg-gradient-to-br from-neutral-700 to-neutral-800'
-              }`}>
-                <div className="mb-6">
-                  <HiveIcon 
-                    name={(serviceIcons[getSlugFromLink(service.link)] || 'briefcase') as HiveIconName}
-                    size={56}
-                    className="text-white opacity-90"
-                    weight="light"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-white text-opacity-90 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Features List */}
-              <div className="p-8">
-                <ul className="space-y-3 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <svg className={`w-5 h-5 ${
-                        service.highlight ? 'text-primary-500' : 'text-neutral-600'
-                      } mr-3 mt-0.5 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-neutral-700 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Link
-                  href={`/${locale}${service.link}`}
-                  className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                    service.highlight
-                      ? 'bg-primary-500 text-white hover:bg-primary-600 shadow-md hover:shadow-lg'
-                      : 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
-                  }`}
-                >
-                  {t('learnMore')}
-                </Link>
-              </div>
+              <FeaturedServiceCard
+                icon={(serviceIcons[getSlugFromLink(service.link)] || 'briefcase') as HiveIconName}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                href={`/${locale}${service.link}`}
+                ctaLabel={t('learnMore')}
+                highlight={service.highlight}
+              />
             </div>
           ))}
         </div>
       </div>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }

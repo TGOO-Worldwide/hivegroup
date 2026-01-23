@@ -12,9 +12,10 @@
     "marketing": "Marketing",
     "travel": "Viagens",
     "it": "IT",
-    "businessDevelopment": "Desenvolvimento de Negócio",
+    "businessDevelopment": "Crescimento",
     "insights": "Insights",
-    "contacts": "Contactos"
+    "contacts": "Contactos",
+    "bookMeeting": "Marcar Reunião"
   },
   "common": {
     "learnMore": "Saiba mais",
