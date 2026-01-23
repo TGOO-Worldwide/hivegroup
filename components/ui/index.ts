@@ -8,3 +8,4 @@ export { default as ServiceCard } from './ServiceCard';
 export { default as FeaturedServiceCard } from './FeaturedServiceCard';
 export { default as DropdownMenu } from './DropdownMenu';
 export { default as SectionHeading } from './SectionHeading';
+export { ScrollVelocityContainer, ScrollVelocityRow } from './scroll-based-velocity';

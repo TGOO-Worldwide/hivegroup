@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ServiceHeroAnimated from './ServiceHeroAnimated';
 
 interface ServicePageLayoutProps {
   title: string;
@@ -10,19 +11,8 @@ interface ServicePageLayoutProps {
 export default function ServicePageLayout({ title, subtitle, sections, locale }: ServicePageLayoutProps) {
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-neutral-900 sm:text-5xl mb-6">
-              {title}
-            </h1>
-            <p className="text-lg text-neutral-600 leading-relaxed">
-              {subtitle}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section Animated */}
+      <ServiceHeroAnimated title={title} subtitle={subtitle} />
 
       {/* Benefits Section */}
       {sections.benefits && sections.benefits.length > 0 && (
