@@ -1,5 +1,6 @@
 'use client';
 
+import { useId } from 'react';
 import Link from 'next/link';
 import ServiceHeroAnimated from '../service/ServiceHeroAnimated';
 
@@ -11,6 +12,8 @@ interface AboutPageLayoutProps {
 }
 
 export default function AboutPageLayout({ title, subtitle, sections, locale }: AboutPageLayoutProps) {
+  const gradientId = useId();
+  
   return (
     <>
       {/* Hero Section Animated */}
@@ -242,17 +245,19 @@ export default function AboutPageLayout({ title, subtitle, sections, locale }: A
                 {/* Flow Lines (SVG) */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" style={{ zIndex: 0 }}>
                   <defs>
-                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" style={{ stopColor: '#f5b214', stopOpacity: 0.3 }} />
                       <stop offset="100%" style={{ stopColor: '#f5b214', stopOpacity: 1 }} />
                     </linearGradient>
                   </defs>
                   {/* Line 1 -> 2 */}
-                  <path
-                    d="M 33% 50% L 50% 50%"
-                    stroke="url(#flowGradient)"
+                  <line
+                    x1="33%"
+                    y1="50%"
+                    x2="50%"
+                    y2="50%"
+                    stroke={`url(#${gradientId})`}
                     strokeWidth="3"
-                    fill="none"
                     strokeDasharray="8 4"
                     className="animate-dash"
                   >
@@ -263,7 +268,7 @@ export default function AboutPageLayout({ title, subtitle, sections, locale }: A
                       dur="2s"
                       repeatCount="indefinite"
                     />
-                  </path>
+                  </line>
                   {/* Arrow 1 */}
                   <polygon
                     points="50,47 50,53 56,50"
@@ -271,11 +276,13 @@ export default function AboutPageLayout({ title, subtitle, sections, locale }: A
                     className="animate-pulse"
                   />
                   {/* Line 2 -> 3 */}
-                  <path
-                    d="M 66% 50% L 83% 50%"
-                    stroke="url(#flowGradient)"
+                  <line
+                    x1="66%"
+                    y1="50%"
+                    x2="83%"
+                    y2="50%"
+                    stroke={`url(#${gradientId})`}
                     strokeWidth="3"
-                    fill="none"
                     strokeDasharray="8 4"
                   >
                     <animate
@@ -285,7 +292,7 @@ export default function AboutPageLayout({ title, subtitle, sections, locale }: A
                       dur="2s"
                       repeatCount="indefinite"
                     />
-                  </path>
+                  </line>
                   {/* Arrow 2 */}
                   <polygon
                     points="83,47 83,53 89,50"

@@ -1,5 +1,6 @@
 'use client';
 
+import { useId } from 'react';
 import Link from 'next/link';
 import { HiveIcon } from '@/components/ui';
 import { ArrowRight, Stamp, ShieldCheck } from '@phosphor-icons/react';
@@ -23,6 +24,8 @@ export default function AuthorizedAgentHighlight({
   ctaLabel,
   href,
 }: AuthorizedAgentHighlightProps) {
+  const patternId = useId();
+  
   return (
     <section className="relative py-24 bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 overflow-hidden">
       {/* Decorative Elements */}
@@ -32,10 +35,10 @@ export default function AuthorizedAgentHighlight({
       {/* Hex Pattern Background */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%">
-          <pattern id="hex-pattern" width="50" height="43.4" patternUnits="userSpaceOnUse">
+          <pattern id={patternId} width="50" height="43.4" patternUnits="userSpaceOnUse">
             <polygon points="25,0 50,14.4 50,43.4 25,57.8 0,43.4 0,14.4" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-white"/>
           </pattern>
-          <rect width="100%" height="100%" fill="url(#hex-pattern)"/>
+          <rect width="100%" height="100%" fill={`url(#${patternId})`}/>
         </svg>
       </div>
 

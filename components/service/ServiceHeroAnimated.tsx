@@ -1,17 +1,21 @@
 'use client';
 
+import { useId } from 'react';
+
 interface ServiceHeroAnimatedProps {
   title: string;
   subtitle: string;
 }
 
 export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnimatedProps) {
+  const patternId = useId();
+  
   return (
     <section className="relative bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 py-20 overflow-hidden -mt-20 pt-32">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%">
-          <pattern id="hex-pattern-hero" width="50" height="43.4" patternUnits="userSpaceOnUse">
+          <pattern id={patternId} width="50" height="43.4" patternUnits="userSpaceOnUse">
             <polygon 
               points="25,0 50,14.4 50,43.4 25,57.8 0,43.4 0,14.4" 
               fill="none" 
@@ -20,7 +24,7 @@ export default function ServiceHeroAnimated({ title, subtitle }: ServiceHeroAnim
               className="text-white"
             />
           </pattern>
-          <rect width="100%" height="100%" fill="url(#hex-pattern-hero)"/>
+          <rect width="100%" height="100%" fill={`url(#${patternId})`}/>
         </svg>
       </div>
 
