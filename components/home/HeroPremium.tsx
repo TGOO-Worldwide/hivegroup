@@ -94,14 +94,14 @@ export default function HeroPremium({ headline, subheadline, authorizedAgentBadg
                 <div className="inline-block px-4 py-1 bg-white bg-opacity-20 rounded-full text-sm font-semibold mb-4">
                   Certificação Oficial
                 </div>
-                <h3 className="text-3xl font-bold mb-2">
+                <h3 className="text-xl font-bold mb-2">
                   {authorizedAgentBadge.title}
                 </h3>
                 <div className="mb-4">
                   <img
                     src="/local-do-cidadao-2.svg"
                     alt="Local do Cidadão"
-                    className="h-12 w-auto"
+                    className="h-16 w-auto"
                   />
                 </div>
                 <p className="text-white text-opacity-90 mb-6">
