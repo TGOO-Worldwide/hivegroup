@@ -18,7 +18,7 @@ export const insightsPosts = [
 
 <p>A declaração de IRS é uma obrigação anual para todos os contribuintes portugueses. Este guia completo, preparado pelos nossos Técnicos Oficiais de Contas (TOC) certificados, explica passo a passo como preencher corretamente a sua declaração de IRS 2026, maximizar deduções e evitar erros comuns.</p>
 
-<h3>📅 Prazos Importantes IRS 2026</h3>
+<h3>Prazos Importantes IRS 2026</h3>
 
 <p><strong>Prazo de entrega:</strong> 1 de abril a 30 de junho de 2026</p>
 
@@ -30,11 +30,11 @@ export const insightsPosts = [
 </ul>
 
 <div class="bg-primary-50 border-l-4 border-primary-500 p-6 my-8">
-  <p class="font-bold text-primary-900 mb-2">⚠️ ATENÇÃO</p>
+  <p class="font-bold text-primary-900 mb-2 text-sm uppercase tracking-wide">Atenção</p>
   <p class="text-primary-800">Entregar fora do prazo implica coimas entre 25€ e 2.500€, dependendo do rendimento. Não arrisque - conte com apoio profissional.</p>
 </div>
 
-<h3>💰 Deduções Fiscais IRS 2026: Como Maximizar o Reembolso</h3>
+<h3>Deduções Fiscais IRS 2026: Como Maximizar o Reembolso</h3>
 
 <h4>1. Despesas Gerais Familiares (35%)</h4>
 <p>Limite: 250€ por contribuinte (500€ casal)</p>
@@ -76,7 +76,7 @@ export const insightsPosts = [
 <h4>6. Pensões de Alimentos (20%)</h4>
 <p>Sem limite definido</p>
 
-<h3>📊 Categorias de Rendimentos</h3>
+<h3>Categorias de Rendimentos</h3>
 
 <table class="w-full border-collapse border border-neutral-300 my-6">
   <thead>
@@ -113,18 +113,18 @@ export const insightsPosts = [
   </tbody>
 </table>
 
-<h3>✅ Checklist: Documentos Necessários</h3>
+<h3>Checklist: Documentos Necessários</h3>
 
 <ul class="space-y-2">
-  <li>✓ Declaração de rendimentos do empregador (Anexo A da empresa)</li>
-  <li>✓ Recibos de rendas (se aplicável)</li>
-  <li>✓ Declaração de juros bancários</li>
-  <li>✓ Faturas de despesas dedutíveis</li>
-  <li>✓ Comprovativos de donativos</li>
-  <li>✓ Certidões de pensões de alimentos</li>
+  <li>Declaração de rendimentos do empregador (Anexo A da empresa)</li>
+  <li>Recibos de rendas (se aplicável)</li>
+  <li>Declaração de juros bancários</li>
+  <li>Faturas de despesas dedutíveis</li>
+  <li>Comprovativos de donativos</li>
+  <li>Certidões de pensões de alimentos</li>
 </ul>
 
-<h3>❌ Erros Comuns a Evitar</h3>
+<h3>Erros Comuns a Evitar</h3>
 
 <ol>
   <li><strong>Não validar faturas no e-fatura:</strong> As faturas têm de estar validadas até 25 de fevereiro</li>
@@ -135,11 +135,11 @@ export const insightsPosts = [
 </ol>
 
 <div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
-  <p class="font-bold text-green-900 mb-2">💡 DICA PRO</p>
+  <p class="font-bold text-green-900 mb-2 text-sm uppercase tracking-wide">Dica Profissional</p>
   <p class="text-green-800">Utilize o simulador das Finanças antes de submeter. Se tiver dúvidas, um TOC certificado pode rever a declaração e otimizar legalmente as deduções.</p>
 </div>
 
-<h3>🔧 Como Usar o Simulador IRS</h3>
+<h3>Como Usar o Simulador IRS</h3>
 
 <p>O Portal das Finanças disponibiliza um simulador oficial. Passos:</p>
 
@@ -152,7 +152,7 @@ export const insightsPosts = [
   <li>Se estiver tudo correto, submeta a declaração</li>
 </ol>
 
-<h3>🎯 Quando Precisa de um Contabilista Certificado (TOC)?</h3>
+<h3>Quando Precisa de um Contabilista Certificado (TOC)?</h3>
 
 <p>Recomendamos apoio profissional se:</p>
 
@@ -166,16 +166,16 @@ export const insightsPosts = [
   <li>Precisa de entregar declaração de substituição</li>
 </ul>
 
-<h3>📞 Apoio Profissional Hive Group</h3>
+<h3>Apoio Profissional Hive Group</h3>
 
 <p>A Hive Group conta com Técnicos Oficiais de Contas (TOC) certificados pela Ordem dos Contabilistas Certificados. Oferecemos:</p>
 
 <ul>
-  <li>✅ Revisão completa da declaração IRS</li>
-  <li>✅ Otimização legal de deduções</li>
-  <li>✅ Entrega dentro dos prazos</li>
-  <li>✅ Apoio em caso de inspeção das Finanças</li>
-  <li>✅ Simulações e projeções fiscais</li>
+  <li>Revisão completa da declaração IRS</li>
+  <li>Otimização legal de deduções</li>
+  <li>Entrega dentro dos prazos</li>
+  <li>Apoio em caso de inspeção das Finanças</li>
+  <li>Simulações e projeções fiscais</li>
 </ul>
 
 <div class="bg-primary-600 text-white rounded-lg p-8 my-8 text-center">
@@ -314,53 +314,42 @@ export const insightsPosts = [
 
 <p>Abrir uma empresa em Portugal em 2026 é mais simples do que pensa, especialmente com o apoio certo. Este guia completo, preparado pelos nossos TOC certificados, explica todos os passos, custos, tipos de sociedade e obrigações fiscais para começar o seu negócio em Portugal.</p>
 
-<h3>🏢 Tipos de Sociedade em Portugal</h3>
+<h3>Tipos de Sociedade em Portugal</h3>
 
 <h4>1. Empresário em Nome Individual (ENI)</h4>
 <p><strong>Melhor para:</strong> Profissionais independentes, freelancers, pequenos negócios</p>
 <ul>
-  <li>✅ Constituição rápida (1-2 dias)</li>
-  <li>✅ Custos baixos (cerca de 360€)</li>
-  <li>✅ Contabilidade simplificada</li>
-  <li>❌ Responsabilidade ilimitada (património pessoal em risco)</li>
-  <li>❌ Menos credibilidade comercial</li>
+  <li><strong>Vantagens:</strong> Constituição rápida (1-2 dias), custos baixos (cerca de 360€), contabilidade simplificada</li>
+  <li><strong>Desvantagens:</strong> Responsabilidade ilimitada (património pessoal em risco), menos credibilidade comercial</li>
 </ul>
 
 <h4>2. Sociedade Unipessoal por Quotas (Lda)</h4>
 <p><strong>Melhor para:</strong> Empresários individuais que querem proteger o património</p>
 <ul>
-  <li>✅ Responsabilidade limitada ao capital social</li>
-  <li>✅ Maior credibilidade</li>
-  <li>✅ Capital mínimo: apenas 1€ (recomendado 5.000€+)</li>
-  <li>❌ Mais burocracia</li>
-  <li>❌ Contabilidade organizada obrigatória</li>
+  <li><strong>Vantagens:</strong> Responsabilidade limitada ao capital social, maior credibilidade, capital mínimo apenas 1€ (recomendado 5.000€+)</li>
+  <li><strong>Desvantagens:</strong> Mais burocracia, contabilidade organizada obrigatória</li>
 </ul>
 
 <h4>3. Sociedade por Quotas (Lda) - Múltiplos Sócios</h4>
 <p><strong>Melhor para:</strong> Parcerias, negócios com múltiplos sócios</p>
 <ul>
-  <li>✅ Responsabilidade limitada</li>
-  <li>✅ Partilha de riscos e responsabilidades</li>
-  <li>✅ Capital mínimo: 2€ (1€ por sócio)</li>
-  <li>✅ Maior capacidade de investimento</li>
-  <li>❌ Necessita de pacto social bem definido</li>
+  <li><strong>Vantagens:</strong> Responsabilidade limitada, partilha de riscos e responsabilidades, capital mínimo 2€ (1€ por sócio), maior capacidade de investimento</li>
+  <li><strong>Desvantagens:</strong> Necessita de pacto social bem definido</li>
 </ul>
 
 <h4>4. Sociedade Anónima (SA)</h4>
 <p><strong>Melhor para:</strong> Grandes empresas, entrada em bolsa</p>
 <ul>
-  <li>✅ Ideal para grandes capitais</li>
-  <li>✅ Ações transferíveis</li>
-  <li>❌ Capital mínimo: 50.000€</li>
-  <li>❌ Muito mais complexa</li>
+  <li><strong>Vantagens:</strong> Ideal para grandes capitais, ações transferíveis</li>
+  <li><strong>Desvantagens:</strong> Capital mínimo 50.000€, muito mais complexa</li>
 </ul>
 
 <div class="bg-primary-50 border-l-4 border-primary-500 p-6 my-8">
-  <p class="font-bold text-primary-900 mb-2">💡 RECOMENDAÇÃO</p>
+  <p class="font-bold text-primary-900 mb-2 text-sm uppercase tracking-wide">Recomendação</p>
   <p class="text-primary-800">Para 95% dos novos empresários, recomendamos Sociedade Unipessoal por Quotas: protege o património pessoal, tem boa credibilidade e custos controlados.</p>
 </div>
 
-<h3>💰 Custos para Abrir Empresa em Portugal (2026)</h3>
+<h3>Custos para Abrir Empresa em Portugal (2026)</h3>
 
 <table class="w-full border-collapse border border-neutral-300 my-6">
   <thead>
@@ -397,17 +386,17 @@ export const insightsPosts = [
   </tbody>
 </table>
 
-<h3>📋 Documentos Necessários</h3>
+<h3>Documentos Necessários</h3>
 
 <ul class="space-y-2">
-  <li>✓ Cartão de Cidadão ou BI válido</li>
-  <li>✓ Número de contribuinte (NIF)</li>
-  <li>✓ IBAN para pagamentos</li>
-  <li>✓ Contrato de arrendamento ou título de propriedade da sede</li>
-  <li>✓ CAE (código de atividade económica) definido</li>
+  <li>Cartão de Cidadão ou BI válido</li>
+  <li>Número de contribuinte (NIF)</li>
+  <li>IBAN para pagamentos</li>
+  <li>Contrato de arrendamento ou título de propriedade da sede</li>
+  <li>CAE (código de atividade económica) definido</li>
 </ul>
 
-<h3>⏱️ Prazos de Constituição</h3>
+<h3>Prazos de Constituição</h3>
 
 <ul>
   <li><strong>Empresa na Hora:</strong> 1 dia (imediato)</li>
@@ -415,7 +404,7 @@ export const insightsPosts = [
   <li><strong>Com apoio de advogado/TOC:</strong> 10-15 dias úteis</li>
 </ul>
 
-<h3>📊 Obrigações Fiscais Após Abertura</h3>
+<h3>Obrigações Fiscais Após Abertura</h3>
 
 <h4>Mensais:</h4>
 <ul>
@@ -436,7 +425,7 @@ export const insightsPosts = [
   <li>Relatório de gestão e contas</li>
 </ul>
 
-<h3>✅ Passo a Passo para Abrir Empresa</h3>
+<h3>Passo a Passo para Abrir Empresa</h3>
 
 <ol class="space-y-4">
   <li>
@@ -478,21 +467,21 @@ export const insightsPosts = [
 </ol>
 
 <div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
-  <p class="font-bold text-green-900 mb-2">💡 DICA PRO</p>
+  <p class="font-bold text-green-900 mb-2 text-sm uppercase tracking-wide">Dica Profissional</p>
   <p class="text-green-800">90% das empresas que fecham nos primeiros 3 anos fazem-no por má gestão fiscal e contabilística. Tenha um TOC desde o dia 1.</p>
 </div>
 
-<h3>🎯 Apoio Hive Group na Constituição</h3>
+<h3>Apoio Hive Group na Constituição</h3>
 
 <p>A Hive Group oferece <strong>serviço completo de constituição de empresas</strong>:</p>
 
 <ul>
-  <li>✅ Consultoria para escolher o tipo de sociedade ideal</li>
-  <li>✅ Tratamento de toda a documentação</li>
-  <li>✅ Registo comercial e obtenção de NIPC</li>
-  <li>✅ Inscrição nas Finanças e Segurança Social</li>
-  <li>✅ Contabilidade certificada desde o início</li>
-  <li>✅ Acompanhamento mensal com TOC dedicado</li>
+  <li>Consultoria para escolher o tipo de sociedade ideal</li>
+  <li>Tratamento de toda a documentação</li>
+  <li>Registo comercial e obtenção de NIPC</li>
+  <li>Inscrição nas Finanças e Segurança Social</li>
+  <li>Contabilidade certificada desde o início</li>
+  <li>Acompanhamento mensal com TOC dedicado</li>
 </ul>
 
 <div class="bg-primary-600 text-white rounded-lg p-8 my-8 text-center">
@@ -544,13 +533,13 @@ export const insightsPosts = [
 
 <p>O <strong>Local do Cidadão</strong> é um serviço de agente autorizado certificado que permite tratar de toda a documentação oficial em Portugal sem necessidade de deslocações, filas ou perda de tempo. A Hive Group é agente autorizado certificado, o que significa que podemos legalmente tratar de documentos oficiais em seu nome.</p>
 
-<h3>📋 O Que é um Agente Autorizado?</h3>
+<h3>O Que é um Agente Autorizado?</h3>
 
 <p>Um agente autorizado é uma entidade certificada pelo Estado Português para prestar serviços que normalmente exigiriam deslocação a organismos públicos (Conservatórias, IMT, IRN, etc.). É <strong>100% legal e seguro</strong>.</p>
 
-<h3>✅ Serviços Disponíveis no Local do Cidadão</h3>
+<h3>Serviços Disponíveis no Local do Cidadão</h3>
 
-<h4>🚗 Documentação Automóvel</h4>
+<h4>Documentação Automóvel</h4>
 <ul>
   <li>Registo de veículos (compra/venda)</li>
   <li>Transferência de propriedade</li>
@@ -560,7 +549,7 @@ export const insightsPosts = [
   <li>Cancelamento de matrícula (abate)</li>
 </ul>
 
-<h4>🪪 Carta de Condução</h4>
+<h4>Carta de Condução</h4>
 <ul>
   <li>Renovação de carta de condução</li>
   <li>Alteração de morada na carta</li>
@@ -568,7 +557,7 @@ export const insightsPosts = [
   <li>Troca de carta estrangeira</li>
 </ul>
 
-<h4>📄 Certidões e Registos</h4>
+<h4>Certidões e Registos</h4>
 <ul>
   <li>Certidão de nascimento</li>
   <li>Certidão de casamento</li>
@@ -579,14 +568,14 @@ export const insightsPosts = [
   <li>Registo de procurações</li>
 </ul>
 
-<h4>✍️ Autenticações</h4>
+<h4>Autenticações</h4>
 <ul>
   <li>Reconhecimento de assinaturas</li>
   <li>Autenticação de documentos</li>
   <li>Cópias autenticadas</li>
 </ul>
 
-<h4>🏠 Serviços Domésticos</h4>
+<h4>Serviços Domésticos</h4>
 <ul>
   <li>Contratação de alarmes</li>
   <li>Contratação de telecomunicações</li>
@@ -594,7 +583,7 @@ export const insightsPosts = [
   <li>Cartões de combustível</li>
 </ul>
 
-<h3>💰 Quanto Custa?</h3>
+<h3>Quanto Custa?</h3>
 
 <table class="w-full border-collapse border border-neutral-300 my-6">
   <thead>
@@ -625,7 +614,7 @@ export const insightsPosts = [
 
 <p class="text-sm text-neutral-600 italic">*Preços indicativos. Contacte-nos para orçamento exato.</p>
 
-<h3>⏱️ Quanto Tempo Demora?</h3>
+<h3>Quanto Tempo Demora?</h3>
 
 <ul>
   <li><strong>Serviços urgentes:</strong> 24-48 horas</li>
@@ -634,35 +623,35 @@ export const insightsPosts = [
   <li><strong>Renovação carta:</strong> 5-7 dias úteis</li>
 </ul>
 
-<h3>🎯 Porquê Usar o Local do Cidadão?</h3>
+<h3>Porquê Usar o Local do Cidadão?</h3>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
   <div class="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-    <h4 class="font-bold text-green-900 mb-3">✅ Vantagens</h4>
+    <h4 class="font-bold text-green-900 mb-3">Vantagens</h4>
     <ul class="space-y-2 text-green-800">
-      <li>✓ Sem filas</li>
-      <li>✓ Sem deslocações</li>
-      <li>✓ Poupança de tempo</li>
-      <li>✓ Atendimento personalizado</li>
-      <li>✓ Acompanhamento do processo</li>
-      <li>✓ Entrega ao domicílio/empresa</li>
+      <li>Sem filas</li>
+      <li>Sem deslocações</li>
+      <li>Poupança de tempo</li>
+      <li>Atendimento personalizado</li>
+      <li>Acompanhamento do processo</li>
+      <li>Entrega ao domicílio/empresa</li>
     </ul>
   </div>
   
   <div class="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-    <h4 class="font-bold text-red-900 mb-3">❌ Sem Local do Cidadão</h4>
+    <h4 class="font-bold text-red-900 mb-3">Sem Local do Cidadão</h4>
     <ul class="space-y-2 text-red-800">
-      <li>✗ Filas intermináveis</li>
-      <li>✗ Deslocações múltiplas</li>
-      <li>✗ Perda de tempo de trabalho</li>
-      <li>✗ Stress e burocracia</li>
-      <li>✗ Documentos em falta</li>
-      <li>✗ Erros de preenchimento</li>
+      <li>Filas intermináveis</li>
+      <li>Deslocações múltiplas</li>
+      <li>Perda de tempo de trabalho</li>
+      <li>Stress e burocracia</li>
+      <li>Documentos em falta</li>
+      <li>Erros de preenchimento</li>
     </ul>
   </div>
 </div>
 
-<h3>📞 Como Funciona?</h3>
+<h3>Como Funciona?</h3>
 
 <ol class="space-y-4">
   <li><strong>1. Contacte-nos</strong> - Por telefone, WhatsApp ou email</li>

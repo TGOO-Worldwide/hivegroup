@@ -154,22 +154,111 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Content */}
           <div
-            className="prose prose-lg max-w-none 
+            className="article-content prose prose-lg max-w-none 
               prose-headings:text-neutral-900 prose-headings:font-bold
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-neutral-200 prose-h2:pb-4
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
-              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-4
-              prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
+              prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-primary-200
+              prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:text-neutral-800
+              prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-neutral-700 prose-h4:font-semibold
+              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+              prose-a:text-primary-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline
               prose-strong:text-neutral-900 prose-strong:font-bold
-              prose-ul:my-6 prose-ul:space-y-2
-              prose-ol:my-6 prose-ol:space-y-2
-              prose-li:text-neutral-700
-              prose-table:border-collapse prose-table:w-full
-              prose-th:bg-neutral-100 prose-th:border prose-th:border-neutral-300 prose-th:p-3 prose-th:text-left
-              prose-td:border prose-td:border-neutral-300 prose-td:p-3"
+              prose-ul:my-8 prose-ul:space-y-3
+              prose-ol:my-8 prose-ol:space-y-4
+              prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:pl-2
+              prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:shadow-sm
+              prose-thead:bg-neutral-800
+              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-4 prose-th:text-left
+              prose-td:border prose-td:border-neutral-300 prose-td:p-4 prose-td:bg-white
+              prose-tr:even:bg-neutral-50"
             dangerouslySetInnerHTML={{ __html: translation.contentHtml }}
           />
+
+          <style jsx global>{`
+            .article-content {
+              /* Alert Boxes */
+              .article-content > div[class*="bg-primary-"] {
+                border-radius: 12px;
+                padding: 24px;
+                margin: 32px 0;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+              }
+              
+              .article-content > div[class*="bg-primary-"] p:first-child {
+                font-weight: 600;
+                font-size: 1.125rem;
+                margin-bottom: 12px;
+              }
+              
+              /* Green Boxes */
+              .article-content > div[class*="bg-green-"] {
+                background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+                border-left: 4px solid #10b981;
+                border-radius: 12px;
+                padding: 24px;
+                margin: 32px 0;
+              }
+              
+              /* CTA Boxes */
+              .article-content > div[class*="bg-primary-600"] {
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                border-radius: 16px;
+                padding: 48px 32px;
+                margin: 48px 0;
+                text-align: center;
+                box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+              }
+              
+              .article-content > div[class*="bg-primary-600"] h3 {
+                color: white !important;
+                font-size: 2rem;
+                margin-bottom: 16px;
+              }
+              
+              .article-content > div[class*="bg-primary-600"] p {
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-size: 1.125rem;
+                margin-bottom: 24px;
+              }
+              
+              .article-content > div[class*="bg-primary-600"] a {
+                display: inline-block;
+                background: white;
+                color: #d97706 !important;
+                padding: 16px 32px;
+                border-radius: 8px;
+                font-weight: 700;
+                text-decoration: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transition: all 0.2s;
+              }
+              
+              .article-content > div[class*="bg-primary-600"] a:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+              }
+
+              /* Lists Enhancement */
+              .article-content ul li::marker {
+                color: #f59e0b;
+                font-weight: bold;
+              }
+              
+              .article-content ol li::marker {
+                color: #f59e0b;
+                font-weight: bold;
+              }
+
+              /* Tables Enhancement */
+              .article-content table {
+                border-radius: 8px;
+                overflow: hidden;
+              }
+              
+              .article-content table tbody tr:hover {
+                background-color: #fef3c7 !important;
+              }
+            }
+          `}</style>
 
           {/* FAQ */}
           {faq && faq.length > 0 && (
