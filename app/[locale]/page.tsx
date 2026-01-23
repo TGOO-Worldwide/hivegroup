@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
 
 // Premium Home Components
+import BannerTop from '@/components/home/BannerTop';
 import HeroPremium from '@/components/home/HeroPremium';
 import CoreServiceHighlight from '@/components/home/CoreServiceHighlight';
 import HexagonGrid from '@/components/home/HexagonGrid';
@@ -74,6 +75,9 @@ export default async function HomePage({ params: { locale } }: PageProps) {
 
   return (
     <>
+      {/* Banner Top */}
+      <BannerTop />
+
       {/* Hero Premium with Authorized Agent Badge */}
       <HeroPremium
         headline={sections.hero.headline}
