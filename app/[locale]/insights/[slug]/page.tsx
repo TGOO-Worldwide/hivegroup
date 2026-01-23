@@ -122,14 +122,14 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Link
             href={`/${locale}/insights`}
-            className="text-primary-400 hover:text-primary-300 text-sm font-medium mb-6 inline-flex items-center gap-2"
+            className="text-primary-400 hover:text-primary-300 text-sm font-medium mb-4 inline-flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Voltar aos Insights
           </Link>
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center gap-3 mb-6">
             <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-100 rounded-md">
               {post.category}
             </span>
@@ -142,10 +142,10 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
               })}
             </time>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
             {translation.title}
           </h1>
-          <p className="text-base md:text-lg text-white/75 leading-relaxed">
+          <p className="text-base md:text-lg text-white/80 leading-relaxed">
             {translation.excerpt}
           </p>
         </div>
@@ -155,38 +155,50 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Content */}
           <div
-            className="article-content prose prose-lg max-w-none 
-              prose-headings:text-neutral-900 prose-headings:font-bold prose-headings:leading-tight
-              prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-primary-200
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-neutral-800
-              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-2 prose-h4:text-neutral-700 prose-h4:font-semibold
-              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-4 prose-p:text-base
+            className="article-content prose prose-lg max-w-3xl mx-auto
+              prose-headings:text-neutral-900 prose-headings:font-bold prose-headings:leading-snug
+              prose-h2:text-4xl prose-h2:mt-8 prose-h2:mb-6 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-primary-200
+              prose-h3:text-2xl prose-h3:mt-7 prose-h3:mb-4 prose-h3:text-neutral-800
+              prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-h4:font-semibold
+              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-5 prose-p:text-base
               prose-a:text-primary-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline
               prose-strong:text-neutral-900 prose-strong:font-semibold
-              prose-ul:my-4 prose-ul:space-y-2
-              prose-ol:my-4 prose-ol:space-y-2
+              prose-ul:my-5 prose-ul:space-y-2
+              prose-ol:my-5 prose-ol:space-y-2
               prose-li:text-neutral-700 prose-li:leading-relaxed
-              prose-table:border-collapse prose-table:w-full prose-table:my-6 prose-table:shadow-sm
+              prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:shadow-sm
               prose-thead:bg-neutral-800
-              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-3 prose-th:text-left prose-th:text-sm
-              prose-td:border prose-td:border-neutral-300 prose-td:p-3 prose-td:bg-white prose-td:text-sm
+              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-4 prose-th:text-left prose-th:text-sm
+              prose-td:border prose-td:border-neutral-300 prose-td:p-4 prose-td:bg-white prose-td:text-sm
               prose-tr:even:bg-neutral-50"
             dangerouslySetInnerHTML={{ __html: translation.contentHtml }}
           />
 
           {/* FAQ */}
           {faq && faq.length > 0 && (
-            <section className="mt-12 border-t border-neutral-200 pt-10">
-              <h2 className="text-2xl font-bold text-neutral-900 mb-6">
-                Perguntas Frequentes
-              </h2>
-              <div className="space-y-4">
+            <section className="mt-12 border-t-2 border-neutral-200 pt-10">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1 h-8 bg-primary-500 rounded-full" />
+                <h2 className="text-3xl font-bold text-neutral-900">
+                  Perguntas Frequentes
+                </h2>
+              </div>
+              <div className="space-y-5">
                 {faq.map((item: any, index: number) => (
-                  <div key={index} className="bg-neutral-50 border border-neutral-200 rounded-lg p-5 hover:border-primary-300 hover:bg-primary-50/30 transition-colors">
-                    <h3 className="text-base font-bold text-neutral-900 mb-2">
-                      {item.question}
-                    </h3>
-                    <p className="text-neutral-700 text-sm leading-relaxed">{item.answer}</p>
+                  <div key={index} className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-md transition-all group">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+                        <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-neutral-900 mb-3 leading-snug">
+                          {item.question}
+                        </h3>
+                        <p className="text-neutral-700 text-base leading-relaxed">{item.answer}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -194,14 +206,14 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
           )}
 
           {/* CTA Context-Specific */}
-          <div className="mt-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl p-8 text-center text-white shadow-lg">
-            <h3 className="text-xl font-bold mb-3">{cta.title}</h3>
-            <p className="text-base text-primary-50 mb-6 max-w-2xl mx-auto leading-relaxed">
+          <div className="mt-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl p-8 sm:p-10 text-center text-white border-2 border-primary-400/30">
+            <h3 className="text-2xl font-bold mb-5">{cta.title}</h3>
+            <p className="text-base text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
               {cta.description}
             </p>
             <Link
               href={cta.link}
-              className="inline-block bg-white text-primary-600 px-7 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors shadow-md text-sm"
+              className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-neutral-50 hover:shadow-xl transition-all hover:-translate-y-0.5 shadow-lg text-base"
             >
               {cta.linkText}
             </Link>
@@ -211,29 +223,32 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-12 bg-neutral-50 border-t border-neutral-200">
+        <section className="py-12 bg-neutral-50 border-t-2 border-neutral-200">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-bold text-neutral-900 mb-6">Artigos Relacionados</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-8 bg-primary-500 rounded-full" />
+              <h2 className="text-2xl font-bold text-neutral-900">Artigos Relacionados</h2>
+            </div>
             
-            <div className="space-y-4">
+            <div className="space-y-5">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   href={`/${locale}/insights/${relatedPost.slug}`}
                   className="group block"
                 >
-                  <article className="bg-white border border-neutral-200 rounded-lg p-5 hover:border-primary-400 hover:shadow-md transition-all">
-                    <div className="flex items-center gap-2 mb-2">
+                  <article className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-lg transition-all hover:-translate-y-0.5">
+                    <div className="flex items-center gap-2 mb-4">
                       <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-50 rounded-md">
                         {relatedPost.category}
                       </span>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors leading-snug">
                       {relatedPost.translation.title}
                     </h3>
                     
-                    <p className="text-neutral-600 text-sm line-clamp-2 leading-relaxed">
+                    <p className="text-neutral-600 text-base line-clamp-2 leading-relaxed">
                       {relatedPost.translation.excerpt}
                     </p>
                   </article>
