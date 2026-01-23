@@ -117,88 +117,79 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
       />
       {faq && faq.length > 0 && <JsonLdFAQ faqs={faq} locale={locale} />}
       
-      {/* Hero with Category */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 py-10 border-b-4 border-primary-500">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href={`/${locale}/insights`}
-            className="text-primary-400 hover:text-primary-300 text-sm font-medium mb-4 inline-flex items-center gap-2"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Voltar aos Insights
-          </Link>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-100 rounded-md">
-              {post.category}
-            </span>
-            <span className="text-xs text-white/40">•</span>
-            <time className="text-sm text-white/60">
+      {/* Hero - News Style */}
+      <section className="bg-white border-b border-neutral-200">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm mb-6">
+            <Link href={`/${locale}/insights`} className="text-primary-600 hover:underline font-medium">
+              Insights
+            </Link>
+            <span className="text-neutral-400">/</span>
+            <span className="text-neutral-500">{post.category}</span>
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight tracking-tight">
+            {translation.title}
+          </h1>
+          
+          {/* Meta */}
+          <div className="flex items-center gap-4 text-sm text-neutral-500 mb-6">
+            <time>
               {new Date(post.createdAt).toLocaleDateString(locale, {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric',
               })}
             </time>
+            <span>•</span>
+            <span>Hive Group</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
-            {translation.title}
-          </h1>
-          <p className="text-base md:text-lg text-white/80 leading-relaxed">
+          
+          {/* Excerpt */}
+          <p className="text-xl text-neutral-600 leading-relaxed border-l-4 border-primary-500 pl-6">
             {translation.excerpt}
           </p>
         </div>
       </section>
 
-      <article className="py-10 bg-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {/* Content */}
+      <article className="py-12 bg-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          {/* Content - News Style Typography */}
           <div
-            className="article-content prose prose-lg max-w-3xl mx-auto
-              prose-headings:text-neutral-900 prose-headings:font-bold prose-headings:leading-snug
-              prose-h2:text-4xl prose-h2:mt-8 prose-h2:mb-6 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-primary-200
-              prose-h3:text-2xl prose-h3:mt-7 prose-h3:mb-4 prose-h3:text-neutral-800
-              prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-h4:font-semibold
-              prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:mb-5 prose-p:text-base
-              prose-a:text-primary-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline
+            className="article-content prose prose-lg max-w-none
+              prose-headings:text-neutral-900 prose-headings:font-bold prose-headings:leading-tight
+              prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pt-8 prose-h2:border-t prose-h2:border-neutral-200
+              prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-neutral-800
+              prose-h4:text-lg prose-h4:mt-8 prose-h4:mb-2 prose-h4:text-neutral-700 prose-h4:font-semibold
+              prose-p:text-neutral-700 prose-p:leading-[1.8] prose-p:mb-6 prose-p:text-lg
+              prose-a:text-primary-600 prose-a:underline prose-a:underline-offset-2 prose-a:font-medium hover:prose-a:text-primary-700
               prose-strong:text-neutral-900 prose-strong:font-semibold
-              prose-ul:my-5 prose-ul:space-y-2
-              prose-ol:my-5 prose-ol:space-y-2
-              prose-li:text-neutral-700 prose-li:leading-relaxed
-              prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-table:shadow-sm
-              prose-thead:bg-neutral-800
-              prose-th:text-white prose-th:font-semibold prose-th:border prose-th:border-neutral-600 prose-th:p-4 prose-th:text-left prose-th:text-sm
-              prose-td:border prose-td:border-neutral-300 prose-td:p-4 prose-td:bg-white prose-td:text-sm
+              prose-ul:my-6 prose-ul:space-y-3
+              prose-ol:my-6 prose-ol:space-y-3
+              prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:text-lg
+              prose-table:border-collapse prose-table:w-full prose-table:my-10
+              prose-thead:bg-neutral-100
+              prose-th:text-neutral-900 prose-th:font-semibold prose-th:border prose-th:border-neutral-300 prose-th:p-4 prose-th:text-left prose-th:text-sm
+              prose-td:border prose-td:border-neutral-200 prose-td:p-4 prose-td:bg-white prose-td:text-base
               prose-tr:even:bg-neutral-50"
             dangerouslySetInnerHTML={{ __html: translation.contentHtml }}
           />
 
           {/* FAQ */}
           {faq && faq.length > 0 && (
-            <section className="mt-12 border-t-2 border-neutral-200 pt-10">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-1 h-8 bg-primary-500 rounded-full" />
-                <h2 className="text-3xl font-bold text-neutral-900">
-                  Perguntas Frequentes
-                </h2>
-              </div>
-              <div className="space-y-5">
+            <section className="mt-16 pt-10 border-t border-neutral-200">
+              <h2 className="text-2xl font-bold text-neutral-900 mb-8">
+                Perguntas Frequentes
+              </h2>
+              <div className="space-y-6">
                 {faq.map((item: any, index: number) => (
-                  <div key={index} className="bg-gradient-to-br from-neutral-50 to-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-md transition-all group">
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
-                        <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-neutral-900 mb-3 leading-snug">
-                          {item.question}
-                        </h3>
-                        <p className="text-neutral-700 text-base leading-relaxed">{item.answer}</p>
-                      </div>
-                    </div>
+                  <div key={index} className="border-b border-neutral-200 pb-6 last:border-b-0">
+                    <h3 className="text-lg font-semibold text-neutral-900 mb-3">
+                      {item.question}
+                    </h3>
+                    <p className="text-neutral-600 text-base leading-relaxed">{item.answer}</p>
                   </div>
                 ))}
               </div>
@@ -206,14 +197,14 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
           )}
 
           {/* CTA Context-Specific */}
-          <div className="mt-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl p-8 sm:p-10 text-center text-white border-2 border-primary-400/30">
-            <h3 className="text-2xl font-bold mb-5">{cta.title}</h3>
-            <p className="text-base text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <div className="mt-16 bg-neutral-900 rounded-lg p-8 sm:p-10">
+            <h3 className="text-xl font-bold text-white mb-4">{cta.title}</h3>
+            <p className="text-neutral-400 mb-6 leading-relaxed">
               {cta.description}
             </p>
             <Link
               href={cta.link}
-              className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-neutral-50 hover:shadow-xl transition-all hover:-translate-y-0.5 shadow-lg text-base"
+              className="inline-block bg-primary-500 text-white px-6 py-3 rounded font-semibold hover:bg-primary-600 transition-colors text-sm"
             >
               {cta.linkText}
             </Link>
@@ -223,34 +214,29 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-12 bg-neutral-50 border-t-2 border-neutral-200">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1 h-8 bg-primary-500 rounded-full" />
-              <h2 className="text-2xl font-bold text-neutral-900">Artigos Relacionados</h2>
-            </div>
+        <section className="py-12 bg-neutral-50 border-t border-neutral-200">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-lg font-bold text-neutral-900 mb-6 uppercase tracking-wide">Leia também</h2>
             
-            <div className="space-y-5">
+            <div className="space-y-4">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   href={`/${locale}/insights/${relatedPost.slug}`}
                   className="group block"
                 >
-                  <article className="bg-white border-2 border-neutral-200 rounded-xl p-6 hover:border-primary-400 hover:shadow-lg transition-all hover:-translate-y-0.5">
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="px-3 py-1 text-xs font-bold text-primary-700 bg-primary-50 rounded-md">
+                  <article className="flex gap-4 py-4 border-b border-neutral-200 last:border-b-0 hover:bg-neutral-100 -mx-4 px-4 transition-colors">
+                    <div className="flex-1">
+                      <span className="text-xs font-medium text-primary-600 uppercase tracking-wide">
                         {relatedPost.category}
                       </span>
+                      <h3 className="text-lg font-semibold text-neutral-900 mt-1 group-hover:text-primary-600 transition-colors leading-snug">
+                        {relatedPost.translation.title}
+                      </h3>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors leading-snug">
-                      {relatedPost.translation.title}
-                    </h3>
-                    
-                    <p className="text-neutral-600 text-base line-clamp-2 leading-relaxed">
-                      {relatedPost.translation.excerpt}
-                    </p>
+                    <svg className="w-5 h-5 text-neutral-400 group-hover:text-primary-600 flex-shrink-0 mt-4 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </article>
                 </Link>
               ))}
