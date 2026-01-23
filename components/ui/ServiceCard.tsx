@@ -67,14 +67,21 @@ export default function ServiceCard({
           style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }}
         />
 
-        {/* Icon Container */}
+        {/* Icon Container with Hive SVG Background */}
         <div className="mb-6 transform transition-transform duration-300 group-hover:scale-110">
-          <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-primary-50 to-primary-100/50 group-hover:from-primary-100 group-hover:to-primary-200/50 transition-colors duration-300">
+          <div className="relative inline-flex items-center justify-center w-16 h-16">
+            {/* Hive SVG Background */}
+            <img
+              src="/hive.svg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+            {/* Icon in White on Center */}
             <HiveIcon
               name={icon}
-              size={32}
-              className="text-primary-600 group-hover:text-primary-700 transition-colors duration-300"
-              weight="light"
+              size={28}
+              className="relative z-10 text-white drop-shadow-sm"
+              weight="regular"
             />
           </div>
         </div>
