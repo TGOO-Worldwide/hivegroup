@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "accounting": "Comptabilité",
+    "authorizedAgent": "Agent Autorisé",
+    "finance": "Finance",
+    "credit": "Crédit",
+    "insurance": "Assurance",
+    "realEstate": "Immobilier",
+    "legal": "Juridique",
+    "marketing": "Marketing",
+    "travel": "Voyages",
+    "it": "IT",
+    "businessDevelopment": "Développement Commercial",
+    "insights": "Insights",
+    "contacts": "Contacts"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "contactUs": "Nous contacter",
+    "readMore": "Lire la suite",
+    "viewAll": "Voir tout",
+    "backToHome": "Retour à l'accueil",
+    "languageSelector": "Langue",
+    "phone": "Téléphone",
+    "email": "Email",
+    "address": "Adresse"
+  },
+  "home": {
+    "cta": {
+      "meeting": "Réserver Rendez-vous",
+      "proposal": "Demander Proposition"
+    },
+    "exploreServices": "Explorer Services"
+  },
+  "footer": {
+    "tagline": "Solutions intégrées pour votre entreprise",
+    "rights": "Tous droits réservés",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "followUs": "Suivez-nous"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour vous aider. Contactez-nous via l'un de nos canaux.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+    }
+  }
+}

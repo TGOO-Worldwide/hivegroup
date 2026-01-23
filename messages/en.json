@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "accounting": "Accounting",
+    "authorizedAgent": "Authorised Agent",
+    "finance": "Finance",
+    "credit": "Credit",
+    "insurance": "Insurance",
+    "realEstate": "Real Estate",
+    "legal": "Legal",
+    "marketing": "Marketing",
+    "travel": "Travel",
+    "it": "IT",
+    "businessDevelopment": "Business Development",
+    "insights": "Insights",
+    "contacts": "Contacts"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "backToHome": "Back to home",
+    "languageSelector": "Language",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address"
+  },
+  "home": {
+    "cta": {
+      "meeting": "Book Meeting",
+      "proposal": "Request Proposal"
+    },
+    "exploreServices": "Explore Services"
+  },
+  "footer": {
+    "tagline": "Integrated solutions for your business",
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "followUs": "Follow us"
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "We are here to help. Contact us through any of our channels.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    }
+  }
+}

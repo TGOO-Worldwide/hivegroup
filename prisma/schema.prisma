@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// Pages (Landing pages e páginas estáticas)
+// ============================================
+model Page {
+  id        Int               @id @default(autoincrement())
+  slug      String            @unique @db.VarChar(255)
+  type      String            @db.VarChar(100) // 'service', 'home', 'contact', etc.
+  published Boolean           @default(true)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  
+  translations PageTranslation[]
+
+  @@index([slug])
+  @@index([type])
+  @@map("pages")
+}
+
+model PageTranslation {
+  id             Int      @id @default(autoincrement())
+  pageId         Int
+  locale         String   @db.VarChar(10) // 'pt', 'en', 'fr', 'es', 'it'
+  
+  // Conteúdo principal
+  title          String   @db.VarChar(255)
+  subtitle       String?  @db.Text
+  sectionsJson   String   @db.LongText // JSON com todas as secções da página
+  
+  // SEO
+  seoTitle       String   @db.VarChar(255)
+  seoDescription String   @db.VarChar(500)
+  keywordsJson   String?  @db.Text // Array JSON de keywords
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  page           Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([pageId, locale])
+  @@index([locale])
+  @@map("page_translations")
+}
+
+// ============================================
+// Posts (Blog / Insights)
+// ============================================
+model Post {
+  id        Int              @id @default(autoincrement())
+  slug      String           @unique @db.VarChar(255)
+  category  String           @db.VarChar(100) // 'tax', 'legal', 'finance', 'business', etc.
+  published Boolean          @default(true)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  
+  translations PostTranslation[]
+
+  @@index([slug])
+  @@index([category])
+  @@map("posts")
+}
+
+model PostTranslation {
+  id             Int      @id @default(autoincrement())
+  postId         Int
+  locale         String   @db.VarChar(10)
+  
+  // Conteúdo
+  title          String   @db.VarChar(255)
+  excerpt        String   @db.Text
+  contentHtml    String   @db.LongText // HTML ou Markdown
+  featuredImage  String?  @db.VarChar(500)
+  
+  // SEO
+  seoTitle       String   @db.VarChar(255)
+  seoDescription String   @db.VarChar(500)
+  
+  // FAQ estruturada (opcional)
+  faqJson        String?  @db.Text // Array JSON de perguntas/respostas
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  post           Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, locale])
+  @@index([locale])
+  @@map("post_translations")
+}

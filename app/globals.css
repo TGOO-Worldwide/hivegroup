@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-gold: #a07820;
+  --brand-gold-light: #edde7f;
+  --brand-gold-medium: #b29243;
+  --brand-charcoal: #1c1e23;
+}
+
+@layer base {
+  body {
+    @apply bg-white antialiased;
+    color: #1c1e23;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space-grotesk), var(--font-poppins), system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+    color: #1c1e23;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl leading-snug;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+    color: #45474b;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .section-heading {
+    @apply text-center mb-12 md:mb-16;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4;
+    font-family: var(--font-space-grotesk), var(--font-poppins), system-ui, sans-serif;
+    color: #1c1e23;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl max-w-3xl mx-auto;
+    color: #515359;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-gold;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .premium-shadow {
+    box-shadow: 0 4px 20px rgba(160, 120, 32, 0.08);
+  }
+
+  .premium-shadow-lg {
+    box-shadow: 0 10px 40px rgba(160, 120, 32, 0.12);
+  }
+}
+
+/* Custom scrollbar - Premium Style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-gold-medium);
+}
+
+/* Selection */
+::selection {
+  background: var(--brand-gold-light);
+  color: var(--brand-charcoal);
+}
+
+::-moz-selection {
+  background: var(--brand-gold-light);
+  color: var(--brand-charcoal);
+}

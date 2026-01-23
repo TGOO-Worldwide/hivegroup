@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Início",
+    "services": "Serviços",
+    "accounting": "Contabilidade",
+    "authorizedAgent": "Agente Autorizado",
+    "finance": "Finanças",
+    "credit": "Crédito",
+    "insurance": "Seguros",
+    "realEstate": "Imobiliário",
+    "legal": "Jurídico",
+    "marketing": "Marketing",
+    "travel": "Viagens",
+    "it": "IT",
+    "businessDevelopment": "Desenvolvimento de Negócio",
+    "insights": "Insights",
+    "contacts": "Contactos"
+  },
+  "common": {
+    "learnMore": "Saiba mais",
+    "contactUs": "Contacte-nos",
+    "readMore": "Ler mais",
+    "viewAll": "Ver todos",
+    "backToHome": "Voltar ao início",
+    "languageSelector": "Idioma",
+    "phone": "Telefone",
+    "email": "Email",
+    "address": "Morada"
+  },
+  "home": {
+    "cta": {
+      "meeting": "Marcar Reunião",
+      "proposal": "Pedir Proposta"
+    },
+    "exploreServices": "Explorar Serviços"
+  },
+  "footer": {
+    "tagline": "Soluções integradas para o seu negócio",
+    "rights": "Todos os direitos reservados",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos e Condições",
+    "followUs": "Siga-nos"
+  },
+  "contact": {
+    "title": "Entre em contacto",
+    "subtitle": "Estamos aqui para ajudar. Contacte-nos através de qualquer um dos nossos canais.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone",
+      "message": "Mensagem",
+      "send": "Enviar mensagem",
+      "sending": "A enviar...",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente."
+    }
+  }
+}

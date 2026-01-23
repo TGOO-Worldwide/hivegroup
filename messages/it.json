@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Servizi",
+    "accounting": "Contabilità",
+    "authorizedAgent": "Agente Autorizzato",
+    "finance": "Finanza",
+    "credit": "Credito",
+    "insurance": "Assicurazioni",
+    "realEstate": "Immobiliare",
+    "legal": "Legale",
+    "marketing": "Marketing",
+    "travel": "Viaggi",
+    "it": "IT",
+    "businessDevelopment": "Sviluppo Business",
+    "insights": "Insights",
+    "contacts": "Contatti"
+  },
+  "common": {
+    "learnMore": "Scopri di più",
+    "contactUs": "Contattaci",
+    "readMore": "Leggi di più",
+    "viewAll": "Vedi tutti",
+    "backToHome": "Torna alla home",
+    "languageSelector": "Lingua",
+    "phone": "Telefono",
+    "email": "Email",
+    "address": "Indirizzo"
+  },
+  "home": {
+    "cta": {
+      "meeting": "Prenota Riunione",
+      "proposal": "Richiedi Proposta"
+    },
+    "exploreServices": "Esplora Servizi"
+  },
+  "footer": {
+    "tagline": "Soluzioni integrate per il tuo business",
+    "rights": "Tutti i diritti riservati",
+    "privacy": "Politica sulla Privacy",
+    "terms": "Termini e Condizioni",
+    "followUs": "Seguici"
+  },
+  "contact": {
+    "title": "Mettiti in contatto",
+    "subtitle": "Siamo qui per aiutarti. Contattaci attraverso uno dei nostri canali.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefono",
+      "message": "Messaggio",
+      "send": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato con successo!",
+      "error": "Errore nell'invio del messaggio. Riprova."
+    }
+  }
+}
