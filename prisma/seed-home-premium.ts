@@ -53,11 +53,12 @@ async function updateHomePage() {
                 subtitle: 'Agente Autorizado Certificado',
                 description: 'Tratamos de toda a documentação oficial sem necessidade de deslocações. Certidões, registos, autenticações, documentação automóvel e muito mais. Poupe tempo e elimine burocracias.',
                 features: [
-                  'Documentação automóvel completa',
+                  'Documentação automóvel',
                   'Renovação da carta de condução',
                   'Certidões e registos oficiais',
                   'Autenticações de documentos',
-                  'Cartão de cidadão e serviços públicos'
+                  'Projetos de investimentos',
+                  'Cartão combustível'
                 ],
                 tagline: 'Este é o seu Local. Tratamos de tudo por si.',
                 ctaLabel: 'Conhecer Serviços'

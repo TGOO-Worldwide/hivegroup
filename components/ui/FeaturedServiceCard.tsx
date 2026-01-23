@@ -66,14 +66,19 @@ export default function FeaturedServiceCard({
           }
         `}
       >
-        {/* Icon Container */}
+        {/* Icon Container with Hive SVG */}
         <div className="mb-6">
-          <div className="inline-flex p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover:bg-white/20 group-hover:scale-110">
+          <div className="relative inline-flex items-center justify-center w-20 h-20 transition-transform duration-300 group-hover:scale-110">
+            <img
+              src="/hive-3.svg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-contain"
+            />
             <HiveIcon
               name={icon}
-              size={40}
-              className="text-white"
-              weight="light"
+              size={36}
+              className="relative z-10 text-white drop-shadow-md"
+              weight="regular"
             />
           </div>
         </div>

@@ -30,8 +30,13 @@ export default function QuickContactCards({ locale }: QuickContactCardsProps) {
         "
       >
         <div className="flex flex-col items-center text-center gap-4">
-          <div className="p-4 rounded-2xl bg-primary-100 group-hover:bg-primary-200 transition-colors">
-            <Phone size={48} weight="bold" className="text-primary-600" />
+          <div className="relative w-20 h-20">
+            <img
+              src="/hive-3.svg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+            <Phone size={40} weight="bold" className="absolute inset-0 m-auto text-white drop-shadow-md" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-charcoal-900 mb-2">
@@ -68,8 +73,13 @@ export default function QuickContactCards({ locale }: QuickContactCardsProps) {
         "
       >
         <div className="flex flex-col items-center text-center gap-4">
-          <div className="p-4 rounded-2xl bg-green-100 group-hover:bg-green-200 transition-colors">
-            <WhatsappLogo size={48} weight="bold" className="text-green-600" />
+          <div className="relative w-20 h-20">
+            <img
+              src="/hive-3.svg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+            <WhatsappLogo size={40} weight="bold" className="absolute inset-0 m-auto text-white drop-shadow-md" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-charcoal-900 mb-2">

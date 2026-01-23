@@ -30,9 +30,14 @@ export default function WhyChooseSection({ title, subtitle, reasons }: WhyChoose
               key={index}
               className="relative bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-neutral-200 hover:border-primary-300 group"
             >
-              {/* Golden Number Badge */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">{index + 1}</span>
+              {/* Number Badge with Hive SVG */}
+              <div className="absolute -top-4 -left-4 w-12 h-12">
+                <img
+                  src="/hive-3.svg"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-contain drop-shadow-lg"
+                />
+                <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg drop-shadow-md">{index + 1}</span>
               </div>
 
               {/* Content */}

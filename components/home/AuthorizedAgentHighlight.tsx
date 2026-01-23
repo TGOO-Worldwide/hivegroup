@@ -85,11 +85,19 @@ export default function AuthorizedAgentHighlight({
               "
             >
               <div className="flex items-start gap-4">
-                <ShieldCheck
-                  size={28}
-                  weight="fill"
-                  className="flex-shrink-0 text-primary-400 group-hover:text-primary-300 transition-colors duration-200"
-                />
+                {/* Hive SVG with Icon */}
+                <div className="relative flex-shrink-0 w-10 h-10">
+                  <img
+                    src="/hive.svg"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                  <ShieldCheck
+                    size={20}
+                    weight="fill"
+                    className="absolute inset-0 m-auto text-white drop-shadow-sm"
+                  />
+                </div>
                 <p className="text-base text-white/90 leading-relaxed">
                   {feature}
                 </p>
