@@ -22,18 +22,45 @@ async function updateHomePage() {
             locale: 'pt',
             title: 'Hive Group Portugal - Contabilidade Certificada & Soluções Empresariais',
             subtitle: 'Contabilidade certificada, agente autorizado e soluções integradas para o seu negócio em Portugal.',
-            seoTitle: 'Hive Group Portugal - Contabilidade Certificada & Agente Autorizado',
-            seoDescription: 'Contabilidade certificada TOC, Agente Autorizado Local do Cidadão, finanças, crédito, seguros e mais. Soluções completas para empresas em Portugal.',
-            keywordsJson: JSON.stringify(['contabilidade certificada', 'TOC', 'agente autorizado', 'local do cidadão', 'finanças', 'portugal', 'contabilista']),
+            seoTitle: 'Hive Group Portugal - Contabilidade Certificada & Local do Cidadão',
+            seoDescription: 'Contabilidade certificada TOC, Local do Cidadão (agente autorizado), finanças, crédito, seguros e mais. Soluções completas para empresas em Portugal.',
+            keywordsJson: JSON.stringify(['contabilidade certificada', 'TOC', 'local do cidadão', 'agente autorizado', 'finanças', 'portugal', 'contabilista']),
             sectionsJson: JSON.stringify({
               hero: {
                 headline: 'Contabilidade Certificada & Soluções Integradas',
-                subheadline: 'Simplifique a gestão da sua empresa com os nossos serviços de contabilidade certificada, agente autorizado e consultoria empresarial em Portugal.',
+                subheadline: 'Simplifique a gestão da sua empresa com os nossos serviços de contabilidade certificada, Local do Cidadão e consultoria empresarial em Portugal.',
                 authorizedAgentBadge: {
-                  title: 'Agente Autorizado',
-                  subtitle: 'Local do Cidadão',
+                  title: 'Local do Cidadão',
+                  subtitle: 'Agente Autorizado Certificado',
                   description: 'Tratamos de documentos oficiais por si'
                 }
+              },
+              coreService: {
+                title: 'Contabilidade Certificada TOC',
+                subtitle: 'O Alicerce do Seu Negócio',
+                description: 'Gestão contabilística completa por Técnicos Oficiais de Contas certificados. IVA, IRS, IRC, fecho de contas anual e todas as obrigações fiscais com rigor e pontualidade.',
+                benefits: [
+                  'Técnicos Oficiais de Contas certificados',
+                  'Declarações fiscais dentro dos prazos',
+                  'Relatórios mensais personalizados',
+                  'Portal do cliente online',
+                  'Apoio permanente'
+                ],
+                ctaLabel: 'Conhecer Contabilidade'
+              },
+              authorizedAgent: {
+                title: 'Local do Cidadão',
+                subtitle: 'Agente Autorizado Certificado',
+                description: 'Tratamos de toda a documentação oficial sem necessidade de deslocações. Certidões, registos, autenticações, documentação automóvel e muito mais. Poupe tempo e elimine burocracias.',
+                features: [
+                  'Documentação automóvel completa',
+                  'Renovação da carta de condução',
+                  'Certidões e registos oficiais',
+                  'Autenticações de documentos',
+                  'Cartão de cidadão e serviços públicos'
+                ],
+                tagline: 'Este é o seu Local. Tratamos de tudo por si.',
+                ctaLabel: 'Conhecer Serviços'
               },
               groupHive: {
                 title: 'O Grupo Hive',
@@ -104,8 +131,8 @@ async function updateHomePage() {
                     description: 'Equipa de Técnicos Oficiais de Contas certificados pela Ordem dos Contabilistas Certificados.'
                   },
                   {
-                    title: 'Agente Autorizado Certificado',
-                    description: 'Tratamos de documentos oficiais do Local do Cidadão sem necessidade de deslocações.'
+                    title: 'Local do Cidadão Certificado',
+                    description: 'Tratamos de documentos oficiais sem necessidade de deslocações (agente autorizado).'
                   },
                   {
                     title: 'Soluções Integradas',
@@ -173,7 +200,7 @@ async function updateHomePage() {
                     highlight: true
                   },
                   {
-                    title: 'Agente Autorizado - Local do Cidadão',
+                    title: 'Local do Cidadão',
                     description: 'Serviços oficiais sem deslocações. Certidões, registos, autenticações e muito mais.',
                     features: [
                       'Certidões (nascimento, casamento, óbito)',
@@ -210,8 +237,8 @@ async function updateHomePage() {
                     answer: 'Sim, todos os nossos serviços de contabilidade são prestados por Técnicos Oficiais de Contas (TOC) certificados pela Ordem dos Contabilistas Certificados, garantindo conformidade total com a legislação portuguesa.'
                   },
                   {
-                    question: 'O que é um Agente Autorizado do Local do Cidadão?',
-                    answer: 'É uma entidade certificada que pode tratar de documentos oficiais (certidões, registos, autenticações) sem que tenha de se deslocar a serviços públicos. Poupamos o seu tempo tratando de tudo por si.'
+                    question: 'O que é o Local do Cidadão?',
+                    answer: 'É uma entidade certificada (agente autorizado) que pode tratar de documentos oficiais (certidões, registos, autenticações) sem que tenha de se deslocar a serviços públicos. Poupamos o seu tempo tratando de tudo por si.'
                   },
                   {
                     question: 'Que tipo de empresas trabalham convosco?',
@@ -268,6 +295,33 @@ async function updateHomePage() {
                   subtitle: "Citizen's Office",
                   description: 'We handle official documents for you'
                 }
+              },
+              coreService: {
+                title: 'Certified TOC Accounting',
+                subtitle: 'The Foundation of Your Business',
+                description: 'Complete accounting management by certified Official Chartered Accountants. VAT, personal and corporate tax, annual closing and all tax obligations with rigour and punctuality.',
+                benefits: [
+                  'Certified Official Chartered Accountants',
+                  'Tax returns within deadlines',
+                  'Personalised monthly reports',
+                  'Online client portal',
+                  'Permanent support'
+                ],
+                ctaLabel: 'Discover Accounting'
+              },
+              authorizedAgent: {
+                title: "Citizen's Office",
+                subtitle: 'Certified Authorised Agent',
+                description: 'We handle all official documentation without you needing to travel. Certificates, registrations, authentications, vehicle documentation and much more. Save time and eliminate bureaucracy.',
+                features: [
+                  'Complete vehicle documentation',
+                  'Driving licence renewal',
+                  'Official certificates and registrations',
+                  'Document authentications',
+                  'Citizen card and public services'
+                ],
+                tagline: 'This is your Place. We handle everything for you.',
+                ctaLabel: 'Discover Services'
               },
               groupHive: {
                 title: 'The Hive Group',
@@ -504,6 +558,33 @@ async function updateHomePage() {
                   description: 'Nous traitons les documents officiels pour vous'
                 }
               },
+              coreService: {
+                title: 'Comptabilité Certifiée TOC',
+                subtitle: 'La Base de Votre Entreprise',
+                description: 'Gestion comptable complète par des experts-comptables certifiés. TVA, impôts, clôture annuelle et toutes obligations fiscales avec rigueur et ponctualité.',
+                benefits: [
+                  'Experts-comptables certifiés',
+                  'Déclarations fiscales dans les délais',
+                  'Rapports mensuels personnalisés',
+                  'Portail client en ligne',
+                  'Support permanent'
+                ],
+                ctaLabel: 'Découvrir Comptabilité'
+              },
+              authorizedAgent: {
+                title: 'Bureau du Citoyen',
+                subtitle: 'Agent Autorisé Certifié',
+                description: 'Nous traitons toute la documentation officielle sans déplacement. Certificats, enregistrements, authentifications, documents véhicule et bien plus. Gagnez du temps et éliminez la bureaucratie.',
+                features: [
+                  'Documentation véhicule complète',
+                  'Renouvellement permis de conduire',
+                  'Certificats et enregistrements officiels',
+                  'Authentifications de documents',
+                  'Carte de citoyen et services publics'
+                ],
+                tagline: 'C\'est votre Bureau. Nous gérons tout pour vous.',
+                ctaLabel: 'Découvrir Services'
+              },
               groupHive: {
                 title: 'Le Groupe Hive',
                 subtitle: 'Solutions intégrées dans 9 domaines stratégiques',
@@ -612,6 +693,33 @@ async function updateHomePage() {
                   description: 'Tramitamos documentos oficiales por usted'
                 }
               },
+              coreService: {
+                title: 'Contabilidad Certificada TOC',
+                subtitle: 'La Base de Su Negocio',
+                description: 'Gestión contable completa por Contadores Oficiales certificados. IVA, impuestos, cierre anual y todas las obligaciones fiscales con rigor y puntualidad.',
+                benefits: [
+                  'Contadores Oficiales certificados',
+                  'Declaraciones fiscales en plazo',
+                  'Informes mensuales personalizados',
+                  'Portal del cliente online',
+                  'Soporte permanente'
+                ],
+                ctaLabel: 'Conocer Contabilidad'
+              },
+              authorizedAgent: {
+                title: 'Oficina del Ciudadano',
+                subtitle: 'Agente Autorizado Certificado',
+                description: 'Tramitamos toda la documentación oficial sin necesidad de desplazamientos. Certificados, registros, autenticaciones, documentación vehículo y mucho más. Ahorre tiempo y elimine burocracia.',
+                features: [
+                  'Documentación vehículo completa',
+                  'Renovación permiso de conducción',
+                  'Certificados y registros oficiales',
+                  'Autenticaciones de documentos',
+                  'Tarjeta de ciudadano y servicios públicos'
+                ],
+                tagline: 'Esta es su Oficina. Nos encargamos de todo.',
+                ctaLabel: 'Conocer Servicios'
+              },
               groupHive: {
                 title: 'El Grupo Hive',
                 subtitle: 'Soluciones integradas en 9 áreas estratégicas',
@@ -719,6 +827,33 @@ async function updateHomePage() {
                   subtitle: 'Ufficio del Cittadino',
                   description: 'Gestiamo documenti ufficiali per te'
                 }
+              },
+              coreService: {
+                title: 'Contabilità Certificata TOC',
+                subtitle: 'La Base del Tuo Business',
+                description: 'Gestione contabile completa da Commercialisti Certificati. IVA, imposte, chiusura annuale e tutti gli obblighi fiscali con rigore e puntualità.',
+                benefits: [
+                  'Commercialisti Certificati',
+                  'Dichiarazioni fiscali nei tempi',
+                  'Report mensili personalizzati',
+                  'Portale cliente online',
+                  'Supporto permanente'
+                ],
+                ctaLabel: 'Scopri Contabilità'
+              },
+              authorizedAgent: {
+                title: 'Ufficio del Cittadino',
+                subtitle: 'Agente Autorizzato Certificato',
+                description: 'Gestiamo tutta la documentazione ufficiale senza necessità di spostamenti. Certificati, registrazioni, autenticazioni, documenti veicolo e molto altro. Risparmia tempo ed elimina la burocrazia.',
+                features: [
+                  'Documentazione veicolo completa',
+                  'Rinnovo patente di guida',
+                  'Certificati e registrazioni ufficiali',
+                  'Autenticazioni documenti',
+                  'Carta di identità e servizi pubblici'
+                ],
+                tagline: 'Questo è il tuo Ufficio. Ci occupiamo di tutto.',
+                ctaLabel: 'Scopri Servizi'
               },
               groupHive: {
                 title: 'Il Gruppo Hive',

@@ -4,11 +4,11 @@ export const agenteAutorizadoData = {
   translations: [
     {
       locale: 'pt',
-      title: 'Agente Autorizado - Local do Cidadão',
+      title: 'Local do Cidadão',
       subtitle: 'Tratamos de todos os seus documentos oficiais sem necessidade de deslocações. Documentação automóvel, renovação de carta, serviços públicos e muito mais. Este é o seu Local!',
-      seoTitle: 'Agente Autorizado Local do Cidadão - Hive Group Portugal',
+      seoTitle: 'Local do Cidadão - Agente Autorizado Certificado - Hive Group Portugal',
       seoDescription: 'Agente autorizado certificado. Documentação automóvel, renovação carta condução, certidões, registos. Sem deslocações. Referência localdocidadao.pt',
-      keywordsJson: JSON.stringify(['agente autorizado', 'local do cidadão', 'documentação automóvel', 'renovação carta condução', 'certidões online', 'serviço documentação']),
+      keywordsJson: JSON.stringify(['local do cidadão', 'agente autorizado', 'documentação automóvel', 'renovação carta condução', 'certidões online', 'serviço documentação']),
       sectionsJson: JSON.stringify({
         benefits: [
           {
@@ -85,7 +85,7 @@ export const agenteAutorizadoData = {
         ],
         faq: [
           {
-            question: 'O que é um agente autorizado do Local do Cidadão?',
+            question: 'O que é o Local do Cidadão?',
             answer: 'Somos uma entidade certificada e autorizada para intermediar e tratar de documentação oficial que normalmente exigiria a sua deslocação a serviços públicos. Referência: localdocidadao.pt. Este é o seu Local - tratamos de tudo por si com total segurança e legalidade.'
           },
           {

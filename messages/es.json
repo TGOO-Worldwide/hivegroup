@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "Inicio",
+    "about": "Acerca de",
     "services": "Servicios",
     "accounting": "Contabilidad",
     "authorizedAgent": "Agente Autorizado",

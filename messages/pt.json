@@ -1,9 +1,10 @@
 {
   "navigation": {
     "home": "Início",
+    "about": "Sobre",
     "services": "Serviços",
     "accounting": "Contabilidade",
-    "authorizedAgent": "Agente Autorizado",
+    "authorizedAgent": "Local do Cidadão",
     "finance": "Finanças",
     "credit": "Crédito",
     "insurance": "Seguros",

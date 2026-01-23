@@ -1,6 +1,7 @@
 {
   "navigation": {
     "home": "Home",
+    "about": "About",
     "services": "Services",
     "accounting": "Accounting",
     "authorizedAgent": "Authorised Agent",

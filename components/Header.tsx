@@ -25,17 +25,9 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Menu principal (sem "Serviços" aqui, será dropdown)
-  const navigation = [
-    { name: t('home'), href: `/${locale}` },
-    { name: t('accounting'), href: `/${locale}/contabilidade` },
-    { name: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
-  ];
-
-  // Dropdown Serviços
+  // Dropdown Serviços (sem Local do Cidadão)
   const servicesDropdown = [
     { label: t('accounting'), href: `/${locale}/contabilidade` },
-    { label: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
     { label: t('finance'), href: `/${locale}/finance` },
     { label: t('credit'), href: `/${locale}/credit` },
     { label: t('insurance'), href: `/${locale}/insurance` },
@@ -50,6 +42,7 @@ export default function Header() {
   // Mobile menu (todas as páginas)
   const mobileNavigation = [
     { name: t('home'), href: `/${locale}` },
+    { name: t('about'), href: `/${locale}/sobre` },
     { name: t('accounting'), href: `/${locale}/contabilidade` },
     { name: t('authorizedAgent'), href: `/${locale}/agente-autorizado` },
     { name: t('finance'), href: `/${locale}/finance` },
@@ -113,11 +106,29 @@ export default function Header() {
                 {t('home')}
               </Link>
 
+              <Link
+                href={`/${locale}/sobre`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === `/${locale}/sobre` ? 'text-primary-600' : 'text-charcoal-700 hover:text-primary-600'
+                }`}
+              >
+                {t('about')}
+              </Link>
+
               {/* Dropdown Serviços */}
               <DropdownMenu
                 trigger={t('services')}
                 items={servicesDropdown}
               />
+
+              <Link
+                href={`/${locale}/agente-autorizado`}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === `/${locale}/agente-autorizado` ? 'text-primary-600' : 'text-charcoal-700 hover:text-primary-600'
+                }`}
+              >
+                {t('authorizedAgent')}
+              </Link>
 
               <Link
                 href={`/${locale}/insights`}
