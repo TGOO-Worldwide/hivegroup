@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { HiveIcon } from '@/components/ui';
 import { ArrowRight, CheckCircle } from '@phosphor-icons/react';
+import { useEffect, useRef, useState } from 'react';
 
 interface CoreServiceHighlightProps {
   title: string;
@@ -21,6 +22,27 @@ export default function CoreServiceHighlight({
   ctaLabel,
   href,
 }: CoreServiceHighlightProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Só anima uma vez
+        }
+      },
+      { threshold: 0.3 } // 30% do elemento visível
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Gradient */}
@@ -105,6 +127,7 @@ export default function CoreServiceHighlight({
           <div className="relative">
             {/* Premium Card */}
             <div
+              ref={cardRef}
               className="
                 relative
                 backdrop-blur-lg
@@ -144,14 +167,17 @@ export default function CoreServiceHighlight({
                     <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
                       Conformidade Legal
                     </p>
-                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                    <span className={`text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                       100%
                     </span>
                   </div>
                   <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
                     <div
-                      className="absolute top-0 left-0 h-full bg-gradient-gold rounded-full animate-[fillBar_2s_ease-out_forwards]"
-                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.2s' }}
+                      className="absolute top-0 left-0 h-full bg-gradient-gold rounded-full transition-all duration-1000 ease-out"
+                      style={{ 
+                        width: isVisible ? '100%' : '0%',
+                        transitionDelay: '0.2s'
+                      }}
                     />
                   </div>
                 </div>
@@ -162,14 +188,17 @@ export default function CoreServiceHighlight({
                     <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
                       Disponibilidade Suporte
                     </p>
-                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                    <span className={`text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '0.4s' }}>
                       24/7
                     </span>
                   </div>
                   <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
                     <div
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full"
-                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.4s' }}
+                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full transition-all duration-1000 ease-out"
+                      style={{ 
+                        width: isVisible ? '100%' : '0%',
+                        transitionDelay: '0.4s'
+                      }}
                     />
                   </div>
                 </div>
@@ -180,26 +209,21 @@ export default function CoreServiceHighlight({
                     <p className="text-sm font-semibold text-charcoal-700 uppercase tracking-wide">
                       Clientes Satisfeitos
                     </p>
-                    <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
+                    <span className={`text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '0.6s' }}>
                       500+
                     </span>
                   </div>
                   <div className="relative h-3 bg-charcoal-100 rounded-full overflow-hidden">
                     <div
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-charcoal-600 to-charcoal-800 rounded-full"
-                      style={{ width: '0%', animation: 'fillBar 2s ease-out forwards', animationDelay: '0.6s' }}
+                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-charcoal-600 to-charcoal-800 rounded-full transition-all duration-1000 ease-out"
+                      style={{ 
+                        width: isVisible ? '100%' : '0%',
+                        transitionDelay: '0.6s'
+                      }}
                     />
                   </div>
                 </div>
               </div>
-
-              {/* CSS Animation */}
-              <style jsx>{`
-                @keyframes fillBar {
-                  from { width: 0%; }
-                  to { width: 100%; }
-                }
-              `}</style>
 
               {/* Bottom Gradient Line */}
               <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-gold rounded-b-3xl" />
