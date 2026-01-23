@@ -4,4 +4,6 @@ export { default as Card } from './Card';
 export { default as Icon } from './Icon';
 export { default as HiveIcon, serviceIcons } from './HiveIcon';
 export type { HiveIconName } from './HiveIcon';
+export { default as ServiceCard } from './ServiceCard';
+export { default as FeaturedServiceCard } from './FeaturedServiceCard';
 export { default as SectionHeading } from './SectionHeading';
