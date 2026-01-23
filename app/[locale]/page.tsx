@@ -142,9 +142,7 @@ export default async function HomePage({ params: { locale } }: PageProps) {
       {/* Quick Contacts */}
       <QuickContactsHome
         title={sections.quickContact.title}
-        phone={sections.quickContact.phone}
-        phoneNote={sections.quickContact.phoneNote}
-        emails={sections.quickContact.emails}
+        locale={locale}
       />
     </>
   );
