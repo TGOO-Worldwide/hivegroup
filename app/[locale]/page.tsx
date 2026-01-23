@@ -5,7 +5,9 @@ import { Metadata } from 'next';
 
 // Premium Home Components
 import HeroPremium from '@/components/home/HeroPremium';
+import CoreServiceHighlight from '@/components/home/CoreServiceHighlight';
 import HexagonGrid from '@/components/home/HexagonGrid';
+import AuthorizedAgentHighlight from '@/components/home/AuthorizedAgentHighlight';
 import WhyChooseSection from '@/components/home/WhyChooseSection';
 import HowItWorksSteps from '@/components/home/HowItWorksSteps';
 import FeaturedServicesHome from '@/components/home/FeaturedServicesHome';
@@ -80,12 +82,33 @@ export default async function HomePage({ params: { locale } }: PageProps) {
         locale={locale}
       />
 
+      {/* Core Service Highlight - Contabilidade em Destaque */}
+      <CoreServiceHighlight
+        title={sections.coreService.title}
+        subtitle={sections.coreService.subtitle}
+        description={sections.coreService.description}
+        benefits={sections.coreService.benefits}
+        ctaLabel={sections.coreService.ctaLabel}
+        href={`/${locale}/contabilidade`}
+      />
+
       {/* Hexagon Grid - 9 Areas */}
       <HexagonGrid
         title={sections.groupHive.title}
         subtitle={sections.groupHive.subtitle}
         areas={sections.groupHive.areas}
         locale={locale}
+      />
+
+      {/* Authorized Agent Highlight - Agente Autorizado em Destaque */}
+      <AuthorizedAgentHighlight
+        title={sections.authorizedAgent.title}
+        subtitle={sections.authorizedAgent.subtitle}
+        description={sections.authorizedAgent.description}
+        features={sections.authorizedAgent.features}
+        tagline={sections.authorizedAgent.tagline}
+        ctaLabel={sections.authorizedAgent.ctaLabel}
+        href={`/${locale}/agente-autorizado`}
       />
 
       {/* Why Choose Section - 8 Reasons */}
@@ -95,7 +118,7 @@ export default async function HomePage({ params: { locale } }: PageProps) {
         reasons={sections.whyChoose.reasons}
       />
 
-      {/* How It Works - 3 Steps */}
+      {/* How It Works - 3 Steps Premium */}
       <HowItWorksSteps
         title={sections.howItWorks.title}
         subtitle={sections.howItWorks.subtitle}
