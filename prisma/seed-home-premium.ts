@@ -3,14 +3,14 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function updateHomePage() {
-  console.log('🌱 Atualizando Home Page Premium...');
+  console.log('🌱 Atualizando Home Page Premium com nova estrutura...');
 
   // Apagar home antiga se existir
   await prisma.page.deleteMany({
     where: { slug: 'home' }
   });
 
-  // Criar nova home premium
+  // Criar nova home premium com estrutura actualizada
   const homePage = await prisma.page.create({
     data: {
       slug: 'home',
@@ -18,658 +18,326 @@ async function updateHomePage() {
       published: true,
       translations: {
         create: [
+          // ============================================
+          // PORTUGUÊS (PT)
+          // ============================================
           {
             locale: 'pt',
             title: 'Hive Group Portugal - Contabilidade Certificada & Soluções Empresariais',
-            subtitle: 'Contabilidade certificada, agente autorizado e soluções integradas para o seu negócio em Portugal.',
-            seoTitle: 'Hive Group Portugal - Contabilidade Certificada & Local do Cidadão',
-            seoDescription: 'Contabilidade certificada TOC, Local do Cidadão (agente autorizado), finanças, crédito, seguros e mais. Soluções completas para empresas em Portugal.',
-            keywordsJson: JSON.stringify(['contabilidade certificada', 'TOC', 'local do cidadão', 'agente autorizado', 'finanças', 'portugal', 'contabilista']),
+            subtitle: 'Hive Finance: contabilidade certificada com acompanhamento trimestral e plataforma integrada de soluções.',
+            seoTitle: 'Hive Group Portugal - Hive Finance & Soluções Integradas',
+            seoDescription: 'Hive Finance: contabilidade certificada TOC com acompanhamento trimestral. Plataforma integrada de soluções: crédito, seguros, jurídico, marketing, IT e mais.',
+            keywordsJson: JSON.stringify(['contabilidade certificada', 'TOC', 'hive finance', 'hive group', 'contabilista', 'portugal', 'finanças empresariais']),
             sectionsJson: JSON.stringify({
               hero: {
-                headline: 'Contabilidade Certificada & Soluções Integradas',
-                subheadline: 'Simplifique a gestão da sua empresa com os nossos serviços de contabilidade certificada, Local do Cidadão e consultoria empresarial em Portugal.',
-                authorizedAgentBadge: {
-                  title: 'Local do Cidadão',
-                  subtitle: 'Agente Autorizado Certificado',
-                  description: 'Tratamos de documentos oficiais por si'
-                }
-              },
-              coreService: {
-                title: 'Contabilidade Certificada TOC',
-                subtitle: 'O Alicerce do Seu Negócio',
-                description: 'Gestão contabilística completa por Técnicos Oficiais de Contas certificados. IVA, IRS, IRC, fecho de contas anual e todas as obrigações fiscais com rigor e pontualidade.',
-                benefits: [
-                  'Técnicos Oficiais de Contas certificados',
-                  'Declarações fiscais dentro dos prazos',
-                  'Relatórios mensais personalizados',
-                  'Portal do cliente online',
-                  'Apoio permanente'
-                ],
-                ctaLabel: 'Conhecer Contabilidade'
-              },
-              authorizedAgent: {
-                title: 'Local do Cidadão',
-                subtitle: 'Agente Autorizado Certificado',
-                description: 'Tratamos de toda a documentação oficial sem necessidade de deslocações. Certidões, registos, autenticações, documentação automóvel e muito mais. Poupe tempo e elimine burocracias.',
-                features: [
-                  'Documentação automóvel',
-                  'Renovação da carta de condução',
-                  'Certidões e registos oficiais',
-                  'Autenticações de documentos',
-                  'Projetos de investimentos',
-                  'Cartão combustível'
-                ],
-                tagline: 'Este é o seu Local. Tratamos de tudo por si.',
-                ctaLabel: 'Conhecer Serviços'
-              },
-              groupHive: {
-                title: 'O Grupo Hive',
-                subtitle: 'Soluções integradas em 9 áreas estratégicas',
-                areas: [
-                  {
-                    title: 'Contabilidade',
-                    description: 'TOC certificados',
-                    icon: '📊',
-                    link: '/contabilidade'
-                  },
-                  {
-                    title: 'Finance',
-                    description: 'Consultoria financeira',
-                    icon: '💰',
-                    link: '/finance'
-                  },
-                  {
-                    title: 'Credit',
-                    description: 'Soluções de crédito',
-                    icon: '💳',
-                    link: '/credit'
-                  },
-                  {
-                    title: 'Insurance',
-                    description: 'Seguros empresariais',
-                    icon: '🛡️',
-                    link: '/insurance'
-                  },
-                  {
-                    title: 'Real Estate',
-                    description: 'Gestão imobiliária',
-                    icon: '🏢',
-                    link: '/real-estate'
-                  },
-                  {
-                    title: 'Legal',
-                    description: 'Serviços jurídicos',
-                    icon: '⚖️',
-                    link: '/legal'
-                  },
-                  {
-                    title: 'Marketing',
-                    description: 'Marketing digital',
-                    icon: '📱',
-                    link: '/marketing'
-                  },
-                  {
-                    title: 'Travel',
-                    description: 'Agência de viagens',
-                    icon: '✈️',
-                    link: '/travel'
-                  },
-                  {
-                    title: 'Business Dev',
-                    description: 'Desenvolvimento negócio',
-                    icon: '🚀',
-                    link: '/business-development'
-                  }
+                headline: 'Mais do que contabilidade. Uma solução completa para o seu negócio.',
+                subheadline: 'Através da Hive Finance, atuamos como contabilista certificado, ajudando empresas a cumprir, organizar e crescer — com acesso a uma plataforma integrada de especialistas em várias áreas.',
+                bulletPoints: [
+                  'Contabilidade organizada e acompanhamento trimestral',
+                  'Apoio financeiro e decisão estratégica',
+                  'Acesso a crédito, seguros, jurídico, marketing e IT',
+                  'Equipa com mais de 10 profissionais altamente qualificados'
                 ]
               },
-              whyChoose: {
-                title: 'Porque Escolher a Hive Group',
-                subtitle: 'A sua parceria de confiança para o sucesso empresarial',
-                reasons: [
-                  {
-                    title: 'Contabilistas Certificados (TOC)',
-                    description: 'Equipa de Técnicos Oficiais de Contas certificados pela Ordem dos Contabilistas Certificados.'
-                  },
-                  {
-                    title: 'Local do Cidadão Certificado',
-                    description: 'Tratamos de documentos oficiais sem necessidade de deslocações (agente autorizado).'
-                  },
-                  {
-                    title: 'Soluções Integradas',
-                    description: 'Tudo num só lugar: contabilidade, finanças, jurídico, imobiliário e mais.'
-                  },
-                  {
-                    title: 'Conformidade Total',
-                    description: 'Garantimos cumprimento rigoroso de todas as obrigações fiscais e legais em Portugal.'
-                  },
-                  {
-                    title: 'Tecnologia de Ponta',
-                    description: 'Plataformas digitais modernas para gestão em tempo real da sua contabilidade.'
-                  },
-                  {
-                    title: 'Acompanhamento Personalizado',
-                    description: 'Cada cliente tem um gestor dedicado que conhece profundamente o seu negócio.'
-                  },
-                  {
-                    title: 'Resposta Rápida',
-                    description: 'Equipa disponível para esclarecimentos e apoio quando precisa.'
-                  },
-                  {
-                    title: 'Experiência Comprovada',
-                    description: 'Anos de experiência a apoiar empresas de todos os sectores em Portugal.'
-                  }
+              hiveFinance: {
+                title: 'Hive Finance',
+                subtitle: 'O núcleo da nossa atuação',
+                description: 'A Hive Finance é o serviço de contabilidade da HIVE Group, baseado num acompanhamento financeiro e de gestão próximo, que garante o cumprimento das obrigações fiscais e legais e uma estrutura organizada para apoiar a tomada de decisão. Mais do que cumprir, trabalhamos ao lado do cliente com acompanhamento contínuo e reuniões trimestrais, alinhando a empresa com objetivos de curto, médio e longo prazo.',
+                benefits: [
+                  'Contabilidade organizada',
+                  'Cumprimento fiscal e legal',
+                  'Acompanhamento financeiro',
+                  'Reuniões trimestrais'
+                ],
+                ctaLabel: 'Mudar de contabilista'
+              },
+              groupHive: {
+                title: 'HIVE GROUP',
+                subtitle: 'Plataforma de soluções integradas',
+                description: 'A HIVE GROUP complementa o serviço de contabilidade com uma plataforma integrada de soluções, através de uma rede de parceiros especializados que permite dar resposta às várias necessidades de empresas e empresários.',
+                areas: [
+                  { title: 'Hive Credit', description: 'Soluções de crédito', icon: '💳', link: '/credit' },
+                  { title: 'Hive Insurance', description: 'Seguros empresariais', icon: '🛡️', link: '/insurance' },
+                  { title: 'Hive Legal', description: 'Serviços jurídicos', icon: '⚖️', link: '/legal' },
+                  { title: 'Hive IT', description: 'Soluções tecnológicas', icon: '💻', link: '/it' },
+                  { title: 'Hive Marketing', description: 'Marketing digital', icon: '📱', link: '/marketing' },
+                  { title: 'Hive Real Estate', description: 'Gestão imobiliária', icon: '🏢', link: '/real-estate' },
+                  { title: 'Hive Business Dev', description: 'Desenvolvimento negócio', icon: '🚀', link: '/business-development' },
+                  { title: 'Hive Care', description: 'Apoio pessoal', icon: '❤️', link: '/care' },
+                  { title: 'Hive Travel', description: 'Agência de viagens', icon: '✈️', link: '/travel' },
+                  { title: 'Local do Cidadão', description: 'Agente autorizado', icon: '📋', link: '/agente-autorizado' }
+                ]
+              },
+              needBasedNavigation: {
+                title: 'Como podemos ajudar o seu negócio?',
+                subtitle: 'Selecione a sua necessidade e descubra a solução ideal',
+                needs: [
+                  { title: 'Criar empresa', description: 'Apoio completo na constituição da sua empresa', services: ['Legal', 'Finance', 'Credit'], href: '/legal', icon: 'buildings' },
+                  { title: 'Organizar contabilidade', description: 'Contabilidade certificada com acompanhamento', services: ['Finance'], href: '/contabilidade', icon: 'calculator' },
+                  { title: 'Obter financiamento', description: 'Soluções de crédito ajustadas ao seu negócio', services: ['Credit'], href: '/credit', icon: 'currency' },
+                  { title: 'Proteger empresa', description: 'Seguros empresariais e pessoais', services: ['Insurance'], href: '/insurance', icon: 'shield' },
+                  { title: 'Crescer e atrair clientes', description: 'Marketing digital e desenvolvimento', services: ['Marketing', 'Business Dev'], href: '/marketing', icon: 'trendUp' },
+                  { title: 'Investir imobiliário', description: 'Gestão e consultoria imobiliária', services: ['Real Estate'], href: '/real-estate', icon: 'house' }
                 ]
               },
               howItWorks: {
-                title: 'Como Funciona',
-                subtitle: 'Processo simples em 3 passos',
+                title: 'Um modelo próximo, estruturado e orientado a resultados',
+                subtitle: 'Processo simples em 4 passos',
                 steps: [
-                  {
-                    number: 1,
-                    title: 'Reunião Inicial Gratuita',
-                    description: 'Analisamos a situação da sua empresa e identificamos necessidades específicas de contabilidade e gestão.'
-                  },
-                  {
-                    number: 2,
-                    title: 'Proposta Personalizada',
-                    description: 'Apresentamos uma proposta adaptada ao seu negócio com serviços, prazos e investimento claro.'
-                  },
-                  {
-                    number: 3,
-                    title: 'Implementação & Acompanhamento',
-                    description: 'Iniciamos os serviços e garantimos acompanhamento contínuo com relatórios mensais e suporte dedicado.'
-                  }
-                ]
+                  { number: 1, title: 'Diagnóstico', description: 'Percebemos o cliente e objetivos' },
+                  { number: 2, title: 'Organização', description: 'Implementamos estrutura' },
+                  { number: 3, title: 'Acompanhamento', description: 'Apoiamos ao longo do tempo' },
+                  { number: 4, title: 'Evolução', description: 'Ajustamos com base em resultados' }
+                ],
+                highlight: 'Reuniões trimestrais com o cliente'
               },
-              featuredServices: {
-                title: 'Serviços em Destaque',
-                subtitle: 'As nossas especialidades core',
-                services: [
-                  {
-                    title: 'Contabilidade Certificada',
-                    description: 'Gestão contabilística completa por TOC certificados. Processamento de IVA, IRS, IRC, fecho de contas anual e todas as obrigações fiscais.',
-                    features: [
-                      'Técnicos Oficiais de Contas (TOC)',
-                      'Declarações fiscais (IVA, IRS, IRC)',
-                      'Fecho de contas anual',
-                      'Relatórios mensais',
-                      'Portal do cliente online'
-                    ],
-                    icon: '📊',
-                    link: '/contabilidade',
-                    highlight: true
-                  },
-                  {
-                    title: 'Local do Cidadão',
-                    description: 'Serviços oficiais sem deslocações. Certidões, registos, autenticações e muito mais.',
-                    features: [
-                      'Certidões (nascimento, casamento, óbito)',
-                      'Registos (predial, comercial, automóvel)',
-                      'Autenticações de documentos',
-                      'Cartão de Cidadão',
-                      'Licenças e autorizações'
-                    ],
-                    icon: '🏛️',
-                    link: '/agente-autorizado',
-                    highlight: false
-                  },
-                  {
-                    title: 'Consultoria Financeira',
-                    description: 'Planeamento estratégico, análise de investimentos e optimização fiscal.',
-                    features: [
-                      'Planeamento financeiro',
-                      'Análise de investimentos',
-                      'Optimização fiscal',
-                      'Cash flow management',
-                      'Business plans'
-                    ],
-                    icon: '💰',
-                    link: '/finance',
-                    highlight: false
-                  }
+              whyChoose: {
+                title: 'Porque escolher a Hive',
+                subtitle: 'As razões que fazem a diferença',
+                reasons: [
+                  { title: 'Contabilista certificado com acompanhamento real', description: 'TOC certificados com reuniões trimestrais e acompanhamento personalizado.' },
+                  { title: 'Equipa experiente e multidisciplinar', description: 'Mais de 10 profissionais especializados em diferentes áreas.' },
+                  { title: 'Plataforma de soluções integrada', description: 'Acesso a crédito, seguros, jurídico, marketing, IT e mais num só lugar.' },
+                  { title: 'Atendimento personalizado', description: 'Cada cliente tem um gestor dedicado que conhece o seu negócio.' },
+                  { title: 'Visão de crescimento do cliente', description: 'Trabalhamos ao seu lado para alcançar objetivos a curto, médio e longo prazo.' }
                 ]
               },
               faq: {
                 title: 'Perguntas Frequentes',
                 questions: [
-                  {
-                    question: 'A Hive Group tem contabilistas certificados?',
-                    answer: 'Sim, todos os nossos serviços de contabilidade são prestados por Técnicos Oficiais de Contas (TOC) certificados pela Ordem dos Contabilistas Certificados, garantindo conformidade total com a legislação portuguesa.'
-                  },
-                  {
-                    question: 'O que é o Local do Cidadão?',
-                    answer: 'É uma entidade certificada (agente autorizado) que pode tratar de documentos oficiais (certidões, registos, autenticações) sem que tenha de se deslocar a serviços públicos. Poupamos o seu tempo tratando de tudo por si.'
-                  },
-                  {
-                    question: 'Que tipo de empresas trabalham convosco?',
-                    answer: 'Trabalhamos com empresas de todos os sectores e dimensões: desde empresários em nome individual, PMEs, startups até empresas de maior dimensão. Cada cliente tem uma solução adaptada às suas necessidades.'
-                  },
-                  {
-                    question: 'Qual o prazo para entregar declarações fiscais?',
-                    answer: 'Garantimos a entrega de todas as declarações fiscais (IVA, IRS, IRC) dentro dos prazos legais. Processamos o IVA mensalmente e mantemo-lo sempre informado sobre próximas obrigações.'
-                  },
-                  {
-                    question: 'Como funciona o acompanhamento mensal?',
-                    answer: 'Cada cliente tem um gestor dedicado, recebe relatórios mensais da situação contabilística e fiscal, e tem acesso a portal online para consultar documentos a qualquer momento. Estamos sempre disponíveis para esclarecimentos.'
-                  }
+                  { question: 'A Hive Finance tem contabilistas certificados?', answer: 'Sim, todos os nossos serviços de contabilidade são prestados por Técnicos Oficiais de Contas (TOC) certificados pela Ordem dos Contabilistas Certificados, garantindo conformidade total com a legislação portuguesa.' },
+                  { question: 'O que diferencia a Hive Finance de outros contabilistas?', answer: 'Além da contabilidade certificada, oferecemos acompanhamento trimestral com reuniões presenciais ou online, e acesso a uma plataforma integrada de soluções (crédito, seguros, jurídico, marketing, IT) para resolver todas as necessidades do seu negócio.' },
+                  { question: 'O que é o Local do Cidadão?', answer: 'É uma entidade certificada (agente autorizado) que pode tratar de documentos oficiais (certidões, registos, autenticações) sem que tenha de se deslocar a serviços públicos. Poupamos o seu tempo tratando de tudo por si.' },
+                  { question: 'Que tipo de empresas trabalham convosco?', answer: 'Trabalhamos com empresas de todos os sectores e dimensões: desde empresários em nome individual, PMEs, startups até empresas de maior dimensão. Cada cliente tem uma solução adaptada às suas necessidades.' },
+                  { question: 'Como funcionam as reuniões trimestrais?', answer: 'A cada 3 meses reunimos consigo para analisar resultados, ajustar estratégias e alinhar objetivos. É um acompanhamento real, não apenas contabilidade passiva.' }
                 ]
               },
               quickContact: {
-                title: 'Contactos Rápidos',
+                title: 'Vamos organizar e fazer crescer o seu negócio',
+                description: 'Fale connosco e descubra como podemos ajudar a estruturar a sua empresa e a tomar melhores decisões.',
                 phone: '+351 212 433 909',
                 phoneNote: 'Chamada para rede móvel nacional',
+                whatsapp: '+351212433909',
                 emails: [
-                  {
-                    department: 'Contabilidade & Geral',
-                    email: 'business@hivegroup.pt'
-                  },
-                  {
-                    department: 'Finanças',
-                    email: 'finance@hivegroup.pt'
-                  },
-                  {
-                    department: 'Jurídico',
-                    email: 'legal@hivegroup.pt'
-                  },
-                  {
-                    department: 'Imobiliário',
-                    email: 'realestate@hivegroup.pt'
-                  }
+                  { department: 'Geral', email: 'geral@hivegroup.pt' },
+                  { department: 'Finance', email: 'finance@hivegroup.pt' },
+                  { department: 'Jurídico', email: 'legal@hivegroup.pt' },
+                  { department: 'Imobiliário', email: 'realestate@hivegroup.pt' }
                 ]
               }
             })
           },
+          // ============================================
+          // ENGLISH (EN)
+          // ============================================
           {
             locale: 'en',
             title: 'Hive Group Portugal - Certified Accounting & Business Solutions',
-            subtitle: 'Certified accounting, authorised agent and integrated solutions for your business in Portugal.',
-            seoTitle: 'Hive Group Portugal - Certified Accounting & Authorised Agent',
-            seoDescription: 'Certified TOC accounting, Authorised Citizen Office Agent, finance, credit, insurance and more. Complete solutions for businesses in Portugal.',
-            keywordsJson: JSON.stringify(['certified accounting', 'chartered accountant', 'authorised agent', 'citizens office', 'finance', 'portugal']),
+            subtitle: 'Hive Finance: certified accounting with quarterly follow-up and integrated solutions platform.',
+            seoTitle: 'Hive Group Portugal - Hive Finance & Integrated Solutions',
+            seoDescription: 'Hive Finance: certified TOC accounting with quarterly follow-up. Integrated solutions platform: credit, insurance, legal, marketing, IT and more.',
+            keywordsJson: JSON.stringify(['certified accounting', 'chartered accountant', 'hive finance', 'hive group', 'portugal', 'business finance']),
             sectionsJson: JSON.stringify({
               hero: {
-                headline: 'Certified Accounting & Integrated Solutions',
-                subheadline: 'Simplify your company management with our certified accounting, authorised agent and business consultancy services in Portugal.',
-                authorizedAgentBadge: {
-                  title: 'Authorised Agent',
-                  subtitle: "Citizen's Office",
-                  description: 'We handle official documents for you'
-                }
-              },
-              coreService: {
-                title: 'Certified TOC Accounting',
-                subtitle: 'The Foundation of Your Business',
-                description: 'Complete accounting management by certified Official Chartered Accountants. VAT, personal and corporate tax, annual closing and all tax obligations with rigour and punctuality.',
-                benefits: [
-                  'Certified Official Chartered Accountants',
-                  'Tax returns within deadlines',
-                  'Personalised monthly reports',
-                  'Online client portal',
-                  'Permanent support'
-                ],
-                ctaLabel: 'Discover Accounting'
-              },
-              authorizedAgent: {
-                title: "Citizen's Office",
-                subtitle: 'Certified Authorised Agent',
-                description: 'We handle all official documentation without you needing to travel. Certificates, registrations, authentications, vehicle documentation and much more. Save time and eliminate bureaucracy.',
-                features: [
-                  'Complete vehicle documentation',
-                  'Driving licence renewal',
-                  'Official certificates and registrations',
-                  'Document authentications',
-                  'Citizen card and public services'
-                ],
-                tagline: 'This is your Place. We handle everything for you.',
-                ctaLabel: 'Discover Services'
-              },
-              groupHive: {
-                title: 'The Hive Group',
-                subtitle: 'Integrated solutions across 9 strategic areas',
-                areas: [
-                  {
-                    title: 'Accounting',
-                    description: 'Certified accountants',
-                    icon: '📊',
-                    link: '/contabilidade'
-                  },
-                  {
-                    title: 'Finance',
-                    description: 'Financial consultancy',
-                    icon: '💰',
-                    link: '/finance'
-                  },
-                  {
-                    title: 'Credit',
-                    description: 'Credit solutions',
-                    icon: '💳',
-                    link: '/credit'
-                  },
-                  {
-                    title: 'Insurance',
-                    description: 'Business insurance',
-                    icon: '🛡️',
-                    link: '/insurance'
-                  },
-                  {
-                    title: 'Real Estate',
-                    description: 'Property management',
-                    icon: '🏢',
-                    link: '/real-estate'
-                  },
-                  {
-                    title: 'Legal',
-                    description: 'Legal services',
-                    icon: '⚖️',
-                    link: '/legal'
-                  },
-                  {
-                    title: 'Marketing',
-                    description: 'Digital marketing',
-                    icon: '📱',
-                    link: '/marketing'
-                  },
-                  {
-                    title: 'Travel',
-                    description: 'Travel agency',
-                    icon: '✈️',
-                    link: '/travel'
-                  },
-                  {
-                    title: 'Business Dev',
-                    description: 'Business development',
-                    icon: '🚀',
-                    link: '/business-development'
-                  }
+                headline: 'More than accounting. A complete solution for your business.',
+                subheadline: 'Through Hive Finance, we act as certified accountants, helping companies comply, organise and grow — with access to an integrated platform of specialists in various areas.',
+                bulletPoints: [
+                  'Organised accounting and quarterly follow-up',
+                  'Financial support and strategic decision-making',
+                  'Access to credit, insurance, legal, marketing and IT',
+                  'Team of over 10 highly qualified professionals'
                 ]
               },
-              whyChoose: {
-                title: 'Why Choose Hive Group',
-                subtitle: 'Your trusted partnership for business success',
-                reasons: [
-                  {
-                    title: 'Certified Chartered Accountants (TOC)',
-                    description: 'Team of Official Chartered Accountants certified by the Portuguese Order of Chartered Accountants.'
-                  },
-                  {
-                    title: 'Certified Authorised Agent',
-                    description: "We handle official Citizen's Office documents without you needing to travel."
-                  },
-                  {
-                    title: 'Integrated Solutions',
-                    description: 'Everything in one place: accounting, finance, legal, real estate and more.'
-                  },
-                  {
-                    title: 'Full Compliance',
-                    description: 'We guarantee strict compliance with all tax and legal obligations in Portugal.'
-                  },
-                  {
-                    title: 'Cutting-Edge Technology',
-                    description: 'Modern digital platforms for real-time management of your accounting.'
-                  },
-                  {
-                    title: 'Personalised Support',
-                    description: 'Each client has a dedicated manager who knows your business thoroughly.'
-                  },
-                  {
-                    title: 'Quick Response',
-                    description: 'Team available for clarifications and support when you need it.'
-                  },
-                  {
-                    title: 'Proven Experience',
-                    description: 'Years of experience supporting businesses across all sectors in Portugal.'
-                  }
+              hiveFinance: {
+                title: 'Hive Finance',
+                subtitle: 'The core of our operation',
+                description: 'Hive Finance is the accounting service of HIVE Group, based on close financial and management monitoring, ensuring compliance with tax and legal obligations and an organised structure to support decision-making. More than just compliance, we work alongside the client with continuous monitoring and quarterly meetings, aligning the company with short, medium and long-term objectives.',
+                benefits: [
+                  'Organised accounting',
+                  'Tax and legal compliance',
+                  'Financial monitoring',
+                  'Quarterly meetings'
+                ],
+                ctaLabel: 'Switch accountant'
+              },
+              groupHive: {
+                title: 'HIVE GROUP',
+                subtitle: 'Integrated solutions platform',
+                description: 'HIVE GROUP complements the accounting service with an integrated solutions platform, through a network of specialised partners that responds to the various needs of companies and entrepreneurs.',
+                areas: [
+                  { title: 'Hive Credit', description: 'Credit solutions', icon: '💳', link: '/credit' },
+                  { title: 'Hive Insurance', description: 'Business insurance', icon: '🛡️', link: '/insurance' },
+                  { title: 'Hive Legal', description: 'Legal services', icon: '⚖️', link: '/legal' },
+                  { title: 'Hive IT', description: 'Technology solutions', icon: '💻', link: '/it' },
+                  { title: 'Hive Marketing', description: 'Digital marketing', icon: '📱', link: '/marketing' },
+                  { title: 'Hive Real Estate', description: 'Property management', icon: '🏢', link: '/real-estate' },
+                  { title: 'Hive Business Dev', description: 'Business development', icon: '🚀', link: '/business-development' },
+                  { title: 'Hive Care', description: 'Personal support', icon: '❤️', link: '/care' },
+                  { title: 'Hive Travel', description: 'Travel agency', icon: '✈️', link: '/travel' },
+                  { title: "Citizen's Office", description: 'Authorised agent', icon: '📋', link: '/agente-autorizado' }
+                ]
+              },
+              needBasedNavigation: {
+                title: 'How can we help your business?',
+                subtitle: 'Select your need and discover the ideal solution',
+                needs: [
+                  { title: 'Start a company', description: 'Complete support in setting up your company', services: ['Legal', 'Finance', 'Credit'], href: '/legal', icon: 'buildings' },
+                  { title: 'Organise accounting', description: 'Certified accounting with monitoring', services: ['Finance'], href: '/contabilidade', icon: 'calculator' },
+                  { title: 'Get financing', description: 'Credit solutions tailored to your business', services: ['Credit'], href: '/credit', icon: 'currency' },
+                  { title: 'Protect company', description: 'Business and personal insurance', services: ['Insurance'], href: '/insurance', icon: 'shield' },
+                  { title: 'Grow and attract clients', description: 'Digital marketing and development', services: ['Marketing', 'Business Dev'], href: '/marketing', icon: 'trendUp' },
+                  { title: 'Real estate investment', description: 'Property management and consultancy', services: ['Real Estate'], href: '/real-estate', icon: 'house' }
                 ]
               },
               howItWorks: {
-                title: 'How It Works',
-                subtitle: 'Simple 3-step process',
+                title: 'A close, structured and results-oriented model',
+                subtitle: 'Simple 4-step process',
                 steps: [
-                  {
-                    number: 1,
-                    title: 'Free Initial Meeting',
-                    description: 'We analyse your company situation and identify specific accounting and management needs.'
-                  },
-                  {
-                    number: 2,
-                    title: 'Personalised Proposal',
-                    description: 'We present a proposal tailored to your business with services, timelines and clear investment.'
-                  },
-                  {
-                    number: 3,
-                    title: 'Implementation & Follow-up',
-                    description: 'We start the services and ensure continuous monitoring with monthly reports and dedicated support.'
-                  }
-                ]
+                  { number: 1, title: 'Diagnosis', description: 'We understand the client and objectives' },
+                  { number: 2, title: 'Organisation', description: 'We implement structure' },
+                  { number: 3, title: 'Monitoring', description: 'We support over time' },
+                  { number: 4, title: 'Evolution', description: 'We adjust based on results' }
+                ],
+                highlight: 'Quarterly meetings with the client'
               },
-              featuredServices: {
-                title: 'Featured Services',
-                subtitle: 'Our core specialities',
-                services: [
-                  {
-                    title: 'Certified Accounting',
-                    description: 'Complete accounting management by certified accountants. VAT, personal and corporate tax processing, annual closing and all tax obligations.',
-                    features: [
-                      'Official Chartered Accountants (TOC)',
-                      'Tax returns (VAT, income tax, corporate tax)',
-                      'Annual accounts closing',
-                      'Monthly reports',
-                      'Online client portal'
-                    ],
-                    icon: '📊',
-                    link: '/contabilidade',
-                    highlight: true
-                  },
-                  {
-                    title: "Authorised Agent - Citizen's Office",
-                    description: 'Official services without travelling. Certificates, registrations, authentications and much more.',
-                    features: [
-                      'Certificates (birth, marriage, death)',
-                      'Registrations (property, commercial, vehicle)',
-                      'Document authentications',
-                      "Citizen's Card",
-                      'Licences and authorisations'
-                    ],
-                    icon: '🏛️',
-                    link: '/agente-autorizado',
-                    highlight: false
-                  },
-                  {
-                    title: 'Financial Consultancy',
-                    description: 'Strategic planning, investment analysis and tax optimisation.',
-                    features: [
-                      'Financial planning',
-                      'Investment analysis',
-                      'Tax optimisation',
-                      'Cash flow management',
-                      'Business plans'
-                    ],
-                    icon: '💰',
-                    link: '/finance',
-                    highlight: false
-                  }
+              whyChoose: {
+                title: 'Why choose Hive',
+                subtitle: 'The reasons that make the difference',
+                reasons: [
+                  { title: 'Certified accountant with real monitoring', description: 'Certified TOCs with quarterly meetings and personalised follow-up.' },
+                  { title: 'Experienced and multidisciplinary team', description: 'Over 10 professionals specialised in different areas.' },
+                  { title: 'Integrated solutions platform', description: 'Access to credit, insurance, legal, marketing, IT and more in one place.' },
+                  { title: 'Personalised service', description: 'Each client has a dedicated manager who knows their business.' },
+                  { title: 'Client growth vision', description: 'We work alongside you to achieve short, medium and long-term goals.' }
                 ]
               },
               faq: {
                 title: 'Frequently Asked Questions',
                 questions: [
-                  {
-                    question: 'Does Hive Group have certified accountants?',
-                    answer: 'Yes, all our accounting services are provided by Official Chartered Accountants (TOC) certified by the Portuguese Order of Chartered Accountants, ensuring full compliance with Portuguese legislation.'
-                  },
-                  {
-                    question: "What is an Authorised Citizen's Office Agent?",
-                    answer: 'It is a certified entity that can handle official documents (certificates, registrations, authentications) without you having to travel to public services. We save your time by handling everything for you.'
-                  },
-                  {
-                    question: 'What type of companies work with you?',
-                    answer: 'We work with companies across all sectors and sizes: from sole traders, SMEs, startups to larger companies. Each client has a solution tailored to their needs.'
-                  },
-                  {
-                    question: 'What is the deadline for submitting tax returns?',
-                    answer: 'We guarantee submission of all tax returns (VAT, income tax, corporate tax) within legal deadlines. We process VAT monthly and keep you always informed about upcoming obligations.'
-                  },
-                  {
-                    question: 'How does monthly monitoring work?',
-                    answer: 'Each client has a dedicated manager, receives monthly reports of accounting and tax situation, and has access to an online portal to consult documents at any time. We are always available for clarifications.'
-                  }
+                  { question: 'Does Hive Finance have certified accountants?', answer: 'Yes, all our accounting services are provided by Official Chartered Accountants (TOC) certified by the Portuguese Order of Chartered Accountants, ensuring full compliance with Portuguese legislation.' },
+                  { question: 'What sets Hive Finance apart from other accountants?', answer: 'Beyond certified accounting, we offer quarterly follow-up with in-person or online meetings, and access to an integrated solutions platform (credit, insurance, legal, marketing, IT) to address all your business needs.' },
+                  { question: "What is the Citizen's Office?", answer: 'It is a certified entity (authorised agent) that can handle official documents (certificates, registrations, authentications) without you having to travel to public services. We save your time by handling everything for you.' },
+                  { question: 'What type of companies work with you?', answer: 'We work with companies across all sectors and sizes: from sole traders, SMEs, startups to larger companies. Each client has a solution tailored to their needs.' },
+                  { question: 'How do quarterly meetings work?', answer: 'Every 3 months we meet with you to analyse results, adjust strategies and align objectives. It is real monitoring, not just passive accounting.' }
                 ]
               },
               quickContact: {
-                title: 'Quick Contacts',
+                title: "Let's organise and grow your business",
+                description: 'Talk to us and discover how we can help structure your company and make better decisions.',
                 phone: '+351 212 433 909',
                 phoneNote: 'Call to national mobile network',
+                whatsapp: '+351212433909',
                 emails: [
-                  {
-                    department: 'Accounting & General',
-                    email: 'business@hivegroup.pt'
-                  },
-                  {
-                    department: 'Finance',
-                    email: 'finance@hivegroup.pt'
-                  },
-                  {
-                    department: 'Legal',
-                    email: 'legal@hivegroup.pt'
-                  },
-                  {
-                    department: 'Real Estate',
-                    email: 'realestate@hivegroup.pt'
-                  }
+                  { department: 'General', email: 'geral@hivegroup.pt' },
+                  { department: 'Finance', email: 'finance@hivegroup.pt' },
+                  { department: 'Legal', email: 'legal@hivegroup.pt' },
+                  { department: 'Real Estate', email: 'realestate@hivegroup.pt' }
                 ]
               }
             })
           },
-          // Adicionar traduções fr, es, it de forma similar...
+          // ============================================
+          // FRANÇAIS (FR)
+          // ============================================
           {
             locale: 'fr',
             title: 'Hive Group Portugal - Comptabilité Certifiée & Solutions Professionnelles',
-            subtitle: 'Comptabilité certifiée, agent autorisé et solutions intégrées pour votre entreprise au Portugal.',
-            seoTitle: 'Hive Group Portugal - Comptabilité Certifiée & Agent Autorisé',
-            seoDescription: 'Comptabilité certifiée TOC, Agent Autorisé Bureau du Citoyen, finance, crédit, assurance. Solutions complètes pour entreprises au Portugal.',
-            keywordsJson: JSON.stringify(['comptabilité certifiée', 'expert-comptable', 'agent autorisé', 'bureau citoyen', 'finance', 'portugal']),
+            subtitle: 'Hive Finance: comptabilité certifiée avec suivi trimestriel et plateforme de solutions intégrées.',
+            seoTitle: 'Hive Group Portugal - Hive Finance & Solutions Intégrées',
+            seoDescription: 'Hive Finance: comptabilité certifiée TOC avec suivi trimestriel. Plateforme de solutions intégrées: crédit, assurance, juridique, marketing, IT et plus.',
+            keywordsJson: JSON.stringify(['comptabilité certifiée', 'expert-comptable', 'hive finance', 'hive group', 'portugal', 'finance entreprise']),
             sectionsJson: JSON.stringify({
               hero: {
-                headline: 'Comptabilité Certifiée & Solutions Intégrées',
-                subheadline: 'Simplifiez la gestion de votre entreprise avec nos services de comptabilité certifiée, agent autorisé et conseil professionnel au Portugal.',
-                authorizedAgentBadge: {
-                  title: 'Agent Autorisé',
-                  subtitle: 'Bureau du Citoyen',
-                  description: 'Nous traitons les documents officiels pour vous'
-                }
-              },
-              coreService: {
-                title: 'Comptabilité Certifiée TOC',
-                subtitle: 'La Base de Votre Entreprise',
-                description: 'Gestion comptable complète par des experts-comptables certifiés. TVA, impôts, clôture annuelle et toutes obligations fiscales avec rigueur et ponctualité.',
-                benefits: [
-                  'Experts-comptables certifiés',
-                  'Déclarations fiscales dans les délais',
-                  'Rapports mensuels personnalisés',
-                  'Portail client en ligne',
-                  'Support permanent'
-                ],
-                ctaLabel: 'Découvrir Comptabilité'
-              },
-              authorizedAgent: {
-                title: 'Bureau du Citoyen',
-                subtitle: 'Agent Autorisé Certifié',
-                description: 'Nous traitons toute la documentation officielle sans déplacement. Certificats, enregistrements, authentifications, documents véhicule et bien plus. Gagnez du temps et éliminez la bureaucratie.',
-                features: [
-                  'Documentation véhicule complète',
-                  'Renouvellement permis de conduire',
-                  'Certificats et enregistrements officiels',
-                  'Authentifications de documents',
-                  'Carte de citoyen et services publics'
-                ],
-                tagline: 'C\'est votre Bureau. Nous gérons tout pour vous.',
-                ctaLabel: 'Découvrir Services'
-              },
-              groupHive: {
-                title: 'Le Groupe Hive',
-                subtitle: 'Solutions intégrées dans 9 domaines stratégiques',
-                areas: [
-                  { title: 'Comptabilité', description: 'Experts certifiés', icon: '📊', link: '/contabilidade' },
-                  { title: 'Finance', description: 'Conseil financier', icon: '💰', link: '/finance' },
-                  { title: 'Crédit', description: 'Solutions crédit', icon: '💳', link: '/credit' },
-                  { title: 'Assurance', description: 'Assurances professionnelles', icon: '🛡️', link: '/insurance' },
-                  { title: 'Immobilier', description: 'Gestion immobilière', icon: '🏢', link: '/real-estate' },
-                  { title: 'Juridique', description: 'Services juridiques', icon: '⚖️', link: '/legal' },
-                  { title: 'Marketing', description: 'Marketing digital', icon: '📱', link: '/marketing' },
-                  { title: 'Voyages', description: 'Agence de voyages', icon: '✈️', link: '/travel' },
-                  { title: 'Développement', description: 'Développement commercial', icon: '🚀', link: '/business-development' }
+                headline: "Plus que de la comptabilité. Une solution complète pour votre entreprise.",
+                subheadline: "Grâce à Hive Finance, nous agissons en tant que comptable certifié, aidant les entreprises à se conformer, s'organiser et croître — avec accès à une plateforme intégrée de spécialistes dans divers domaines.",
+                bulletPoints: [
+                  'Comptabilité organisée et suivi trimestriel',
+                  'Support financier et prise de décision stratégique',
+                  'Accès au crédit, assurance, juridique, marketing et IT',
+                  'Équipe de plus de 10 professionnels hautement qualifiés'
                 ]
               },
-              whyChoose: {
-                title: 'Pourquoi Choisir Hive Group',
-                subtitle: 'Votre partenaire de confiance pour la réussite professionnelle',
-                reasons: [
-                  { title: 'Experts-Comptables Certifiés', description: 'Équipe certifiée par l\'Ordre des Experts-Comptables Portugais.' },
-                  { title: 'Agent Autorisé Certifié', description: 'Nous traitons les documents officiels sans déplacement.' },
-                  { title: 'Solutions Intégrées', description: 'Tout au même endroit: comptabilité, finance, juridique, immobilier.' },
-                  { title: 'Conformité Totale', description: 'Respect strict des obligations fiscales et légales au Portugal.' },
-                  { title: 'Technologie de Pointe', description: 'Plateformes numériques modernes pour gestion en temps réel.' },
-                  { title: 'Accompagnement Personnalisé', description: 'Chaque client a un gestionnaire dédié.' },
-                  { title: 'Réponse Rapide', description: 'Équipe disponible pour support quand vous en avez besoin.' },
-                  { title: 'Expérience Prouvée', description: 'Années d\'expérience avec entreprises de tous secteurs.' }
+              hiveFinance: {
+                title: 'Hive Finance',
+                subtitle: 'Le cœur de notre activité',
+                description: "Hive Finance est le service comptable de HIVE Group, basé sur un suivi financier et de gestion proche, garantissant le respect des obligations fiscales et légales et une structure organisée pour soutenir la prise de décision. Plus que la simple conformité, nous travaillons aux côtés du client avec un suivi continu et des réunions trimestrielles.",
+                benefits: [
+                  'Comptabilité organisée',
+                  'Conformité fiscale et légale',
+                  'Suivi financier',
+                  'Réunions trimestrielles'
+                ],
+                ctaLabel: 'Changer de comptable'
+              },
+              groupHive: {
+                title: 'HIVE GROUP',
+                subtitle: 'Plateforme de solutions intégrées',
+                description: "HIVE GROUP complète le service comptable avec une plateforme de solutions intégrées, à travers un réseau de partenaires spécialisés répondant aux besoins des entreprises et entrepreneurs.",
+                areas: [
+                  { title: 'Hive Credit', description: 'Solutions de crédit', icon: '💳', link: '/credit' },
+                  { title: 'Hive Insurance', description: 'Assurances professionnelles', icon: '🛡️', link: '/insurance' },
+                  { title: 'Hive Legal', description: 'Services juridiques', icon: '⚖️', link: '/legal' },
+                  { title: 'Hive IT', description: 'Solutions technologiques', icon: '💻', link: '/it' },
+                  { title: 'Hive Marketing', description: 'Marketing digital', icon: '📱', link: '/marketing' },
+                  { title: 'Hive Real Estate', description: 'Gestion immobilière', icon: '🏢', link: '/real-estate' },
+                  { title: 'Hive Business Dev', description: 'Développement commercial', icon: '🚀', link: '/business-development' },
+                  { title: 'Hive Care', description: 'Support personnel', icon: '❤️', link: '/care' },
+                  { title: 'Hive Travel', description: 'Agence de voyages', icon: '✈️', link: '/travel' },
+                  { title: 'Bureau du Citoyen', description: 'Agent autorisé', icon: '📋', link: '/agente-autorizado' }
+                ]
+              },
+              needBasedNavigation: {
+                title: 'Comment pouvons-nous aider votre entreprise?',
+                subtitle: 'Sélectionnez votre besoin et découvrez la solution idéale',
+                needs: [
+                  { title: 'Créer une entreprise', description: 'Accompagnement complet dans la création', services: ['Legal', 'Finance', 'Credit'], href: '/legal', icon: 'buildings' },
+                  { title: 'Organiser la comptabilité', description: 'Comptabilité certifiée avec suivi', services: ['Finance'], href: '/contabilidade', icon: 'calculator' },
+                  { title: 'Obtenir un financement', description: 'Solutions de crédit adaptées', services: ['Credit'], href: '/credit', icon: 'currency' },
+                  { title: "Protéger l'entreprise", description: 'Assurances professionnelles et personnelles', services: ['Insurance'], href: '/insurance', icon: 'shield' },
+                  { title: 'Croître et attirer des clients', description: 'Marketing digital et développement', services: ['Marketing', 'Business Dev'], href: '/marketing', icon: 'trendUp' },
+                  { title: 'Investir dans l\'immobilier', description: 'Gestion et conseil immobilier', services: ['Real Estate'], href: '/real-estate', icon: 'house' }
                 ]
               },
               howItWorks: {
-                title: 'Comment Ça Marche',
-                subtitle: 'Processus simple en 3 étapes',
+                title: 'Un modèle proche, structuré et orienté résultats',
+                subtitle: 'Processus simple en 4 étapes',
                 steps: [
-                  { number: 1, title: 'Réunion Initiale Gratuite', description: 'Analyse de votre situation et identification des besoins.' },
-                  { number: 2, title: 'Proposition Personnalisée', description: 'Présentation adaptée avec services, délais et investissement.' },
-                  { number: 3, title: 'Mise en Œuvre & Suivi', description: 'Démarrage des services avec rapports mensuels et support dédié.' }
-                ]
+                  { number: 1, title: 'Diagnostic', description: 'Nous comprenons le client et les objectifs' },
+                  { number: 2, title: 'Organisation', description: 'Nous implémentons la structure' },
+                  { number: 3, title: 'Suivi', description: 'Nous accompagnons dans le temps' },
+                  { number: 4, title: 'Évolution', description: 'Nous ajustons selon les résultats' }
+                ],
+                highlight: 'Réunions trimestrielles avec le client'
               },
-              featuredServices: {
-                title: 'Services en Vedette',
-                subtitle: 'Nos spécialités principales',
-                services: [
-                  {
-                    title: 'Comptabilité Certifiée',
-                    description: 'Gestion comptable complète par experts certifiés. TVA, impôts, clôture annuelle.',
-                    features: ['Experts-comptables certifiés', 'Déclarations fiscales', 'Clôture annuelle', 'Rapports mensuels', 'Portail client'],
-                    icon: '📊',
-                    link: '/contabilidade',
-                    highlight: true
-                  },
-                  {
-                    title: 'Agent Autorisé',
-                    description: 'Services officiels sans déplacement. Certificats, enregistrements, authentifications.',
-                    features: ['Certificats', 'Enregistrements', 'Authentifications', 'Carte de Citoyen', 'Licences'],
-                    icon: '🏛️',
-                    link: '/agente-autorizado',
-                    highlight: false
-                  },
-                  {
-                    title: 'Conseil Financier',
-                    description: 'Planification stratégique et optimisation fiscale.',
-                    features: ['Planification', 'Analyse investissements', 'Optimisation fiscale', 'Cash flow', 'Business plans'],
-                    icon: '💰',
-                    link: '/finance',
-                    highlight: false
-                  }
+              whyChoose: {
+                title: 'Pourquoi choisir Hive',
+                subtitle: 'Les raisons qui font la différence',
+                reasons: [
+                  { title: 'Comptable certifié avec suivi réel', description: 'Experts-comptables certifiés avec réunions trimestrielles et suivi personnalisé.' },
+                  { title: 'Équipe expérimentée et multidisciplinaire', description: 'Plus de 10 professionnels spécialisés dans différents domaines.' },
+                  { title: 'Plateforme de solutions intégrée', description: 'Accès au crédit, assurance, juridique, marketing, IT et plus en un seul endroit.' },
+                  { title: 'Service personnalisé', description: 'Chaque client a un gestionnaire dédié qui connaît son entreprise.' },
+                  { title: 'Vision de croissance du client', description: 'Nous travaillons à vos côtés pour atteindre vos objectifs.' }
                 ]
               },
               faq: {
                 title: 'Questions Fréquentes',
                 questions: [
-                  { question: 'Avez-vous des experts-comptables certifiés?', answer: 'Oui, tous nos services sont fournis par des experts-comptables certifiés, garantissant la conformité totale.' },
-                  { question: 'Qu\'est-ce qu\'un Agent Autorisé?', answer: 'Une entité certifiée qui traite les documents officiels sans que vous ayez à vous déplacer.' },
-                  { question: 'Quel type d\'entreprises travaillent avec vous?', answer: 'Toutes tailles et secteurs: indépendants, PME, startups, grandes entreprises.' },
-                  { question: 'Quel délai pour les déclarations fiscales?', answer: 'Nous garantissons le dépôt dans les délais légaux et vous tenons informé.' },
-                  { question: 'Comment fonctionne le suivi mensuel?', answer: 'Gestionnaire dédié, rapports mensuels, portail en ligne et disponibilité permanente.' }
+                  { question: 'Hive Finance a-t-elle des comptables certifiés?', answer: "Oui, tous nos services sont fournis par des experts-comptables certifiés, garantissant la conformité totale avec la législation portugaise." },
+                  { question: "Qu'est-ce qui différencie Hive Finance des autres comptables?", answer: "Au-delà de la comptabilité certifiée, nous offrons un suivi trimestriel avec réunions et accès à une plateforme de solutions intégrées." },
+                  { question: "Qu'est-ce que le Bureau du Citoyen?", answer: "C'est une entité certifiée qui traite les documents officiels sans que vous ayez à vous déplacer." },
+                  { question: "Quel type d'entreprises travaillent avec vous?", answer: "Toutes tailles et secteurs: indépendants, PME, startups, grandes entreprises." },
+                  { question: 'Comment fonctionnent les réunions trimestrielles?', answer: 'Tous les 3 mois nous nous réunissons pour analyser les résultats et ajuster les stratégies.' }
                 ]
               },
               quickContact: {
-                title: 'Contacts Rapides',
+                title: 'Organisons et faisons croître votre entreprise',
+                description: 'Parlez-nous et découvrez comment nous pouvons aider à structurer votre entreprise.',
                 phone: '+351 212 433 909',
                 phoneNote: 'Appel vers réseau mobile national',
+                whatsapp: '+351212433909',
                 emails: [
-                  { department: 'Comptabilité & Général', email: 'business@hivegroup.pt' },
+                  { department: 'Général', email: 'geral@hivegroup.pt' },
                   { department: 'Finance', email: 'finance@hivegroup.pt' },
                   { department: 'Juridique', email: 'legal@hivegroup.pt' },
                   { department: 'Immobilier', email: 'realestate@hivegroup.pt' }
@@ -677,134 +345,108 @@ async function updateHomePage() {
               }
             })
           },
+          // ============================================
+          // ESPAÑOL (ES)
+          // ============================================
           {
             locale: 'es',
             title: 'Hive Group Portugal - Contabilidad Certificada & Soluciones Empresariales',
-            subtitle: 'Contabilidad certificada, agente autorizado y soluciones integradas para su empresa en Portugal.',
-            seoTitle: 'Hive Group Portugal - Contabilidad Certificada & Agente Autorizado',
-            seoDescription: 'Contabilidad certificada, Agente Autorizado Oficina del Ciudadano, finanzas, crédito, seguros. Soluciones completas para empresas en Portugal.',
-            keywordsJson: JSON.stringify(['contabilidad certificada', 'contador', 'agente autorizado', 'oficina ciudadano', 'finanzas', 'portugal']),
+            subtitle: 'Hive Finance: contabilidad certificada con seguimiento trimestral y plataforma de soluciones integradas.',
+            seoTitle: 'Hive Group Portugal - Hive Finance & Soluciones Integradas',
+            seoDescription: 'Hive Finance: contabilidad certificada TOC con seguimiento trimestral. Plataforma de soluciones integradas: crédito, seguros, jurídico, marketing, IT y más.',
+            keywordsJson: JSON.stringify(['contabilidad certificada', 'contador', 'hive finance', 'hive group', 'portugal', 'finanzas empresariales']),
             sectionsJson: JSON.stringify({
               hero: {
-                headline: 'Contabilidad Certificada & Soluciones Integradas',
-                subheadline: 'Simplifique la gestión de su empresa con nuestros servicios de contabilidad certificada, agente autorizado y consultoría empresarial en Portugal.',
-                authorizedAgentBadge: {
-                  title: 'Agente Autorizado',
-                  subtitle: 'Oficina del Ciudadano',
-                  description: 'Tramitamos documentos oficiales por usted'
-                }
-              },
-              coreService: {
-                title: 'Contabilidad Certificada TOC',
-                subtitle: 'La Base de Su Negocio',
-                description: 'Gestión contable completa por Contadores Oficiales certificados. IVA, impuestos, cierre anual y todas las obligaciones fiscales con rigor y puntualidad.',
-                benefits: [
-                  'Contadores Oficiales certificados',
-                  'Declaraciones fiscales en plazo',
-                  'Informes mensuales personalizados',
-                  'Portal del cliente online',
-                  'Soporte permanente'
-                ],
-                ctaLabel: 'Conocer Contabilidad'
-              },
-              authorizedAgent: {
-                title: 'Oficina del Ciudadano',
-                subtitle: 'Agente Autorizado Certificado',
-                description: 'Tramitamos toda la documentación oficial sin necesidad de desplazamientos. Certificados, registros, autenticaciones, documentación vehículo y mucho más. Ahorre tiempo y elimine burocracia.',
-                features: [
-                  'Documentación vehículo completa',
-                  'Renovación permiso de conducción',
-                  'Certificados y registros oficiales',
-                  'Autenticaciones de documentos',
-                  'Tarjeta de ciudadano y servicios públicos'
-                ],
-                tagline: 'Esta es su Oficina. Nos encargamos de todo.',
-                ctaLabel: 'Conocer Servicios'
-              },
-              groupHive: {
-                title: 'El Grupo Hive',
-                subtitle: 'Soluciones integradas en 9 áreas estratégicas',
-                areas: [
-                  { title: 'Contabilidad', description: 'Contadores certificados', icon: '📊', link: '/contabilidade' },
-                  { title: 'Finanzas', description: 'Consultoría financiera', icon: '💰', link: '/finance' },
-                  { title: 'Crédito', description: 'Soluciones crédito', icon: '💳', link: '/credit' },
-                  { title: 'Seguros', description: 'Seguros empresariales', icon: '🛡️', link: '/insurance' },
-                  { title: 'Inmobiliaria', description: 'Gestión inmobiliaria', icon: '🏢', link: '/real-estate' },
-                  { title: 'Jurídico', description: 'Servicios jurídicos', icon: '⚖️', link: '/legal' },
-                  { title: 'Marketing', description: 'Marketing digital', icon: '📱', link: '/marketing' },
-                  { title: 'Viajes', description: 'Agencia viajes', icon: '✈️', link: '/travel' },
-                  { title: 'Desarrollo', description: 'Desarrollo negocio', icon: '🚀', link: '/business-development' }
+                headline: 'Más que contabilidad. Una solución completa para su negocio.',
+                subheadline: 'A través de Hive Finance, actuamos como contador certificado, ayudando a empresas a cumplir, organizar y crecer — con acceso a una plataforma integrada de especialistas en diversas áreas.',
+                bulletPoints: [
+                  'Contabilidad organizada y seguimiento trimestral',
+                  'Apoyo financiero y toma de decisiones estratégica',
+                  'Acceso a crédito, seguros, jurídico, marketing e IT',
+                  'Equipo de más de 10 profesionales altamente cualificados'
                 ]
               },
-              whyChoose: {
-                title: 'Por Qué Elegir Hive Group',
-                subtitle: 'Su socio de confianza para el éxito empresarial',
-                reasons: [
-                  { title: 'Contadores Certificados', description: 'Equipo certificado por la Orden de Contadores Portugueses.' },
-                  { title: 'Agente Autorizado Certificado', description: 'Tramitamos documentos oficiales sin desplazamientos.' },
-                  { title: 'Soluciones Integradas', description: 'Todo en un solo lugar: contabilidad, finanzas, jurídico, inmobiliaria.' },
-                  { title: 'Cumplimiento Total', description: 'Garantizamos cumplimiento estricto de obligaciones fiscales y legales.' },
-                  { title: 'Tecnología Avanzada', description: 'Plataformas digitales modernas para gestión en tiempo real.' },
-                  { title: 'Seguimiento Personalizado', description: 'Cada cliente tiene un gestor dedicado.' },
-                  { title: 'Respuesta Rápida', description: 'Equipo disponible para soporte cuando lo necesita.' },
-                  { title: 'Experiencia Comprobada', description: 'Años de experiencia con empresas de todos los sectores.' }
+              hiveFinance: {
+                title: 'Hive Finance',
+                subtitle: 'El núcleo de nuestra actuación',
+                description: 'Hive Finance es el servicio de contabilidad de HIVE Group, basado en un seguimiento financiero y de gestión cercano, garantizando el cumplimiento de obligaciones fiscales y legales y una estructura organizada para apoyar la toma de decisiones. Más que cumplir, trabajamos junto al cliente con seguimiento continuo y reuniones trimestrales.',
+                benefits: [
+                  'Contabilidad organizada',
+                  'Cumplimiento fiscal y legal',
+                  'Seguimiento financiero',
+                  'Reuniones trimestrales'
+                ],
+                ctaLabel: 'Cambiar de contador'
+              },
+              groupHive: {
+                title: 'HIVE GROUP',
+                subtitle: 'Plataforma de soluciones integradas',
+                description: 'HIVE GROUP complementa el servicio de contabilidad con una plataforma de soluciones integradas, a través de una red de socios especializados que responde a las necesidades de empresas y empresarios.',
+                areas: [
+                  { title: 'Hive Credit', description: 'Soluciones de crédito', icon: '💳', link: '/credit' },
+                  { title: 'Hive Insurance', description: 'Seguros empresariales', icon: '🛡️', link: '/insurance' },
+                  { title: 'Hive Legal', description: 'Servicios jurídicos', icon: '⚖️', link: '/legal' },
+                  { title: 'Hive IT', description: 'Soluciones tecnológicas', icon: '💻', link: '/it' },
+                  { title: 'Hive Marketing', description: 'Marketing digital', icon: '📱', link: '/marketing' },
+                  { title: 'Hive Real Estate', description: 'Gestión inmobiliaria', icon: '🏢', link: '/real-estate' },
+                  { title: 'Hive Business Dev', description: 'Desarrollo de negocio', icon: '🚀', link: '/business-development' },
+                  { title: 'Hive Care', description: 'Apoyo personal', icon: '❤️', link: '/care' },
+                  { title: 'Hive Travel', description: 'Agencia de viajes', icon: '✈️', link: '/travel' },
+                  { title: 'Oficina del Ciudadano', description: 'Agente autorizado', icon: '📋', link: '/agente-autorizado' }
+                ]
+              },
+              needBasedNavigation: {
+                title: '¿Cómo podemos ayudar a su negocio?',
+                subtitle: 'Seleccione su necesidad y descubra la solución ideal',
+                needs: [
+                  { title: 'Crear empresa', description: 'Apoyo completo en la constitución', services: ['Legal', 'Finance', 'Credit'], href: '/legal', icon: 'buildings' },
+                  { title: 'Organizar contabilidad', description: 'Contabilidad certificada con seguimiento', services: ['Finance'], href: '/contabilidade', icon: 'calculator' },
+                  { title: 'Obtener financiamiento', description: 'Soluciones de crédito ajustadas', services: ['Credit'], href: '/credit', icon: 'currency' },
+                  { title: 'Proteger empresa', description: 'Seguros empresariales y personales', services: ['Insurance'], href: '/insurance', icon: 'shield' },
+                  { title: 'Crecer y atraer clientes', description: 'Marketing digital y desarrollo', services: ['Marketing', 'Business Dev'], href: '/marketing', icon: 'trendUp' },
+                  { title: 'Invertir inmobiliario', description: 'Gestión y consultoría inmobiliaria', services: ['Real Estate'], href: '/real-estate', icon: 'house' }
                 ]
               },
               howItWorks: {
-                title: 'Cómo Funciona',
-                subtitle: 'Proceso simple en 3 pasos',
+                title: 'Un modelo cercano, estructurado y orientado a resultados',
+                subtitle: 'Proceso simple en 4 pasos',
                 steps: [
-                  { number: 1, title: 'Reunión Inicial Gratuita', description: 'Analizamos su situación e identificamos necesidades.' },
-                  { number: 2, title: 'Propuesta Personalizada', description: 'Presentamos propuesta adaptada con servicios, plazos e inversión.' },
-                  { number: 3, title: 'Implementación & Seguimiento', description: 'Iniciamos servicios con informes mensuales y soporte dedicado.' }
-                ]
+                  { number: 1, title: 'Diagnóstico', description: 'Entendemos al cliente y objetivos' },
+                  { number: 2, title: 'Organización', description: 'Implementamos estructura' },
+                  { number: 3, title: 'Seguimiento', description: 'Apoyamos a lo largo del tiempo' },
+                  { number: 4, title: 'Evolución', description: 'Ajustamos según resultados' }
+                ],
+                highlight: 'Reuniones trimestrales con el cliente'
               },
-              featuredServices: {
-                title: 'Servicios Destacados',
-                subtitle: 'Nuestras especialidades principales',
-                services: [
-                  {
-                    title: 'Contabilidad Certificada',
-                    description: 'Gestión contable completa por contadores certificados. IVA, impuestos, cierre anual.',
-                    features: ['Contadores certificados', 'Declaraciones fiscales', 'Cierre anual', 'Informes mensuales', 'Portal cliente'],
-                    icon: '📊',
-                    link: '/contabilidade',
-                    highlight: true
-                  },
-                  {
-                    title: 'Agente Autorizado',
-                    description: 'Servicios oficiales sin desplazamientos. Certificados, registros, autenticaciones.',
-                    features: ['Certificados', 'Registros', 'Autenticaciones', 'Tarjeta Ciudadano', 'Licencias'],
-                    icon: '🏛️',
-                    link: '/agente-autorizado',
-                    highlight: false
-                  },
-                  {
-                    title: 'Consultoría Financiera',
-                    description: 'Planificación estratégica y optimización fiscal.',
-                    features: ['Planificación', 'Análisis inversiones', 'Optimización fiscal', 'Cash flow', 'Business plans'],
-                    icon: '💰',
-                    link: '/finance',
-                    highlight: false
-                  }
+              whyChoose: {
+                title: 'Por qué elegir Hive',
+                subtitle: 'Las razones que hacen la diferencia',
+                reasons: [
+                  { title: 'Contador certificado con seguimiento real', description: 'Contadores certificados con reuniones trimestrales y seguimiento personalizado.' },
+                  { title: 'Equipo experimentado y multidisciplinar', description: 'Más de 10 profesionales especializados en diferentes áreas.' },
+                  { title: 'Plataforma de soluciones integrada', description: 'Acceso a crédito, seguros, jurídico, marketing, IT y más en un solo lugar.' },
+                  { title: 'Atención personalizada', description: 'Cada cliente tiene un gestor dedicado que conoce su negocio.' },
+                  { title: 'Visión de crecimiento del cliente', description: 'Trabajamos a su lado para alcanzar objetivos.' }
                 ]
               },
               faq: {
                 title: 'Preguntas Frecuentes',
                 questions: [
-                  { question: '¿Tienen contadores certificados?', answer: 'Sí, todos nuestros servicios son prestados por contadores certificados, garantizando cumplimiento total.' },
-                  { question: '¿Qué es un Agente Autorizado?', answer: 'Una entidad certificada que tramita documentos oficiales sin que tenga que desplazarse.' },
+                  { question: '¿Hive Finance tiene contadores certificados?', answer: 'Sí, todos nuestros servicios son prestados por contadores certificados, garantizando conformidad total con la legislación portuguesa.' },
+                  { question: '¿Qué diferencia a Hive Finance de otros contadores?', answer: 'Además de contabilidad certificada, ofrecemos seguimiento trimestral con reuniones y acceso a una plataforma de soluciones integradas.' },
+                  { question: '¿Qué es la Oficina del Ciudadano?', answer: 'Es una entidad certificada que tramita documentos oficiales sin que tenga que desplazarse.' },
                   { question: '¿Qué tipo de empresas trabajan con ustedes?', answer: 'Todos los tamaños y sectores: autónomos, PYMES, startups, grandes empresas.' },
-                  { question: '¿Cuál es el plazo para declaraciones fiscales?', answer: 'Garantizamos presentación dentro de plazos legales y le mantenemos informado.' },
-                  { question: '¿Cómo funciona el seguimiento mensual?', answer: 'Gestor dedicado, informes mensuales, portal online y disponibilidad permanente.' }
+                  { question: '¿Cómo funcionan las reuniones trimestrales?', answer: 'Cada 3 meses nos reunimos para analizar resultados y ajustar estrategias.' }
                 ]
               },
               quickContact: {
-                title: 'Contactos Rápidos',
+                title: 'Organicemos y hagamos crecer su negocio',
+                description: 'Hable con nosotros y descubra cómo podemos ayudar a estructurar su empresa.',
                 phone: '+351 212 433 909',
                 phoneNote: 'Llamada a red móvil nacional',
+                whatsapp: '+351212433909',
                 emails: [
-                  { department: 'Contabilidad & General', email: 'business@hivegroup.pt' },
+                  { department: 'General', email: 'geral@hivegroup.pt' },
                   { department: 'Finanzas', email: 'finance@hivegroup.pt' },
                   { department: 'Jurídico', email: 'legal@hivegroup.pt' },
                   { department: 'Inmobiliaria', email: 'realestate@hivegroup.pt' }
@@ -812,134 +454,108 @@ async function updateHomePage() {
               }
             })
           },
+          // ============================================
+          // ITALIANO (IT)
+          // ============================================
           {
             locale: 'it',
             title: 'Hive Group Portogallo - Contabilità Certificata & Soluzioni Aziendali',
-            subtitle: 'Contabilità certificata, agente autorizzato e soluzioni integrate per la tua azienda in Portogallo.',
-            seoTitle: 'Hive Group Portogallo - Contabilità Certificata & Agente Autorizzato',
-            seoDescription: 'Contabilità certificata, Agente Autorizzato Ufficio del Cittadino, finanza, credito, assicurazioni. Soluzioni complete per aziende in Portogallo.',
-            keywordsJson: JSON.stringify(['contabilità certificata', 'commercialista', 'agente autorizzato', 'ufficio cittadino', 'finanza', 'portogallo']),
+            subtitle: 'Hive Finance: contabilità certificata con monitoraggio trimestrale e piattaforma di soluzioni integrate.',
+            seoTitle: 'Hive Group Portogallo - Hive Finance & Soluzioni Integrate',
+            seoDescription: 'Hive Finance: contabilità certificata TOC con monitoraggio trimestrale. Piattaforma di soluzioni integrate: credito, assicurazione, legale, marketing, IT e altro.',
+            keywordsJson: JSON.stringify(['contabilità certificata', 'commercialista', 'hive finance', 'hive group', 'portogallo', 'finanza aziendale']),
             sectionsJson: JSON.stringify({
               hero: {
-                headline: 'Contabilità Certificata & Soluzioni Integrate',
-                subheadline: 'Semplifica la gestione della tua azienda con i nostri servizi di contabilità certificata, agente autorizzato e consulenza aziendale in Portogallo.',
-                authorizedAgentBadge: {
-                  title: 'Agente Autorizzato',
-                  subtitle: 'Ufficio del Cittadino',
-                  description: 'Gestiamo documenti ufficiali per te'
-                }
-              },
-              coreService: {
-                title: 'Contabilità Certificata TOC',
-                subtitle: 'La Base del Tuo Business',
-                description: 'Gestione contabile completa da Commercialisti Certificati. IVA, imposte, chiusura annuale e tutti gli obblighi fiscali con rigore e puntualità.',
-                benefits: [
-                  'Commercialisti Certificati',
-                  'Dichiarazioni fiscali nei tempi',
-                  'Report mensili personalizzati',
-                  'Portale cliente online',
-                  'Supporto permanente'
-                ],
-                ctaLabel: 'Scopri Contabilità'
-              },
-              authorizedAgent: {
-                title: 'Ufficio del Cittadino',
-                subtitle: 'Agente Autorizzato Certificato',
-                description: 'Gestiamo tutta la documentazione ufficiale senza necessità di spostamenti. Certificati, registrazioni, autenticazioni, documenti veicolo e molto altro. Risparmia tempo ed elimina la burocrazia.',
-                features: [
-                  'Documentazione veicolo completa',
-                  'Rinnovo patente di guida',
-                  'Certificati e registrazioni ufficiali',
-                  'Autenticazioni documenti',
-                  'Carta di identità e servizi pubblici'
-                ],
-                tagline: 'Questo è il tuo Ufficio. Ci occupiamo di tutto.',
-                ctaLabel: 'Scopri Servizi'
-              },
-              groupHive: {
-                title: 'Il Gruppo Hive',
-                subtitle: 'Soluzioni integrate in 9 aree strategiche',
-                areas: [
-                  { title: 'Contabilità', description: 'Commercialisti certificati', icon: '📊', link: '/contabilidade' },
-                  { title: 'Finanza', description: 'Consulenza finanziaria', icon: '💰', link: '/finance' },
-                  { title: 'Credito', description: 'Soluzioni credito', icon: '💳', link: '/credit' },
-                  { title: 'Assicurazioni', description: 'Assicurazioni aziendali', icon: '🛡️', link: '/insurance' },
-                  { title: 'Immobiliare', description: 'Gestione immobiliare', icon: '🏢', link: '/real-estate' },
-                  { title: 'Legale', description: 'Servizi legali', icon: '⚖️', link: '/legal' },
-                  { title: 'Marketing', description: 'Marketing digitale', icon: '📱', link: '/marketing' },
-                  { title: 'Viaggi', description: 'Agenzia viaggi', icon: '✈️', link: '/travel' },
-                  { title: 'Sviluppo', description: 'Sviluppo business', icon: '🚀', link: '/business-development' }
+                headline: 'Più che contabilità. Una soluzione completa per la tua azienda.',
+                subheadline: 'Attraverso Hive Finance, agiamo come commercialisti certificati, aiutando le aziende a conformarsi, organizzarsi e crescere — con accesso a una piattaforma integrata di specialisti in varie aree.',
+                bulletPoints: [
+                  'Contabilità organizzata e monitoraggio trimestrale',
+                  'Supporto finanziario e decisioni strategiche',
+                  'Accesso a credito, assicurazione, legale, marketing e IT',
+                  'Team di oltre 10 professionisti altamente qualificati'
                 ]
               },
-              whyChoose: {
-                title: 'Perché Scegliere Hive Group',
-                subtitle: 'Il tuo partner di fiducia per il successo aziendale',
-                reasons: [
-                  { title: 'Commercialisti Certificati', description: 'Team certificato dall\'Ordine dei Commercialisti Portoghesi.' },
-                  { title: 'Agente Autorizzato Certificato', description: 'Gestiamo documenti ufficiali senza spostamenti.' },
-                  { title: 'Soluzioni Integrate', description: 'Tutto in un unico posto: contabilità, finanza, legale, immobiliare.' },
-                  { title: 'Conformità Totale', description: 'Garantiamo rispetto rigoroso degli obblighi fiscali e legali.' },
-                  { title: 'Tecnologia Avanzata', description: 'Piattaforme digitali moderne per gestione in tempo reale.' },
-                  { title: 'Monitoraggio Personalizzato', description: 'Ogni cliente ha un gestore dedicato.' },
-                  { title: 'Risposta Rapida', description: 'Team disponibile per supporto quando necessario.' },
-                  { title: 'Esperienza Comprovata', description: 'Anni di esperienza con aziende di tutti i settori.' }
+              hiveFinance: {
+                title: 'Hive Finance',
+                subtitle: 'Il cuore della nostra attività',
+                description: "Hive Finance è il servizio di contabilità di HIVE Group, basato su un monitoraggio finanziario e gestionale ravvicinato, garantendo il rispetto degli obblighi fiscali e legali e una struttura organizzata per supportare le decisioni. Più che conformità, lavoriamo al fianco del cliente con monitoraggio continuo e riunioni trimestrali.",
+                benefits: [
+                  'Contabilità organizzata',
+                  'Conformità fiscale e legale',
+                  'Monitoraggio finanziario',
+                  'Riunioni trimestrali'
+                ],
+                ctaLabel: 'Cambiare commercialista'
+              },
+              groupHive: {
+                title: 'HIVE GROUP',
+                subtitle: 'Piattaforma di soluzioni integrate',
+                description: 'HIVE GROUP completa il servizio di contabilità con una piattaforma di soluzioni integrate, attraverso una rete di partner specializzati che risponde alle esigenze di aziende e imprenditori.',
+                areas: [
+                  { title: 'Hive Credit', description: 'Soluzioni di credito', icon: '💳', link: '/credit' },
+                  { title: 'Hive Insurance', description: 'Assicurazioni aziendali', icon: '🛡️', link: '/insurance' },
+                  { title: 'Hive Legal', description: 'Servizi legali', icon: '⚖️', link: '/legal' },
+                  { title: 'Hive IT', description: 'Soluzioni tecnologiche', icon: '💻', link: '/it' },
+                  { title: 'Hive Marketing', description: 'Marketing digitale', icon: '📱', link: '/marketing' },
+                  { title: 'Hive Real Estate', description: 'Gestione immobiliare', icon: '🏢', link: '/real-estate' },
+                  { title: 'Hive Business Dev', description: 'Sviluppo business', icon: '🚀', link: '/business-development' },
+                  { title: 'Hive Care', description: 'Supporto personale', icon: '❤️', link: '/care' },
+                  { title: 'Hive Travel', description: 'Agenzia viaggi', icon: '✈️', link: '/travel' },
+                  { title: 'Ufficio del Cittadino', description: 'Agente autorizzato', icon: '📋', link: '/agente-autorizado' }
+                ]
+              },
+              needBasedNavigation: {
+                title: 'Come possiamo aiutare la tua azienda?',
+                subtitle: 'Seleziona la tua esigenza e scopri la soluzione ideale',
+                needs: [
+                  { title: 'Creare azienda', description: 'Supporto completo nella costituzione', services: ['Legal', 'Finance', 'Credit'], href: '/legal', icon: 'buildings' },
+                  { title: 'Organizzare contabilità', description: 'Contabilità certificata con monitoraggio', services: ['Finance'], href: '/contabilidade', icon: 'calculator' },
+                  { title: 'Ottenere finanziamento', description: 'Soluzioni di credito su misura', services: ['Credit'], href: '/credit', icon: 'currency' },
+                  { title: 'Proteggere azienda', description: 'Assicurazioni aziendali e personali', services: ['Insurance'], href: '/insurance', icon: 'shield' },
+                  { title: 'Crescere e attrarre clienti', description: 'Marketing digitale e sviluppo', services: ['Marketing', 'Business Dev'], href: '/marketing', icon: 'trendUp' },
+                  { title: 'Investire immobiliare', description: 'Gestione e consulenza immobiliare', services: ['Real Estate'], href: '/real-estate', icon: 'house' }
                 ]
               },
               howItWorks: {
-                title: 'Come Funziona',
-                subtitle: 'Processo semplice in 3 passi',
+                title: 'Un modello vicino, strutturato e orientato ai risultati',
+                subtitle: 'Processo semplice in 4 passi',
                 steps: [
-                  { number: 1, title: 'Riunione Iniziale Gratuita', description: 'Analizziamo la tua situazione e identifichiamo le esigenze.' },
-                  { number: 2, title: 'Proposta Personalizzata', description: 'Presentiamo proposta adattata con servizi, tempi e investimento.' },
-                  { number: 3, title: 'Implementazione & Monitoraggio', description: 'Avviamo i servizi con rapporti mensili e supporto dedicato.' }
-                ]
+                  { number: 1, title: 'Diagnosi', description: 'Comprendiamo il cliente e gli obiettivi' },
+                  { number: 2, title: 'Organizzazione', description: 'Implementiamo la struttura' },
+                  { number: 3, title: 'Monitoraggio', description: 'Supportiamo nel tempo' },
+                  { number: 4, title: 'Evoluzione', description: 'Adattiamo in base ai risultati' }
+                ],
+                highlight: 'Riunioni trimestrali con il cliente'
               },
-              featuredServices: {
-                title: 'Servizi in Evidenza',
-                subtitle: 'Le nostre specialità principali',
-                services: [
-                  {
-                    title: 'Contabilità Certificata',
-                    description: 'Gestione contabile completa da commercialisti certificati. IVA, tasse, chiusura annuale.',
-                    features: ['Commercialisti certificati', 'Dichiarazioni fiscali', 'Chiusura annuale', 'Rapporti mensili', 'Portale cliente'],
-                    icon: '📊',
-                    link: '/contabilidade',
-                    highlight: true
-                  },
-                  {
-                    title: 'Agente Autorizzato',
-                    description: 'Servizi ufficiali senza spostamenti. Certificati, registrazioni, autenticazioni.',
-                    features: ['Certificati', 'Registrazioni', 'Autenticazioni', 'Carta Cittadino', 'Licenze'],
-                    icon: '🏛️',
-                    link: '/agente-autorizado',
-                    highlight: false
-                  },
-                  {
-                    title: 'Consulenza Finanziaria',
-                    description: 'Pianificazione strategica e ottimizzazione fiscale.',
-                    features: ['Pianificazione', 'Analisi investimenti', 'Ottimizzazione fiscale', 'Cash flow', 'Business plans'],
-                    icon: '💰',
-                    link: '/finance',
-                    highlight: false
-                  }
+              whyChoose: {
+                title: 'Perché scegliere Hive',
+                subtitle: 'Le ragioni che fanno la differenza',
+                reasons: [
+                  { title: 'Commercialista certificato con monitoraggio reale', description: 'Commercialisti certificati con riunioni trimestrali e monitoraggio personalizzato.' },
+                  { title: 'Team esperto e multidisciplinare', description: 'Oltre 10 professionisti specializzati in diverse aree.' },
+                  { title: 'Piattaforma di soluzioni integrata', description: 'Accesso a credito, assicurazione, legale, marketing, IT e altro in un unico posto.' },
+                  { title: 'Servizio personalizzato', description: 'Ogni cliente ha un gestore dedicato che conosce la sua azienda.' },
+                  { title: 'Visione di crescita del cliente', description: 'Lavoriamo al tuo fianco per raggiungere gli obiettivi.' }
                 ]
               },
               faq: {
                 title: 'Domande Frequenti',
                 questions: [
-                  { question: 'Avete commercialisti certificati?', answer: 'Sì, tutti i nostri servizi sono forniti da commercialisti certificati, garantendo conformità totale.' },
-                  { question: 'Cos\'è un Agente Autorizzato?', answer: 'Un\'entità certificata che gestisce documenti ufficiali senza che tu debba spostarti.' },
+                  { question: 'Hive Finance ha commercialisti certificati?', answer: 'Sì, tutti i nostri servizi sono forniti da commercialisti certificati, garantendo conformità totale con la legislazione portoghese.' },
+                  { question: 'Cosa differenzia Hive Finance dagli altri commercialisti?', answer: 'Oltre alla contabilità certificata, offriamo monitoraggio trimestrale con riunioni e accesso a una piattaforma di soluzioni integrate.' },
+                  { question: "Cos'è l'Ufficio del Cittadino?", answer: "È un'entità certificata che gestisce documenti ufficiali senza che tu debba spostarti." },
                   { question: 'Che tipo di aziende lavorano con voi?', answer: 'Tutte le dimensioni e settori: autonomi, PMI, startup, grandi aziende.' },
-                  { question: 'Qual è il termine per le dichiarazioni fiscali?', answer: 'Garantiamo la presentazione entro i termini legali e ti teniamo informato.' },
-                  { question: 'Come funziona il monitoraggio mensile?', answer: 'Gestore dedicato, rapporti mensili, portale online e disponibilità permanente.' }
+                  { question: 'Come funzionano le riunioni trimestrali?', answer: 'Ogni 3 mesi ci incontriamo per analizzare i risultati e adattare le strategie.' }
                 ]
               },
               quickContact: {
-                title: 'Contatti Rapidi',
+                title: 'Organizziamo e facciamo crescere la tua azienda',
+                description: 'Parlaci e scopri come possiamo aiutare a strutturare la tua azienda.',
                 phone: '+351 212 433 909',
                 phoneNote: 'Chiamata a rete mobile nazionale',
+                whatsapp: '+351212433909',
                 emails: [
-                  { department: 'Contabilità & Generale', email: 'business@hivegroup.pt' },
+                  { department: 'Generale', email: 'geral@hivegroup.pt' },
                   { department: 'Finanza', email: 'finance@hivegroup.pt' },
                   { department: 'Legale', email: 'legal@hivegroup.pt' },
                   { department: 'Immobiliare', email: 'realestate@hivegroup.pt' }
@@ -952,7 +568,12 @@ async function updateHomePage() {
     }
   });
 
-  console.log('✅ Home Page Premium atualizada com sucesso!');
+  console.log('✅ Home Page Premium atualizada com nova estrutura em 5 idiomas!');
+  console.log('   - PT: Português');
+  console.log('   - EN: English');
+  console.log('   - FR: Français');
+  console.log('   - ES: Español');
+  console.log('   - IT: Italiano');
 }
 
 updateHomePage()

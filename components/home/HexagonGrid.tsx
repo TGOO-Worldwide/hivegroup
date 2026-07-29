@@ -13,6 +13,7 @@ interface Area {
 interface HexagonGridProps {
   title: string;
   subtitle: string;
+  description?: string;
   areas: Area[];
   locale: string;
 }
@@ -22,7 +23,7 @@ function getSlugFromLink(link: string): string {
   return link.replace(/^\//, '').split('/')[0] || '';
 }
 
-export default function HexagonGrid({ title, subtitle, areas, locale }: HexagonGridProps) {
+export default function HexagonGrid({ title, subtitle, description, areas, locale }: HexagonGridProps) {
   return (
     <section className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -34,6 +35,11 @@ export default function HexagonGrid({ title, subtitle, areas, locale }: HexagonG
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
             {subtitle}
           </p>
+          {description && (
+            <p className="text-base text-neutral-500 max-w-3xl mx-auto mt-4">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Premium Service Cards Grid */}

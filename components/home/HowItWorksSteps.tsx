@@ -40,7 +40,7 @@ export default function HowItWorksSteps({ title, subtitle, steps }: HowItWorksSt
             <div className="h-full bg-gradient-gold opacity-30" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          <div className={`grid grid-cols-1 gap-8 relative z-10 ${steps.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3'}`}>
             {steps.map((step, index) => (
               <div
                 key={index}
