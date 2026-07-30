@@ -78,6 +78,7 @@ jobs:
           cd '${SSH_PATH}'
           npm ci
           npx prisma generate
+          npm run prisma:seed
           rm -rf .next
           npm run build
           pm2 restart hivegroup

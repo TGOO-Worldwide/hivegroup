@@ -13,9 +13,10 @@ Este documento define o processo **obrigatório** para qualquer alteração de c
 1. ✅ `I18N_DB_RULES.md` - Regras de internacionalização
 2. ✅ `CONTENT_MODEL.md` - Estrutura de dados
 3. ✅ `CHANGE_WORKFLOW.md` - Este documento
+4. ✅ `AI_CONTENT_WORKFLOW.md` - **Obrigatório para edições de conteúdo** (seed-data.json, export, deploy)
 
 **Coloca um lembrete no README:**
-> "Qualquer edição deve respeitar i18n+DB. Não criar blocos de conteúdo sem tradução."
+> "Qualquer edição deve respeitar i18n+DB. Não criar blocos de conteúdo sem tradução. Conteúdo editorial deve ficar em `prisma/seed-data.json` e sobe via seed no deploy."
 
 ---
 

@@ -119,8 +119,8 @@ Acesse: `https://hivegroup.tgoo.eu`
 # Verificar se tem dados no banco
 node test-connection.js
 
-# Se vazio, rodar seed:
-npx tsx prisma/seed.ts
+# Se vazio ou desatualizado, rodar seed (já corre automaticamente no deploy via GitHub Actions):
+npm run prisma:seed
 ```
 
 ### Erro: "Module not found"

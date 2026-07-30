@@ -68,6 +68,11 @@ echo "🧪 Testando conexão com banco de dados..."
 node test-connection.js
 
 echo ""
+echo "🌱 Sincronizando conteúdo (prisma seed upsert)..."
+npx prisma generate
+npm run prisma:seed
+
+echo ""
 echo "🗑️  Limpando cache..."
 rm -rf .next
 

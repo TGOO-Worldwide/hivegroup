@@ -8,6 +8,7 @@ Website institucional multiidioma da Hive Group Portugal com gestão de conteúd
 1. [`docs/I18N_DB_RULES.md`](./docs/I18N_DB_RULES.md) - Regras obrigatórias i18n+DB
 2. [`docs/CONTENT_MODEL.md`](./docs/CONTENT_MODEL.md) - Estrutura de dados
 3. [`docs/CHANGE_WORKFLOW.md`](./docs/CHANGE_WORKFLOW.md) - Workflow de alterações
+4. [`docs/AI_CONTENT_WORKFLOW.md`](./docs/AI_CONTENT_WORKFLOW.md) - **Workflow de conteúdo para agentes IA** (seed / deploy)
 
 **Regra de Ouro**: Nunca criar blocos de conteúdo sem tradução. Todo o conteúdo longo vem do MySQL.
 
@@ -135,7 +136,8 @@ Abrir [http://localhost:3000](http://localhost:3000)
 ├── docs/                       # Documentação obrigatória
 │   ├── I18N_DB_RULES.md        # ⚠️ Ler antes de qualquer alteração
 │   ├── CONTENT_MODEL.md        # Estrutura de dados
-│   └── CHANGE_WORKFLOW.md      # Workflow de alterações
+│   ├── CHANGE_WORKFLOW.md      # Workflow de alterações
+│   └── AI_CONTENT_WORKFLOW.md  # Seed/export/deploy para agentes IA
 ├── i18n.ts                     # Configuração next-intl
 ├── middleware.ts               # Middleware i18n (deteção de idioma)
 └── README.md                   # Este ficheiro
@@ -322,6 +324,7 @@ npm run dev
 - **Regras i18n+DB**: [`docs/I18N_DB_RULES.md`](./docs/I18N_DB_RULES.md)
 - **Modelo de Dados**: [`docs/CONTENT_MODEL.md`](./docs/CONTENT_MODEL.md)
 - **Workflow**: [`docs/CHANGE_WORKFLOW.md`](./docs/CHANGE_WORKFLOW.md)
+- **Conteúdo (agentes IA)**: [`docs/AI_CONTENT_WORKFLOW.md`](./docs/AI_CONTENT_WORKFLOW.md)
 - **Next.js**: [nextjs.org/docs](https://nextjs.org/docs)
 - **Prisma**: [prisma.io/docs](https://www.prisma.io/docs)
 - **next-intl**: [next-intl-docs.vercel.app](https://next-intl-docs.vercel.app/)

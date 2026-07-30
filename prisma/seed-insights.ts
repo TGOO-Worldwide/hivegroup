@@ -1,57 +1,17 @@
 import { PrismaClient } from '@prisma/client';
-import { insightsPosts } from './seeds/insights-posts.js';
+import { loadSeedData, upsertPosts } from './seed-lib';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Seeding Insights/Posts...');
-
-  for (const postData of insightsPosts) {
-    // Verificar se já existe
-    const existingPost = await prisma.post.findUnique({
-      where: { slug: postData.slug }
-    });
-
-    if (existingPost) {
-      console.log(`⚠️  Post "${postData.slug}" já existe. Apagando e recriando...`);
-      await prisma.post.delete({
-        where: { slug: postData.slug }
-      });
-    }
-
-    // Criar post
-    const post = await prisma.post.create({
-      data: {
-        slug: postData.slug,
-        category: postData.category,
-        published: true,
-        translations: {
-          create: postData.translations.map((t) => ({
-            locale: t.locale,
-            title: t.title,
-            excerpt: t.excerpt,
-            contentHtml: t.contentHtml,
-            featuredImage: t.featuredImage || null,
-            seoTitle: t.seoTitle,
-            seoDescription: t.seoDescription,
-            faqJson: t.faqJson || null,
-          })),
-        },
-      },
-      include: {
-        translations: true,
-      },
-    });
-
-    console.log(`✅ Post "${postData.slug}" criado com ${post.translations.length} traduções`);
-  }
-
-  console.log('\n✅ Seed de Insights completo!');
+  console.log('🌱 Upsert Insights/Posts a partir de seed-data.json...\n');
+  const data = loadSeedData();
+  await upsertPosts(prisma, data.posts, 'insights');
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Erro ao fazer seed:', e);
+    console.error('❌ Erro:', e);
     process.exit(1);
   })
   .finally(async () => {

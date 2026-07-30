@@ -1,55 +1,21 @@
 import { PrismaClient } from '@prisma/client';
-import { sobreData } from './seeds/sobre.js';
+import { loadSeedData, upsertPages } from './seed-lib';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Seeding página "Sobre"...');
-
-  // Verificar se já existe
-  const existingPage = await prisma.page.findUnique({
-    where: { slug: 'sobre' }
-  });
-
-  if (existingPage) {
-    console.log('⚠️  Página "sobre" já existe. Apagando e recriando...');
-    await prisma.page.delete({
-      where: { slug: 'sobre' }
-    });
+  console.log('🌱 Upsert página "sobre" a partir de seed-data.json...\n');
+  const data = loadSeedData();
+  const pages = data.pages.filter((p) => p.slug === 'sobre');
+  if (pages.length === 0) {
+    throw new Error('Página "sobre" não encontrada em seed-data.json');
   }
-
-  // Criar página "Sobre"
-  const page = await prisma.page.create({
-    data: {
-      slug: sobreData.slug,
-      type: sobreData.type,
-      published: true,
-      translations: {
-        create: sobreData.translations.map((t) => ({
-          locale: t.locale,
-          title: t.title,
-          subtitle: t.subtitle,
-          seoTitle: t.seoTitle,
-          seoDescription: t.seoDescription,
-          keywordsJson: t.keywordsJson,
-          sectionsJson: t.sectionsJson,
-        })),
-      },
-    },
-    include: {
-      translations: true,
-    },
-  });
-
-  console.log(`✅ Página "Sobre" criada com ${page.translations.length} traduções:`);
-  page.translations.forEach((t) => {
-    console.log(`   - ${t.locale}: ${t.title}`);
-  });
+  await upsertPages(prisma, pages, 'sobre');
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Erro ao fazer seed:', e);
+    console.error('❌ Erro:', e);
     process.exit(1);
   })
   .finally(async () => {

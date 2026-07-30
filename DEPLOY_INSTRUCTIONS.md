@@ -2,7 +2,7 @@
 
 ## Deploy automático (GitHub Actions) — recomendado
 
-Cada push na branch `main` faz deploy automático via GitHub Actions: o código é enviado por **rsync/SSH** (sem `git` no servidor), depois corre `npm ci`, `prisma generate`, `npm run build` e `pm2 restart hivegroup`.
+Cada push na branch `main` faz deploy automático via GitHub Actions: o código é enviado por **rsync/SSH** (sem `git` no servidor), depois corre `npm ci`, `prisma generate`, `prisma:seed` (upsert do conteúdo a partir de `prisma/seed-data.json`), `npm run build` e `pm2 restart hivegroup`.
 
 Também podes disparar manualmente em **Actions → Deploy to CloudPanel → Run workflow**.
 
@@ -58,12 +58,17 @@ No repositório → **Settings → Secrets and variables → Actions → New rep
 
 ```
 push main → GitHub Actions → rsync (sem .env / node_modules / .next)
-         → npm ci → prisma generate → build → pm2 restart hivegroup
+         → npm ci → prisma generate → prisma:seed → build → pm2 restart hivegroup
 ```
 
 O workflow está em [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
 **Nota:** migrations Prisma não correm automaticamente. O `.env` do servidor é preservado.
+
+**Conteúdo (BD):** o seed usa `upsert` e sincroniza páginas/posts a partir de `prisma/seed-data.json`.  
+Para actualizar conteúdo versionado: edita a BD local → `npm run prisma:export-seed` → commit → push para `main`.
+
+Instruções completas para agentes IA: [`docs/AI_CONTENT_WORKFLOW.md`](./docs/AI_CONTENT_WORKFLOW.md).
 
 ---
 
@@ -89,10 +94,11 @@ cd /home/tgoo-hivegroup/htdocs/hivegroup.tgoo.eu
 # 3. Testar conexão com o banco
 node test-connection.js
 
-# 4. Limpar cache e rebuild
+# 4. Dependências, seed de conteúdo e rebuild
 rm -rf .next
 npm ci
 npx prisma generate
+npm run prisma:seed
 npm run build
 
 # 5. Reiniciar aplicação com PM2
