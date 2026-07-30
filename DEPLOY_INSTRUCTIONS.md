@@ -162,3 +162,17 @@ kill -9 [PID]
 - Confirma que `SSH_PRIVATE_KEY`, `SSH_HOST`, `SSH_USER`, `SSH_PATH` e `SSH_PORT` estão corretos
 - Confirma que a chave pública está em `~/.ssh/authorized_keys` no servidor
 - Confirma firewall/porta SSH aberta para os runners do GitHub (ou usa IP allowlist se aplicável)
+
+### `npm: command not found` no step Build and restart PM2
+
+SSH não-interativo não carrega o `.bashrc`. O workflow carrega o nvm (`~/.nvm/nvm.sh`) via `bash -lc`.
+
+No servidor, confirma:
+
+```bash
+# Como tgoo-hivegroup
+ls ~/.nvm/nvm.sh
+bash -lc 'command -v npm && command -v pm2 && node -v'
+```
+
+Se o Node não estiver no nvm, instala/ativa a versão no CloudPanel ou garante que `npm` e `pm2` estão no PATH de login shells.

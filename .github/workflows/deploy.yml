@@ -63,15 +63,24 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
           set -euo pipefail
+          # SSH non-interactive skips .bashrc; CloudPanel Node/PM2 usually live via nvm.
           ssh -i ~/.ssh/deploy_key -p "${SSH_PORT:-22}" \
             -o IdentitiesOnly=yes \
             -o StrictHostKeyChecking=yes \
             "${SSH_USER}@${SSH_HOST}" \
-            "set -euo pipefail
-             cd '${SSH_PATH}'
-             npm ci
-             npx prisma generate
-             rm -rf .next
-             npm run build
-             pm2 restart hivegroup
-             pm2 status hivegroup"
+            bash -lc "$(cat <<EOF
+          set -euo pipefail
+          export NVM_DIR="\$HOME/.nvm"
+          [ -s "\$NVM_DIR/nvm.sh" ] && . "\$NVM_DIR/nvm.sh"
+          export PATH="\$HOME/.local/bin:\$HOME/bin:\$PATH"
+          command -v npm >/dev/null || { echo "npm not found in PATH: \$PATH"; exit 127; }
+          command -v pm2 >/dev/null || { echo "pm2 not found in PATH: \$PATH"; exit 127; }
+          cd '${SSH_PATH}'
+          npm ci
+          npx prisma generate
+          rm -rf .next
+          npm run build
+          pm2 restart hivegroup
+          pm2 status hivegroup
+          EOF
+          )"
