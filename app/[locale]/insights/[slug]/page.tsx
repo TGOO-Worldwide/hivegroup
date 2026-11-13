@@ -74,13 +74,13 @@ export default async function PostPage({ params: { locale, slug } }: PostPagePro
     const ctas: Record<string, { title: string; description: string; link: string; linkText: string }> = {
       'Fiscalidade': {
         title: 'Precisa de Apoio com IRS ou Fiscalidade?',
-        description: 'A Hive Group tem TOC certificados prontos para otimizar a sua situação fiscal legalmente e maximizar deduções.',
+        description: 'A Hive Group tem Contabilistas Certificados prontos para otimizar a sua situação fiscal legalmente e maximizar deduções.',
         link: `/${locale}/contabilidade`,
         linkText: 'Conhecer Serviço de Contabilidade'
       },
       'Empresas': {
         title: 'Quer Abrir ou Gerir a Sua Empresa?',
-        description: 'Tratamos de toda a constituição, contabilidade e obrigações fiscais. Acompanhamento mensal por TOC certificado.',
+        description: 'Tratamos de toda a constituição, contabilidade e obrigações fiscais. Acompanhamento mensal por Contabilista Certificado.',
         link: `/${locale}/contabilidade`,
         linkText: 'Falar com Especialista'
       },

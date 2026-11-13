@@ -135,7 +135,7 @@ export default async function InsightsPage({ params: { locale } }: InsightsPageP
             Precisa de Apoio Profissional?
           </h2>
           <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
-            A Hive Group tem TOC certificados e especialistas prontos para ajudar com contabilidade, fiscalidade e gestão empresarial
+            A Hive Group tem Contabilistas Certificados e especialistas prontos para ajudar com contabilidade, fiscalidade e gestão empresarial
           </p>
           <Link
             href={`/${locale}/contactos`}
